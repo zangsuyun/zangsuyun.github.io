@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F; JSONP&amp;#xFF1F;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4; JSONP &amp;#x662F;&amp;#x600E;&amp;#x4E48;&amp;#x4EA7;&amp;#x751F;&amp;#x7684;&amp;#xFF1A;1&amp;#x3001;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#x7684;&amp;#x95EE;&amp;#">
+<meta name="keywords" content="jsonp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSONP入门">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/JSONP入门/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F; JSONP&amp;#xFF1F;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4; JSONP &amp;#x662F;&amp;#x600E;&amp;#x4E48;&amp;#x4EA7;&amp;#x751F;&amp;#x7684;&amp;#xFF1A;1&amp;#x3001;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#x7684;&amp;#x95EE;&amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/JSONP入门/8.png">
+<meta property="og:updated_time" content="2019-09-27T05:20:04.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSONP入门">
+<meta name="twitter:description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F; JSONP&amp;#xFF1F;&amp;#x5148;&amp;#x8BF4;&amp;#x8BF4; JSONP &amp;#x662F;&amp;#x600E;&amp;#x4E48;&amp;#x4EA7;&amp;#x751F;&amp;#x7684;&amp;#xFF1A;1&amp;#x3001;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#x7684;&amp;#x95EE;&amp;#">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/27/JSONP入门/2.png">
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/JSONP入门/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>JSONP入门 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/JSONP入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JSONP入门
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-27 11:36:03 / 修改时间：13:20:04" itemprop="dateCreated datePublished" datetime="2019-09-27T11:36:03+08:00">2019-09-27</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/nodejs/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="&#x4EC0;&#x4E48;&#x662F;-JSONP&#xFF1F;"><a href="#&#x4EC0;&#x4E48;&#x662F;-JSONP&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F; JSONP&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F; JSONP&#xFF1F;</h3><p>&#x5148;&#x8BF4;&#x8BF4; JSONP &#x662F;&#x600E;&#x4E48;&#x4EA7;&#x751F;&#x7684;&#xFF1A;<br>1&#x3001;&#x4E00;&#x4E2A;&#x4F17;&#x6240;&#x5468;&#x77E5;&#x7684;&#x95EE;&#x9898;&#xFF0C;Ajax &#x76F4;&#x63A5;&#x8BF7;&#x6C42;&#x666E;&#x901A;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x8DE8;&#x57DF;&#x65E0;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x752D;&#x7BA1;&#x4F60;&#x662F;&#x9759;&#x6001;&#x9875;&#x9762;&#x3001;&#x52A8;&#x6001;&#x7F51;&#x9875;&#x3001;web &#x670D;&#x52A1;&#x3001;WCF&#xFF0C;&#x53EA;&#x8981;&#x662F;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#xFF0C;&#x4E00;&#x5F8B;&#x4E0D;&#x51C6;&#x3002;&#xFF08;&#x4E0D;&#x540C;&#x57DF;&#x540D;&#xFF0C;&#x4E0D;&#x540C;&#x534F;&#x8BAE;&#xFF0C;&#x4E0D;&#x540C;&#x7AEF;&#x53E3;&#xFF09;</p><a id="more"></a>
+<p>2&#x3001;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x53C8;&#x53D1;&#x73B0;&#xFF0C;Web &#x9875;&#x9762;&#x4E0A;&#x8C03;&#x7528; js &#x6587;&#x4EF6;&#x65F6;&#x5219;&#x4E0D;&#x53D7;&#x662F;&#x5426;&#x8DE8;&#x57DF;&#x7684;&#x5F71;&#x54CD;&#xFF08;&#x4E0D;&#x4EC5;&#x5982;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53D1;&#x73B0;&#x51E1;&#x662F;&#x62E5;&#x6709;&#x201D;src&#x201D;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x6807;&#x7B7E;&#x90FD;&#x62E5;&#x6709;&#x8DE8;&#x57DF;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x6BD4;&#x5982;&lt;\script&gt;&#x3001;&lt;\img&gt;&#x3001;&lt;\iframe&gt;&#xFF09;&#x3002;</p>
+<p>3&#x3001;&#x4E8E;&#x662F;&#x53EF;&#x4EE5;&#x5224;&#x65AD;&#xFF0C;&#x5F53;&#x524D;&#x9636;&#x6BB5;&#x5982;&#x679C;&#x60F3;&#x901A;&#x8FC7;&#x7EAF; web &#x7AEF;&#x8DE8;&#x57DF;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5C31;&#x53EA;&#x6709;&#x4E00;&#x79CD;&#x53EF;&#x80FD;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5728;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x8BBE;&#x6CD5;&#x628A;&#x6570;&#x636E;&#x88C5;&#x8FDB; js &#x683C;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x4F9B;&#x5BA2;&#x6237;&#x7AEF;&#x8C03;&#x7528;&#x548C;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;</p>
+<p>4&#x3001;&#x6070;&#x5DE7;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x6709;&#x4E00;&#x79CD;&#x53EB;&#x505A; JSON &#x7684;&#x7EAF;&#x5B57;&#x7B26;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x53EF;&#x4EE5;&#x7B80;&#x6D01;&#x7684;&#x63CF;&#x8FF0;&#x590D;&#x6742;&#x6570;&#x636E;&#xFF0C;&#x66F4;&#x5999;&#x7684;&#x662F; JSON &#x8FD8;&#x88AB; js &#x539F;&#x751F;&#x652F;&#x6301;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x51E0;&#x4E4E;&#x53EF;&#x4EE5;&#x968F;&#x5FC3;&#x6240;&#x6B32;&#x7684;&#x5904;&#x7406;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>5&#x3001;&#x8FD9;&#x6837;&#x5B50;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5C31;&#x547C;&#x4E4B;&#x6B32;&#x51FA;&#x4E86;&#xFF0C;web &#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7;&#x4E0E;&#x8C03;&#x7528;&#x811A;&#x672C;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6765;&#x8C03;&#x7528;&#x8DE8;&#x57DF;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684; js &#x683C;&#x5F0F;&#x6587;&#x4EF6;&#xFF08;&#x4E00;&#x822C;&#x4EE5; JSON &#x4E3A;&#x540E;&#x7F00;&#xFF09;&#xFF0C;&#x663E;&#x800C;&#x6613;&#x89C1;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x6240;&#x4EE5;&#x8981;&#x52A8;&#x6001;&#x751F;&#x6210; JSON &#x6587;&#x4EF6;&#xFF0C;&#x76EE;&#x7684;&#x5C31;&#x5728;&#x4E8E;&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#x88C5;&#x5165;&#x8FDB;&#x53BB;&#x3002;</p>
+<p>6&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x5BF9; JSON &#x6587;&#x4EF6;&#x8C03;&#x7528;&#x6210;&#x529F;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x5C31;&#x83B7;&#x5F97;&#x4E86;&#x81EA;&#x5DF1;&#x6240;&#x9700;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x6309;&#x7167;&#x81EA;&#x5DF1;&#x9700;&#x6C42;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x548C;&#x5C55;&#x73B0;&#x4E86;&#xFF0C;&#x8FD9;&#x79CD;&#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#x770B;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x50CF; AJAX&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<p>7&#x3001;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x6570;&#x636E;&#xFF0C;&#x9010;&#x6E10;&#x5F62;&#x6210;&#x4E86;&#x4E00;&#x79CD;&#x975E;&#x6B63;&#x5F0F;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF0C;&#x4EBA;&#x4EEC;&#x628A;&#x5B83;&#x79F0;&#x4F5C; JSONP&#xFF0C;&#x8BE5;&#x534F;&#x8BAE;&#x7684;&#x4E00;&#x4E2A;&#x8981;&#x70B9;&#x5C31;&#x662F;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x4F20;&#x9012;&#x4E00;&#x4E2A; callback &#x53C2;&#x6570;&#x7ED9;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x7136;&#x540E;&#x670D;&#x52A1;&#x7AEF;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x65F6;&#x4F1A;&#x5C06;&#x8FD9;&#x4E2A; callback &#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x540D;&#x6765;&#x5305;&#x88F9;&#x4F4F; JSON &#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x5B9A;&#x5236;&#x81EA;&#x5DF1;&#x7684;&#x51FD;&#x6570;&#x6765;&#x81EA;&#x52A8;&#x5904;&#x7406;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x4E86;&#x3002;</p>
+<h3 id="JSONP-&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;&#x6211;&#x8FD9;&#x91CC;&#x4EE5;-nodejs-&#x4E3A;&#x4F8B;"><a href="#JSONP-&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;&#x6211;&#x8FD9;&#x91CC;&#x4EE5;-nodejs-&#x4E3A;&#x4F8B;" class="headerlink" title="JSONP &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;&#x6211;&#x8FD9;&#x91CC;&#x4EE5; nodejs &#x4E3A;&#x4F8B;"></a>JSONP &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;&#x6211;&#x8FD9;&#x91CC;&#x4EE5; nodejs &#x4E3A;&#x4F8B;</h3><h4 id="1-&#x6211;&#x4EEC;&#x9996;&#x5148;&#x4EE5;-link-&#x6807;&#x7B7E;-href-&#x5B9E;&#x73B0;"><a href="#1-&#x6211;&#x4EEC;&#x9996;&#x5148;&#x4EE5;-link-&#x6807;&#x7B7E;-href-&#x5B9E;&#x73B0;" class="headerlink" title="1.&#x6211;&#x4EEC;&#x9996;&#x5148;&#x4EE5; link &#x6807;&#x7B7E; href &#x5B9E;&#x73B0;"></a>1.&#x6211;&#x4EEC;&#x9996;&#x5148;&#x4EE5; link &#x6807;&#x7B7E; href &#x5B9E;&#x73B0;</h4><p>&#x7B80;&#x5355;&#x7684; html &#x9875;&#x9762;&#xFF0C;&#x4E00;&#x4E2A; link &#x6807;&#x7B7E;&#xFF0C;href &#x4E3A;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x5730;&#x5740;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/2.png" alt="alt"><br>&#x7B80;&#x5355;&#x7684;&#x670D;&#x52A1;&#x5668;&#x642D;&#x5EFA;&#xFF0C;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668; 3000 &#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x7B80;&#x5355;&#x54CD;&#x5E94; css &#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/1.png" alt="alt"><br>&#x7ED3;&#x679C;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x6536;&#x5230;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x5E76;&#x6210;&#x529F;&#x6E32;&#x67D3;&#x9875;&#x9762;&#xFF0C;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#xFF0C;&#x663E;&#x793A;&#x8DE8;&#x57DF;&#x8C03;&#x7528;&#x6210;&#x529F;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/3.png" alt="alt"><br>&#x4F46;&#x662F;&#x5F88;&#x663E;&#x7136;&#x6211;&#x4EEC;&#x62FF;&#x4E0D;&#x5230;&#x6570;&#x636E;&#xFF0C;&#x6570;&#x636E;&#x88AB;&#x6D4F;&#x89C8;&#x5668;&#x5F53;&#x6210; css &#x89E3;&#x6790;&#x6267;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528; script &#x6807;&#x7B7E;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x5DE7;&#x5999;&#x5730;&#x65B9;&#x5F0F;</p>
+<h4 id="2-&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5728;-html-&#x9875;&#x9762;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;-getData-&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E2D;&#x54CD;&#x5E94;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x3002;"><a href="#2-&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5728;-html-&#x9875;&#x9762;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;-getData-&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E2D;&#x54CD;&#x5E94;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x3002;" class="headerlink" title="2.&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5728; html &#x9875;&#x9762;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; getData &#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E2D;&#x54CD;&#x5E94;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x3002;"></a>2.&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5728; html &#x9875;&#x9762;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; getData &#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E2D;&#x54CD;&#x5E94;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x3002;</h4><p>html &#x9875;&#x9762;&#x548C; js &#x9875;&#x9762;&#x4EE3;&#x7801;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/4.png" alt="alt"><br>&#x6253;&#x5F00;&#x63A7;&#x5236;&#x53F0;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x663E;&#x793A;&#x672C;&#x5730;&#x51FD;&#x6570;&#x88AB;&#x8DE8;&#x57DF;&#x7684;&#x8FDC;&#x7A0B; js &#x8C03;&#x7528;&#x6210;&#x529F;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x63A5;&#x6536;&#x5230;&#x4E86;&#x8FDC;&#x7A0B; js &#x5E26;&#x6765;&#x7684;&#x6570;&#x636E;&#x3002;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/5.png" alt="alt"><br>&#x4F46;&#x662F;&#x53C8;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x4E86;&#xFF0C;&#x6211;&#x600E;&#x4E48;&#x8BA9;&#x8FDC;&#x7A0B; js &#x77E5;&#x9053;&#x5B83;&#x5E94;&#x8BE5;&#x8C03;&#x7528;&#x7684;&#x672C;&#x5730;&#x51FD;&#x6570;&#x53EB;&#x4EC0;&#x4E48;&#x540D;&#x5B57;&#x5462;&#xFF1F;&#x6BD5;&#x7ADF;&#x662F; jsonp &#x7684;&#x670D;&#x52A1;&#x8005;&#x90FD;&#x8981;&#x9762;&#x5BF9;&#x5F88;&#x591A;&#x670D;&#x52A1;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x670D;&#x52A1;&#x5BF9;&#x8C61;&#x5404;&#x81EA;&#x7684;&#x672C;&#x5730;&#x51FD;&#x6570;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#x554A;&#xFF1F;</p>
+<h4 id="3&#x3001;&#x806A;&#x660E;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4F9B;&#x7684;-js-&#x811A;&#x672C;&#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x5C31;&#x884C;&#x4E86;&#x5457;&#xFF0C;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x4F20;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8FC7;&#x53BB;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x7AEF;-&#x201C;&#x6211;&#x60F3;&#x8981;&#x4E00;&#x6BB5;&#x8C03;&#x7528;-XXX-&#x51FD;&#x6570;&#x7684;-js-&#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x4F60;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x201D;&#xFF0C;&#x4E8E;&#x662F;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x9700;&#x6C42;&#x6765;&#x751F;&#x6210;-js-&#x811A;&#x672C;&#x5E76;&#x54CD;&#x5E94;&#x4E86;&#x3002;"><a href="#3&#x3001;&#x806A;&#x660E;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4F9B;&#x7684;-js-&#x811A;&#x672C;&#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x5C31;&#x884C;&#x4E86;&#x5457;&#xFF0C;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x4F20;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8FC7;&#x53BB;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x7AEF;-&#x201C;&#x6211;&#x60F3;&#x8981;&#x4E00;&#x6BB5;&#x8C03;&#x7528;-XXX-&#x51FD;&#x6570;&#x7684;-js-&#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x4F60;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x201D;&#xFF0C;&#x4E8E;&#x662F;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x9700;&#x6C42;&#x6765;&#x751F;&#x6210;-js-&#x811A;&#x672C;&#x5E76;&#x54CD;&#x5E94;&#x4E86;&#x3002;" class="headerlink" title="3&#x3001;&#x806A;&#x660E;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4F9B;&#x7684; js &#x811A;&#x672C;&#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x5C31;&#x884C;&#x4E86;&#x5457;&#xFF0C;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x4F20;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8FC7;&#x53BB;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x7AEF; &#x201C;&#x6211;&#x60F3;&#x8981;&#x4E00;&#x6BB5;&#x8C03;&#x7528; XXX &#x51FD;&#x6570;&#x7684; js &#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x4F60;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x201D;&#xFF0C;&#x4E8E;&#x662F;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x9700;&#x6C42;&#x6765;&#x751F;&#x6210; js &#x811A;&#x672C;&#x5E76;&#x54CD;&#x5E94;&#x4E86;&#x3002;"></a>3&#x3001;&#x806A;&#x660E;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4F9B;&#x7684; js &#x811A;&#x672C;&#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x5C31;&#x884C;&#x4E86;&#x5457;&#xFF0C;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x4F20;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8FC7;&#x53BB;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x7AEF; &#x201C;&#x6211;&#x60F3;&#x8981;&#x4E00;&#x6BB5;&#x8C03;&#x7528; XXX &#x51FD;&#x6570;&#x7684; js &#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x4F60;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x201D;&#xFF0C;&#x4E8E;&#x662F;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x9700;&#x6C42;&#x6765;&#x751F;&#x6210; js &#x811A;&#x672C;&#x5E76;&#x54CD;&#x5E94;&#x4E86;&#x3002;</h4><p>&#x7B80;&#x5355;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#x8BF7;&#x6C42;&#xFF0C;&#x7EA6;&#x5B9A; callback &#x56DE;&#x8C03;&#x9ED8;&#x8BA4;&#xFF0C;&#x6548;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;<br><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/6.png" alt="alt"></p>
+<h4 id="4-&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#x7684;&#x8BDD;&#xFF0C;&#x76F8;&#x4FE1;&#x4F60;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x7406;&#x89E3;-jsonp-&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E86;&#x5427;&#xFF1F;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x628A;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x4E0E;&#x7528;&#x6237;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x591A;&#x6B21;&#x548C;&#x91CD;&#x590D;&#x8C03;&#x7528;"><a href="#4-&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#x7684;&#x8BDD;&#xFF0C;&#x76F8;&#x4FE1;&#x4F60;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x7406;&#x89E3;-jsonp-&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E86;&#x5427;&#xFF1F;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x628A;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x4E0E;&#x7528;&#x6237;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x591A;&#x6B21;&#x548C;&#x91CD;&#x590D;&#x8C03;&#x7528;" class="headerlink" title="4.&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#x7684;&#x8BDD;&#xFF0C;&#x76F8;&#x4FE1;&#x4F60;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x7406;&#x89E3; jsonp &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E86;&#x5427;&#xFF1F;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x628A;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x4E0E;&#x7528;&#x6237;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x591A;&#x6B21;&#x548C;&#x91CD;&#x590D;&#x8C03;&#x7528;"></a>4.&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#x7684;&#x8BDD;&#xFF0C;&#x76F8;&#x4FE1;&#x4F60;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x7406;&#x89E3; jsonp &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E86;&#x5427;&#xFF1F;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x628A;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x4E0E;&#x7528;&#x6237;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x591A;&#x6B21;&#x548C;&#x91CD;&#x590D;&#x8C03;&#x7528;</h4><p><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/7.png" alt="alt"><br>&#x5176;&#x5B9E;&#x8FD9;&#x91CC;&#x5C01;&#x88C5;&#x8FD8;&#x6709;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F; window.&#x51FD;&#x6570;&#x540D;&#x88AB;&#x56FA;&#x5B9A;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x4F1A;&#x9020;&#x6210;&#x540E;&#x4E00;&#x4E2A;&#x8986;&#x76D6;&#x524D;&#x4E00;&#x4E2A;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x518D;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x6700;&#x540E;&#x4E3A;&#x4E86;&#x6267;&#x884C;&#x5B8C; callback &#x51FD;&#x6570;&#x540E;&#x76F4;&#x63A5;&#x5220;&#x9664; script &#x6807;&#x7B7E;&#xFF0C;&#x6211;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x628A; callback &#x5D4C;&#x5957;&#x8D77;&#x6765;&#x3002;&#x6700;&#x7EC8;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<p><img src="/2019/09/27/JSONP&#x5165;&#x95E8;/8.png" alt="alt"></p>
+<h3 id="&#x8FD9;&#x91CC;&#x9488;&#x5BF9;-ajax-&#x4E0E;-jsonp-&#x7684;&#x5F02;&#x540C;&#x518D;&#x505A;&#x4E00;&#x4E9B;&#x8865;&#x5145;&#x8BF4;&#x660E;&#xFF1A;"><a href="#&#x8FD9;&#x91CC;&#x9488;&#x5BF9;-ajax-&#x4E0E;-jsonp-&#x7684;&#x5F02;&#x540C;&#x518D;&#x505A;&#x4E00;&#x4E9B;&#x8865;&#x5145;&#x8BF4;&#x660E;&#xFF1A;" class="headerlink" title="&#x8FD9;&#x91CC;&#x9488;&#x5BF9; ajax &#x4E0E; jsonp &#x7684;&#x5F02;&#x540C;&#x518D;&#x505A;&#x4E00;&#x4E9B;&#x8865;&#x5145;&#x8BF4;&#x660E;&#xFF1A;"></a>&#x8FD9;&#x91CC;&#x9488;&#x5BF9; ajax &#x4E0E; jsonp &#x7684;&#x5F02;&#x540C;&#x518D;&#x505A;&#x4E00;&#x4E9B;&#x8865;&#x5145;&#x8BF4;&#x660E;&#xFF1A;</h3><p>1&#x3001;ajax &#x548C; jsonp &#x8FD9;&#x4E24;&#x79CD;&#x6280;&#x672F;&#x5728;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x4E0A;&#x201D;&#x770B;&#x8D77;&#x6765;&#x201D;&#x5F88;&#x50CF;&#xFF0C;&#x76EE;&#x7684;&#x4E5F;&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x662F;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A; url&#xFF0C;&#x7136;&#x540E;&#x628A;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x6B64; jquery &#x548C; ext &#x7B49;&#x6846;&#x67B6;&#x90FD;&#x628A; jsonp &#x4F5C;&#x4E3A; ajax &#x7684;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#x3002;</p>
+<p>2&#x3001;&#x4F46; ajax &#x548C; jsonp &#x5176;&#x5B9E;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x4E1C;&#x897F;&#x3002;ajax &#x7684;&#x6838;&#x5FC3;&#x662F;&#x901A;&#x8FC7; XmlHttpRequest &#x83B7;&#x53D6;&#x975E;&#x672C;&#x9875;&#x5185;&#x5BB9;&#xFF0C;&#x800C; jsonp &#x7684;&#x6838;&#x5FC3;&#x5219;&#x662F;&#x52A8;&#x6001;&#x6DFB;&#x52A0;</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/jsonp/" rel="tag"># jsonp</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/25/本地图片测试/" rel="next" title="本地图片测试">
+                  <i class="fa fa-chevron-left"></i> 本地图片测试
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-JSONP？"><span class="nav-number">1.</span> <span class="nav-text">什么是 JSONP？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP-的客户端具体实现：我这里以-nodejs-为例"><span class="nav-number">2.</span> <span class="nav-text">JSONP 的客户端具体实现：我这里以 nodejs 为例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我们首先以-link-标签-href-实现"><span class="nav-number">2.1.</span> <span class="nav-text">1.我们首先以 link 标签 href 实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-现在我们在-html-页面定义一个简单的-getData-函数，然后在服务端中响应对应的数据。"><span class="nav-number">2.2.</span> <span class="nav-text">2.现在我们在 html 页面定义一个简单的 getData 函数，然后在服务端中响应对应的数据。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、聪明的开发者很容易想到，只要服务端提供的-js-脚本是动态生成的就行了呗，这样调用者可以传一个参数过去告诉服务端-“我想要一段调用-XXX-函数的-js-代码，请你返回给我”，于是服务器就可以按照客户端的需求来生成-js-脚本并响应了。"><span class="nav-number">2.3.</span> <span class="nav-text">3、聪明的开发者很容易想到，只要服务端提供的 js 脚本是动态生成的就行了呗，这样调用者可以传一个参数过去告诉服务端 “我想要一段调用 XXX 函数的 js 代码，请你返回给我”，于是服务器就可以按照客户端的需求来生成 js 脚本并响应了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-到这里为止的话，相信你已经能够理解-jsonp-的客户端实现原理了吧？剩下的就是如何把代码封装一下，以便于与用户界面交互，从而实现多次和重复调用"><span class="nav-number">2.4.</span> <span class="nav-text">4.到这里为止的话，相信你已经能够理解 jsonp 的客户端实现原理了吧？剩下的就是如何把代码封装一下，以便于与用户界面交互，从而实现多次和重复调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里针对-ajax-与-jsonp-的异同再做一些补充说明："><span class="nav-number">3.</span> <span class="nav-text">这里针对 ajax 与 jsonp 的异同再做一些补充说明：</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+
+<embed src="http://player.video.qiyi.com/1b7b600614117e3f268b83e08f5c29eb/0/0/w_19rtcso3bp.swf-albumId=5130708409-tvId=5130708409-isPurchase=0-cnId=5" allowFullScreen="true" quality="high" width="100%" height="100" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
