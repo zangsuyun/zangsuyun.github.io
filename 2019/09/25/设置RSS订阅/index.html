@@ -10,9 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
   <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
   <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
 
@@ -20,6 +20,8 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
 <script id="hexo-configurations">
@@ -65,7 +67,7 @@
 <meta property="og:description" content="RSS &amp;#x8BBE;&amp;#x7F6E;&amp;#x5728;&amp;#x535A;&amp;#x5BA2;&amp;#x4E3B;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x6267;&amp;#x884C;&amp;#xFF1A;1npm install --save hexo-generator-feed&amp;#x5728;&amp;#x7AD9;&amp;#x70B9;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x4E">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/09/25/设置RSS订阅/rss.png">
-<meta property="og:updated_time" content="2019-09-25T10:08:29.379Z">
+<meta property="og:updated_time" content="2019-09-27T09:04:42.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客美化">
 <meta name="twitter:description" content="RSS &amp;#x8BBE;&amp;#x7F6E;&amp;#x5728;&amp;#x535A;&amp;#x5BA2;&amp;#x4E3B;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x6267;&amp;#x884C;&amp;#xFF1A;1npm install --save hexo-generator-feed&amp;#x5728;&amp;#x7AD9;&amp;#x70B9;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x4E">
@@ -293,11 +295,19 @@
                 
               
 
-              <time title="创建时间：2019-09-25 16:40:50 / 修改时间：18:08:29" itemprop="dateCreated datePublished" datetime="2019-09-25T16:40:50+08:00">2019-09-25</time>
+              <time title="创建时间：2019-09-25 16:40:50" itemprop="dateCreated datePublished" datetime="2019-09-25T16:40:50+08:00">2019-09-25</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-27 17:04:42" itemprop="dateModified" datetime="2019-09-27T17:04:42+08:00">2019-09-27</time>
+              </span>
             
           
 
@@ -347,6 +357,19 @@
 
 <p>3.&#x8FDB;&#x5165; thems/hexo-theme-next/_config.yml &#x6587;&#x4EF6;&#x4E0B;&#x4FEE;&#x6539; canvas_nest: true (&#x6CE8;&#x610F;: &#x5192;&#x53F7;&#x540E;&#x9762;&#x8981;&#x7A7A;&#x683C;)</p>
 <p>4.hexo s &#x672C;&#x5730;&#x67E5;&#x770B;&#x6548;&#x679C;</p>
+<h2 id="&#x4FEE;&#x6539;&#x6587;&#x7AE0;&#x5E95;&#x90E8;&#x7684;&#x90A3;&#x4E2A;&#x5E26;-&#x53F7;&#x7684;&#x6807;&#x7B7E;"><a href="#&#x4FEE;&#x6539;&#x6587;&#x7AE0;&#x5E95;&#x90E8;&#x7684;&#x90A3;&#x4E2A;&#x5E26;-&#x53F7;&#x7684;&#x6807;&#x7B7E;" class="headerlink" title="&#x4FEE;&#x6539;&#x6587;&#x7AE0;&#x5E95;&#x90E8;&#x7684;&#x90A3;&#x4E2A;&#x5E26;#&#x53F7;&#x7684;&#x6807;&#x7B7E;"></a>&#x4FEE;&#x6539;&#x6587;&#x7AE0;&#x5E95;&#x90E8;&#x7684;&#x90A3;&#x4E2A;&#x5E26;#&#x53F7;&#x7684;&#x6807;&#x7B7E;</h2><p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x4FEE;&#x6539;&#x6A21;&#x677F;/themes/hexo-theme-next/layout/\_macro/post.swig&#xFF0C;&#x641C;&#x7D22; rel=<span class="string">&quot;tag&quot;</span>&gt; <span class="comment">#&#xFF0C;&#x5C06; # &#x6216;&#x8005; {{ tag_indicate }} &#x6362;&#x6210; &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7EDF;&#x4E00;&#x6DFB;&#x52A0;&#x201C;&#x672C;&#x6587;&#x7ED3;&#x675F;&#x201D;&#x6807;&#x8BB0;"><a href="#&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7EDF;&#x4E00;&#x6DFB;&#x52A0;&#x201C;&#x672C;&#x6587;&#x7ED3;&#x675F;&#x201D;&#x6807;&#x8BB0;" class="headerlink" title="&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7EDF;&#x4E00;&#x6DFB;&#x52A0;&#x201C;&#x672C;&#x6587;&#x7ED3;&#x675F;&#x201D;&#x6807;&#x8BB0;"></a>&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7EDF;&#x4E00;&#x6DFB;&#x52A0;&#x201C;&#x672C;&#x6587;&#x7ED3;&#x675F;&#x201D;&#x6807;&#x8BB0;</h3><p>&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7EDF;&#x4E00;&#x6DFB;&#x52A0;&#x201C;&#x672C;&#x6587;&#x7ED3;&#x675F;&#x201D;&#x6807;&#x8BB0;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    {% <span class="keyword">if</span> not is_index %}</span><br><span class="line">        &lt;div style=<span class="string">&quot;text-align:center;color: #ccc;font-size:14px;&quot;</span>&gt;-------------&#x672C;&#x6587;&#x7ED3;&#x675F;&lt;i class=<span class="string">&quot;fa fa-paw&quot;</span>&gt;&lt;/i&gt;&#x611F;&#x8C22;&#x60A8;&#x7684;&#x9605;&#x8BFB;-------------&lt;/div&gt;</span><br><span class="line">    {% endif %}</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x63A5;&#x7740;&#x6253;&#x5F00;\themes\next\layout_macro\post.swig &#x6587;&#x4EF6;&#xFF0C;&#x5728; post-body &#x4E4B;&#x540E;&#xFF0C; post-footer &#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF08;post-footer &#x4E4B;&#x524D;&#x4E24;&#x4E2A; DIV&#xFF09;&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  {% <span class="keyword">if</span> not is_index %}</span><br><span class="line">    {% include <span class="string">&apos;passage-end-tag.swig&apos;</span> %}</span><br><span class="line">  {% endif %}</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x7136;&#x540E;&#x6253;&#x5F00;&#x4E3B;&#x9898;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;_config.yml),&#x5728;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passage_end_tag:</span><br><span class="line">  enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x5B8C;&#x6210;&#x4EE5;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x4E4B;&#x540E;&#x90FD;&#x4F1A;&#x6DFB;&#x52A0;&#x201C;&#x9605;&#x8BFB;&#x7ED3;&#x675F;&#x201D;&#x7684;&#x6807;&#x8BB0;&#x3002;</p>
 
     </div>
 
@@ -372,7 +395,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/hexo美化/" rel="tag"># hexo美化</a>
+              <a href="/tags/hexo美化/" rel="tag"> <i class="fa fa-tag"></i> hexo美化</a>
             
           </div>
         
@@ -443,7 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSS-设置"><span class="nav-number">1.</span> <span class="nav-text">RSS 设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标红心设置"><span class="nav-number">2.</span> <span class="nav-text">鼠标红心设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加动态背景"><span class="nav-number">3.</span> <span class="nav-text">添加动态背景</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSS-设置"><span class="nav-number">1.</span> <span class="nav-text">RSS 设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标红心设置"><span class="nav-number">2.</span> <span class="nav-text">鼠标红心设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加动态背景"><span class="nav-number">3.</span> <span class="nav-text">添加动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-number">4.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">4.1.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
