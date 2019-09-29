@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-27T05:20:04.772Z</updated>
+  <updated>2019-09-27T09:58:26.502Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,109 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ES6入门</title>
+    <link href="http://yoursite.com/2019/09/27/ES6%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2019/09/27/ES6入门/</id>
+    <published>2019-09-27T09:57:12.000Z</published>
+    <updated>2019-09-27T09:58:26.502Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ecmascript-6&quot;&gt;&lt;a href=&quot;#Ecmascript-6&quot; class=&quot;headerlink&quot; title=&quot;Ecmascript 6&quot;&gt;&lt;/a&gt;Ecmascript 6&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;ECMAScript 6.0&amp;#xFF08;&amp;#x4EE5;&amp;#x4E0B;&amp;#x7B80;&amp;#x79F0; ES6&amp;#xFF09;&amp;#x662F; JavaScript &amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x4E0B;&amp;#x4E00;&amp;#x4EE3;&amp;#x6807;&amp;#x51C6;&amp;#xFF0C;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5728; 2015 &amp;#x5E74; 6 &amp;#x6708;&amp;#x6B63;&amp;#x5F0F;&amp;#x53D1;&amp;#x5E03;&amp;#x4E86;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;Ecmascript &amp;#x662F; JavaScript &amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x6807;&amp;#x6CE8;&amp;#x89C4;&amp;#x8303;&lt;/li&gt;
+&lt;li&gt;JavaScript &amp;#x662F; Ecmascript &amp;#x89C4;&amp;#x8303;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&lt;ul&gt;
+&lt;li&gt;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&amp;#x53D6;&amp;#x51B3;&amp;#x4E8E;&amp;#x5404;&amp;#x5927;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5382;&amp;#x5546;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x8FDB;&amp;#x5EA6;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ecmascript 6 &amp;#x4E5F;&amp;#x88AB;&amp;#x79F0;&amp;#x4F5C; Ecmascript 2015&lt;/li&gt;
+&lt;li&gt;&amp;#x5404;&amp;#x5927;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5382;&amp;#x5546;&amp;#x5BF9;&amp;#x4E8E;&amp;#x6700;&amp;#x65B0;&amp;#x7684; Ecmascript 6 &amp;#x6807;&amp;#x51C6;&amp;#x652F;&amp;#x6301;&amp;#x53EF;&amp;#x4EE5;&amp;#x53C2;&amp;#x7167;&amp;#xFF1A;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://kangax.github.io/compat-table/es6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://kangax.github.io/compat-table/es6/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;#x5BF9;&amp;#x4E8E;&amp;#x4E0D;&amp;#x652F;&amp;#x6301; ES6 &amp;#x7684;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;&amp;#x4E00;&amp;#x4E9B;&amp;#x7F16;&amp;#x8BD1;&amp;#x8F6C;&amp;#x7801;&amp;#x5DE5;&amp;#x5177;&amp;#x505A;&amp;#x8F6C;&amp;#x6362;&amp;#x5904;&amp;#x7406;&amp;#x518D;&amp;#x4F7F;&amp;#x7528;&lt;ul&gt;
+&lt;li&gt;&amp;#x4F8B;&amp;#x5982; babel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git入门</title>
+    <link href="http://yoursite.com/2019/09/27/git%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2019/09/27/git入门/</id>
+    <published>2019-09-27T09:50:27.000Z</published>
+    <updated>2019-09-27T09:54:01.581Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Git-bash-&amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;a href=&quot;#Git-bash-&amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot; class=&quot;headerlink&quot; title=&quot;Git-bash &amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;/a&gt;Git-bash &amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;touch&amp;#xFF1A;&amp;#x521B;&amp;#x5EFA;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;cat&amp;#xFF1A;&amp;#x67E5;&amp;#x770B;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;less&amp;#xFF1A;&amp;#x67E5;&amp;#x770B;&amp;#x5927;&amp;#x6587;&amp;#x672C;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;vi&amp;#xFF1A;visual interface&lt;ul&gt;
+&lt;li&gt;Esc &amp;#x9000;&amp;#x51FA;&amp;#x5230;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;i &amp;#x8FDB;&amp;#x5165;&amp;#x63D2;&amp;#x5165;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;:q &amp;#x9000;&amp;#x51FA; vi&lt;/li&gt;
+&lt;li&gt;:w &amp;#x4FDD;&amp;#x5B58;&amp;#x7F16;&amp;#x8F91;&lt;/li&gt;
+&lt;li&gt;:wq &amp;#x4FDD;&amp;#x5B58;&amp;#x5E76;&amp;#x9000;&amp;#x51FA;&lt;/li&gt;
+&lt;li&gt;:q! &amp;#x5F3A;&amp;#x5236;&amp;#x9000;&amp;#x51FA;&amp;#x4E0D;&amp;#x4FDD;&amp;#x5B58;&amp;#x4FEE;&amp;#x6539;&lt;/li&gt;
+&lt;li&gt;vi &amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x64CD;&amp;#x4F5C;&amp;#x57FA;&amp;#x672C;&amp;#x5168;&amp;#x90E8;&amp;#x662F;&amp;#x547D;&amp;#x4EE4;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x638C;&amp;#x63E1;&amp;#x57FA;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#x57FA;&amp;#x4E8E;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E86;&lt;/li&gt;
+&lt;li&gt;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x4F7F;&amp;#x7528; git commit &amp;#x8FDB;&amp;#x884C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x591A;&amp;#x5199;&amp;#x51E0;&amp;#x884C;&amp;#x63D0;&amp;#x4EA4;&amp;#x65E5;&amp;#x5FD7;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5019;&amp;#x53EF;&amp;#x4EE5;&amp;#x7701;&amp;#x7565; -m &amp;#x53C2;&amp;#x6570;&amp;#x8FDB;&amp;#x5165; vi &amp;#x7F16;&amp;#x8F91;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>版本控制入门</title>
+    <link href="http://yoursite.com/2019/09/27/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+    <id>http://yoursite.com/2019/09/27/版本控制/</id>
+    <published>2019-09-27T09:31:32.000Z</published>
+    <updated>2019-09-27T09:41:07.484Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#xFF1F;&quot;&gt;&lt;a href=&quot;#&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#xFF1F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#xFF1F;&quot;&gt;&lt;/a&gt;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#xFF1F;&lt;/h3&gt;&lt;p&gt;&amp;#x7248;&amp;#x672C;&amp;#x7BA1;&amp;#x7406;&amp;#x5C31;&amp;#x662F;&amp;#x7BA1;&amp;#x7406;&amp;#x66F4;&amp;#x65B0;&amp;#x7684;&amp;#x5386;&amp;#x53F2;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF0C;&lt;br&gt;&amp;#x5B83;&amp;#x7ED9;&amp;#x6211;&amp;#x4EEC;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x5728;&amp;#x8F6F;&amp;#x4EF6;&amp;#x5F00;&amp;#x53D1;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x5FC5;&amp;#x4E0D;&amp;#x53EF;&amp;#x5C11;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="svn" scheme="http://yoursite.com/tags/svn/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JSONP入门</title>
     <link href="http://yoursite.com/2019/09/27/JSONP%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2019/09/27/JSONP入门/</id>
     <published>2019-09-27T03:36:03.000Z</published>
-    <updated>2019-09-27T05:20:04.772Z</updated>
+    <updated>2019-09-27T09:45:02.629Z</updated>
     
     <summary type="html">
     
@@ -30,12 +128,12 @@
     </summary>
     
     
-      <category term="nodejs" scheme="http://yoursite.com/categories/nodejs/"/>
-    
-      <category term="javascript" scheme="http://yoursite.com/categories/nodejs/javascript/"/>
+      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
     
     
       <category term="jsonp" scheme="http://yoursite.com/tags/jsonp/"/>
+    
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
     
   </entry>
   
@@ -44,7 +142,7 @@
     <link href="http://yoursite.com/2019/09/25/%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
     <id>http://yoursite.com/2019/09/25/本地图片测试/</id>
     <published>2019-09-25T09:24:47.000Z</published>
-    <updated>2019-09-25T10:46:30.430Z</updated>
+    <updated>2019-09-27T09:47:22.354Z</updated>
     
     <summary type="html">
     
@@ -52,6 +150,8 @@
     
     </summary>
     
+    
+      <category term="坑" scheme="http://yoursite.com/categories/%E5%9D%91/"/>
     
     
   </entry>
@@ -61,7 +161,7 @@
     <link href="http://yoursite.com/2019/09/25/%E8%AE%BE%E7%BD%AERSS%E8%AE%A2%E9%98%85/"/>
     <id>http://yoursite.com/2019/09/25/设置RSS订阅/</id>
     <published>2019-09-25T08:40:50.000Z</published>
-    <updated>2019-09-27T09:04:42.970Z</updated>
+    <updated>2019-09-27T09:43:18.741Z</updated>
     
     <summary type="html">
     
@@ -80,17 +180,19 @@
     <link href="http://yoursite.com/2019/09/25/Canvas-nest/"/>
     <id>http://yoursite.com/2019/09/25/Canvas-nest/</id>
     <published>2019-09-25T05:23:43.000Z</published>
-    <updated>2019-09-25T06:32:04.947Z</updated>
+    <updated>2019-09-27T09:44:13.208Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Hexo-Next-&amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B;-Canvas-nest-true-&amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;a href=&quot;#Hexo-Next-&amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B;-Canvas-nest-true-&amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot; class=&quot;headerlink&quot; title=&quot;Hexo Next &amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B; Canvas_nest: true &amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;/a&gt;Hexo Next &amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B; Canvas_nest: true &amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&lt;/h2&gt;&lt;h4 id=&quot;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;a href=&quot;#&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;/a&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&lt;/h4&gt;
+      &lt;h2 id=&quot;Hexo-Next-&amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B;-Canvas-nest-true-&amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;a href=&quot;#Hexo-Next-&amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B;-Canvas-nest-true-&amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot; class=&quot;headerlink&quot; title=&quot;Hexo Next &amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B; Canvas_nest: true &amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;/a&gt;Hexo Next &amp;#x80CC;&amp;#x666F;&amp;#x52A8;&amp;#x753B; Canvas_nest: true &amp;#x8BBE;&amp;#x7F6E;&amp;#x65E0;&amp;#x6548;&amp;#x7684;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&lt;/h2&gt;&lt;h3 id=&quot;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;a href=&quot;#&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;/a&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&lt;/h3&gt;
     
     </summary>
     
     
+      <category term="javascript" scheme="http://yoursite.com/categories/javascript/"/>
     
-      <category term="标签3" scheme="http://yoursite.com/tags/%E6%A0%87%E7%AD%BE3/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -99,7 +201,7 @@
     <link href="http://yoursite.com/2019/09/24/hexo-git/"/>
     <id>http://yoursite.com/2019/09/24/hexo-git/</id>
     <published>2019-09-24T06:30:36.000Z</published>
-    <updated>2019-09-25T07:19:43.305Z</updated>
+    <updated>2019-09-27T09:41:50.590Z</updated>
     
     <summary type="html">
     
@@ -107,8 +209,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
-    
-      <category term="git" scheme="http://yoursite.com/categories/hexo/git/"/>
     
     
   </entry>
@@ -118,7 +218,7 @@
     <link href="http://yoursite.com/2019/09/24/hello-world/"/>
     <id>http://yoursite.com/2019/09/24/hello-world/</id>
     <published>2019-09-24T06:24:33.837Z</published>
-    <updated>2019-09-27T05:20:48.668Z</updated>
+    <updated>2019-09-27T09:42:29.312Z</updated>
     
     <summary type="html">
     
@@ -129,8 +229,8 @@
     
       <category term="nodejs" scheme="http://yoursite.com/categories/nodejs/"/>
     
-      <category term="javascript" scheme="http://yoursite.com/categories/nodejs/javascript/"/>
     
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
