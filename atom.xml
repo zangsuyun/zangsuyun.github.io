@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-10T11:56:05.082Z</updated>
+  <updated>2019-10-10T12:32:44.824Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo上传git问题</title>
+    <link href="http://yoursite.com/2019/10/10/hexo%E4%B8%8A%E4%BC%A0git%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2019/10/10/hexo上传git问题/</id>
+    <published>2019-10-10T12:02:08.000Z</published>
+    <updated>2019-10-10T12:32:44.824Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;TypeError-Cannot-set-property-&amp;#x2018;lastIndex&amp;#x2019;-of-undefined&quot;&gt;&lt;a href=&quot;#TypeError-Cannot-set-property-&amp;#x2018;lastIndex&amp;#x2019;-of-undefined&quot; class=&quot;headerlink&quot; title=&quot;TypeError: Cannot set property &amp;#x2018;lastIndex&amp;#x2019; of undefined&quot;&gt;&lt;/a&gt;TypeError: Cannot set property &amp;#x2018;lastIndex&amp;#x2019; of undefined&lt;/h3&gt;&lt;p&gt;&amp;#x597D;&amp;#x4E45;&amp;#x6CA1;&amp;#x66F4;&amp;#xFF0C;&amp;#x672C;&amp;#x6765;&amp;#x597D;&amp;#x597D;&amp;#x7684; hexo cl &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d &amp;#x4E0A;&amp;#x4F20;&amp;#x535A;&amp;#x5BA2;&amp;#xFF0C;&amp;#x7ED3;&amp;#x679C;&amp;#x7A81;&amp;#x7136;&amp;#x7ED9;&amp;#x6211;&amp;#x6765;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x53D7;&amp;#x4E0D;&amp;#x4E86;&amp;#x53D7;&amp;#x4E0D;&amp;#x4E86;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack系列坑</title>
@@ -42,7 +61,7 @@
     <link href="http://yoursite.com/2019/09/27/ES6%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2019/09/27/ES6入门/</id>
     <published>2019-09-27T09:57:12.000Z</published>
-    <updated>2019-09-27T09:58:26.502Z</updated>
+    <updated>2019-10-10T12:20:11.950Z</updated>
     
     <summary type="html">
     
