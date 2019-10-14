@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="webpack &amp;#x4E2D;&amp;#x7684; require &amp;#x89E3;&amp;#x6790;&amp;#x9996;&amp;#x5148;&amp;#x660E;&amp;#x786E;&amp;#x4E00;&amp;#x70B9;&amp;#xFF0C;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684; webpack.config.js &amp;#x7B49;&amp;#x9879;&amp;#x76EE;&amp;#x914D;&amp;#x7">
+<meta name="keywords" content="坑,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack打包图片路径错误问题">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/webpack打包图片路径错误问题/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="webpack &amp;#x4E2D;&amp;#x7684; require &amp;#x89E3;&amp;#x6790;&amp;#x9996;&amp;#x5148;&amp;#x660E;&amp;#x786E;&amp;#x4E00;&amp;#x70B9;&amp;#xFF0C;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684; webpack.config.js &amp;#x7B49;&amp;#x9879;&amp;#x76EE;&amp;#x914D;&amp;#x7">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-14T05:00:37.289Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack打包图片路径错误问题">
+<meta name="twitter:description" content="webpack &amp;#x4E2D;&amp;#x7684; require &amp;#x89E3;&amp;#x6790;&amp;#x9996;&amp;#x5148;&amp;#x660E;&amp;#x786E;&amp;#x4E00;&amp;#x70B9;&amp;#xFF0C;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684; webpack.config.js &amp;#x7B49;&amp;#x9879;&amp;#x76EE;&amp;#x914D;&amp;#x7">
+  <link rel="canonical" href="http://yoursite.com/2019/10/14/webpack打包图片路径错误问题/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>webpack打包图片路径错误问题 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/14/webpack打包图片路径错误问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">webpack打包图片路径错误问题
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-14 12:09:45 / 修改时间：13:00:37" itemprop="dateCreated datePublished" datetime="2019-10-14T12:09:45+08:00">2019-10-14</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/10/14/webpack打包图片路径错误问题/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/14/webpack打包图片路径错误问题/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="webpack-&#x4E2D;&#x7684;-require-&#x89E3;&#x6790;"><a href="#webpack-&#x4E2D;&#x7684;-require-&#x89E3;&#x6790;" class="headerlink" title="webpack &#x4E2D;&#x7684; require &#x89E3;&#x6790;"></a>webpack &#x4E2D;&#x7684; require &#x89E3;&#x6790;</h2><p>&#x9996;&#x5148;&#x660E;&#x786E;&#x4E00;&#x70B9;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x7684; webpack.config.js &#x7B49;&#x9879;&#x76EE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;&#x7684; require &#x5C5E;&#x4E8E; nodejs &#x8303;&#x7574;&#xFF0C;&#x800C;&#x8FDB;&#x5165; index.js &#x540E;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684; require &#x90FD;&#x5C5E;&#x4E8E; webpack &#x7684;&#x89E3;&#x6790;&#x8303;&#x7574;&#x3002;</p><a id="more"></a>
+<p>&#x6709;&#x4E2A;&#x5F88;&#x8BE1;&#x5F02;&#x7684;&#x5730;&#x65B9;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> url = <span class="string">&quot;@/assets/images/carousel/logo.svg&quot;</span>;</span><br><span class="line"><span class="built_in">require</span>(url); <span class="comment">//&#x62A5;&#x9519;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = <span class="string">&quot;logo.svg&quot;</span>;</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@/assets/images/carousel/&quot;</span> + url); <span class="comment">//&#x6B63;&#x786E;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x5206;&#x6790;&#x539F;&#x56E0;"><a href="#&#x5206;&#x6790;&#x539F;&#x56E0;" class="headerlink" title="&#x5206;&#x6790;&#x539F;&#x56E0;"></a>&#x5206;&#x6790;&#x539F;&#x56E0;</h3><p>&#x5982;&#x679C; require &#x4E2D;&#x4F20;&#x5165;&#x7684;&#x662F;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x6253;&#x5305;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x65F6;&#x5B83;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5C06;&#x4F60;&#x7684;&#x7535;&#x8111;&#x6574;&#x4E2A;&#x78C1;&#x76D8;&#x904D;&#x5386;&#x4E00;&#x904D;(&#x5B83;&#x5F88;&#x50BB;)&#x3002;&#x6240;&#x4EE5;&#x81F3;&#x5C11;&#x9700;&#x8981;&#x7ED9;&#x51FA;&#x5728;&#x54EA;&#x4E2A;&#x8DEF;&#x5F84;&#x4E0B;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x7CBE;&#x786E;&#x7684;&#x5C06;&#x90A3;&#x4E2A;&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x5BF9;&#x5E94;&#x6587;&#x4EF6;&#x6253;&#x5305;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x76F4;&#x63A5;&#x7528;&#x5BF9;&#x5E94;&#x6587;&#x4EF6;&#x540D;&#x751F;&#x6210;&#x6B63;&#x5219;&#x5339;&#x914D;(&#x56E0;&#x4E3A;&#x6253;&#x5305;&#x540E;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x80FD;&#x6709; hash &#x503C;&#x3002;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x67E5;&#x6587;&#x4EF6;&#x540D;)&#xFF0C;&#x627E;&#x5230;&#x540E;&#xFF0C;&#x52A0;&#x8F7D;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x8BE6;&#x7EC6;&#x7684;&#x6307;&#x5B9A; require &#x4E2D;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x7136;&#x540E;&#x62FC;&#x63A5;&#x53D8;&#x91CF;</p>
+<h2 id="webpack-&#x6253;&#x5305;-vue-&#x9879;&#x76EE;"><a href="#webpack-&#x6253;&#x5305;-vue-&#x9879;&#x76EE;" class="headerlink" title="webpack &#x6253;&#x5305; vue &#x9879;&#x76EE;"></a>webpack &#x6253;&#x5305; vue &#x9879;&#x76EE;</h2><p>&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x6B63;&#x5E38;&#xFF0C;&#x6253;&#x5305;&#x4E0A;&#x7EBF;&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#xFF0C;&#x6211;&#x9047;&#x5230;&#x7684;&#x662F;&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x88AB;&#x8FC7;&#x6EE4;&#x7684;&#x95EE;&#x9898;</p>
+<h3 id="url-loader"><a href="#url-loader" class="headerlink" title="url-loader"></a>url-loader</h3><p>&#x5728; webpack &#x4E2D;&#x5F15;&#x5165;&#x56FE;&#x7247;&#x9700;&#x8981;&#x4F9D;&#x8D56; url-loader &#x8FD9;&#x4E2A;&#x52A0;&#x8F7D;&#x5668;&#x3002;<br>&#x5B89;&#x88C5;&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728; webpack.config.js &#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: {</span><br><span class="line">  loaders: [</span><br><span class="line">    {</span><br><span class="line">      test: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,</span><br><span class="line">      loader: <span class="string">&quot;url-loader?limit=8192&amp;name=images/[hash:8].[name].[ext]&quot;</span></span><br><span class="line">    }</span><br><span class="line">  ];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>test &#x5C5E;&#x6027;&#x4EE3;&#x8868;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x7684;&#x56FE;&#x7247;&#x7C7B;&#x578B;&#xFF0C;&#x9664;&#x4E86; png&#x3001;jpg &#x4E4B;&#x5916;&#x4E5F;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0; gif &#x7B49;&#xFF0C;&#x4EE5;&#x7AD6;&#x7EBF;&#x9694;&#x5F00;&#x5373;&#x5F00;&#x3002;</p>
+<p>loader &#x540E;&#x9762; limit &#x5B57;&#x6BB5;&#x4EE3;&#x8868;&#x56FE;&#x7247;&#x6253;&#x5305;&#x9650;&#x5236;&#xFF0C;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;&#x8D85;&#x8FC7;&#x4E86;&#x5C31;&#x4E0D;&#x80FD;&#x6253;&#x5305;&#xFF0C;&#x800C;&#x662F;&#x6307;&#x5F53;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x5C0F;&#x4E8E;&#x9650;&#x5236;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8F6C;&#x6210; base64 &#x7801;&#x5F15;&#x7528;&#x3002;&#x4E0A;&#x4F8B;&#x4E2D;&#x5927;&#x4E8E; 8192 &#x5B57;&#x8282;&#x7684;&#x56FE;&#x7247;&#x6B63;&#x5E38;&#x6253;&#x5305;&#xFF0C;&#x5C0F;&#x4E8E; 8192 &#x5B57;&#x8282;&#x7684;&#x56FE;&#x7247;&#x4EE5; base64 &#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x7528;&#x3002;</p>
+<p>name &#x5B57;&#x6BB5;&#x6765;&#x6307;&#x5B9A;&#x56FE;&#x7247;&#x6253;&#x5305;&#x7684;&#x76EE;&#x5F55;&#x4E0E;&#x6587;&#x4EF6;&#x540D;&#xFF1A;&#x95EE;&#x9898;&#x5C31;&#x51FA;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E86; 8 &#x4F4D; hash &#x503C;&#x66F4;&#x6539;&#x4E86;&#x540D;&#x5B57;<br>&#x56E0;&#x4E3A;&#x6211;&#x8FD9;&#x4E2A;&#x53EA;&#x662F;&#x4E00;&#x4E2A; vue &#x7EC3;&#x4E60;&#x9879;&#x76EE;&#xFF0C;&#x6CA1;&#x6709;&#x7528; api &#x8BF7;&#x6C42;&#x6216;&#x8005;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5168;&#x662F;&#x9759;&#x6001;&#x8D44;&#x6E90;&#xFF0C;&#x5730;&#x5740;&#x4EC0;&#x4E48;&#x7684;&#x5168;&#x662F;&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;&#x8BF7;&#x6C42;&#xFF0C;&#x6570;&#x636E;&#x662F;&#x5199;&#x597D;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x5F97;&#x6253;&#x5305;&#x6210;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;<br>&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,</span><br><span class="line">        use: [{</span><br><span class="line">          loader: <span class="string">&quot;url-loader&quot;</span>,</span><br><span class="line">          options: {</span><br><span class="line">            limit: <span class="number">8500</span>,</span><br><span class="line">            name: <span class="string">&apos;images/[name].[ext]&apos;</span>,</span><br><span class="line"></span><br><span class="line">          }</span><br><span class="line">        }]</span><br></pre></td></tr></table></figure>
+
+<p>&#x5F88;&#x5C11;&#x6709;&#x7528;&#x5728; template &#x4E2D;&#x7684; src &#xFF0C;&#x6211;&#x53CD;&#x6B63;&#x662F;&#x8FD9;&#x4E48;&#x89E3;&#x51B3;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#x5230;&#x6253;&#x5305;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x76F4;&#x63A5;&#x8BF7;&#x6C42;</p>
+<h3 id="&#x90E8;&#x5206;&#x7684;&#x8DEF;&#x5F84;&#x5904;&#x7406;"><a href="#&#x90E8;&#x5206;&#x7684;&#x8DEF;&#x5F84;&#x5904;&#x7406;" class="headerlink" title="&#x90E8;&#x5206;&#x7684;&#x8DEF;&#x5F84;&#x5904;&#x7406;"></a><template>&#x90E8;&#x5206;&#x7684;&#x8DEF;&#x5F84;&#x5904;&#x7406;</template></h3><p>Vue Loader &#x5728;&#x7F16;&#x8BD1;&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684; <template> &#x5757;&#x65F6;&#xFF0C;&#x5B83;&#x4E5F;&#x4F1A;&#x5C06;&#x6240;&#x6709;&#x9047;&#x5230;&#x7684;&#x8D44;&#x6E90; URL &#x8F6C;&#x6362;&#x4E3A; webpack &#x6A21;&#x5757;&#x8BF7;&#x6C42;&#x3002;(&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x6CA1;&#x5FC5;&#x8981;&#x624B;&#x52A8;&#x8C03;&#x7528; require &#x4E86;&#xFF0C;&#x800C;&#x662F;&#x4EA4;&#x7ED9; vue-loader &#x5904;&#x7406;&#x4E86;)<br>vue-loader &#x9ED8;&#x8BA4;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7684;&#x6807;&#x7B7E;/&#x7279;&#x6027;&#x7684;&#x7EC4;&#x5408;&#x5982;&#x4E0B;:</template></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  video: [<span class="string">&apos;src&apos;</span>, <span class="string">&apos;poster&apos;</span>],</span><br><span class="line">  img: <span class="string">&apos;src&apos;</span>,   <span class="comment">//&#x5373;img&#x5143;&#x7D20;&#x4E0A;&#x7684;src&#x5C5E;&#x6027;</span></span><br><span class="line">  source: <span class="string">&apos;src&apos;</span>,  <span class="comment">//source&#x5143;&#x7D20;&#x4E0A;&#x7684;src&#x5C5E;&#x6027;</span></span><br><span class="line">  image: <span class="string">&apos;xlink:href&apos;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x9762;&#x5BF9;&#x4E0A;&#x9762;&#x7684;&#x6807;&#x7B7E;&#x7EC4;&#x5408;&#xFF0C;vue-loader &#x4F1A;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x8D44;&#x6E90; url &#x7684;&#x8F6C;&#x6362;&#x3002;</p>
+<h4 id="&#x8F6C;&#x6362;&#x89C4;&#x5219;-&#xFF08;&#x79D1;&#x666E;&#x5B66;&#x4E60;&#xFF09;"><a href="#&#x8F6C;&#x6362;&#x89C4;&#x5219;-&#xFF08;&#x79D1;&#x666E;&#x5B66;&#x4E60;&#xFF09;" class="headerlink" title="&#x8F6C;&#x6362;&#x89C4;&#x5219;:&#xFF08;&#x79D1;&#x666E;&#x5B66;&#x4E60;&#xFF09;"></a>&#x8F6C;&#x6362;&#x89C4;&#x5219;:&#xFF08;&#x79D1;&#x666E;&#x5B66;&#x4E60;&#xFF09;</h4><p>a&#x3001;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4F1A;&#x88AB;&#x539F;&#x6837;&#x4FDD;&#x7559;&#x3002;&#x5982;/src/assets/image/login/title.png</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/src/assets/image/login/title.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//&#x6E32;&#x67D3;&#x540E;html&#x9875;&#x9762;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-v-70c98a68</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/src/assets/image/login/title.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">//&#x5F53;&#x7136;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x662F;&#x65E0;&#x6CD5;&#x5C55;&#x793A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x7F16;&#x8BD1;&#x540E;title.png&#x5DF2;&#x4E0D;&#x5728;src/assets/image/login&#x4E0B;&#x4E86;</span><br></pre></td></tr></table></figure>
+
+<p>b&#x3001;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x4EE5; . &#x5F00;&#x5934;&#xFF0C;&#x5C06;&#x4F1A;&#x88AB;&#x770B;&#x4F5C;&#x76F8;&#x5BF9;&#x7684;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x3002;&#x5982; ./titlea.png</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./titlea.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">//&#x6E32;&#x67D3;&#x540E;html&#x9875;&#x9762;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-v-70c98a68</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/titlea.1e9fa570.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>c&#x3001;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x4EE5; @ &#x5F00;&#x5934;&#xFF0C;&#x4E5F;&#x4F1A;&#x88AB;&#x770B;&#x4F5C;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684; webpack &#x914D;&#x7F6E;&#x4E2D;&#x7ED9; @ &#x914D;&#x7F6E;&#x4E86; alias&#xFF0C;&#x8FD9;&#x5C31;&#x5F88;&#x6709;&#x7528;&#x4E86;&#x3002;&#x6240;&#x6709; vue-cli &#x521B;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x90FD;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x4E86;&#x5C06; @ &#x6307;&#x5411; /src</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;@/assets/image/login/title.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">//&#x6E32;&#x67D3;&#x540E;html&#x9875;&#x9762;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-v-70c98a68</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/title.1e9fa570.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x6211;&#x5728;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#x6CA1;&#x6709;&#x4F7F;&#x7528; vue-cli<br>&#x6240;&#x4EE5;&#x5728; webpack.config.js &#x4E2D;&#x914D;&#x7F6E;&#x4E86; alias&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve: {</span><br><span class="line">    alias: {</span><br><span class="line">      <span class="string">&apos;@&apos;</span>: path.resolve(__dirname, <span class="string">&apos;./src&apos;</span>),</span><br><span class="line">    }</span><br><span class="line">  },</span><br></pre></td></tr></table></figure>
+
+<p>d&#x3001;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x4EE5; ~ &#x5F00;&#x5934;&#xFF0C;&#x5176;&#x540E;&#x7684;&#x90E8;&#x5206;&#x5C06;&#x4F1A;&#x88AB;&#x770B;&#x4F5C;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D;&#x542B;&#x6709;&#x522B;&#x540D;&#x7684;&#x9759;&#x6001;&#x8D44;&#x6E90;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D; node-modules &#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x5982;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;~@/assets/image/login/title.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">//&#x6E32;&#x67D3;&#x540E;html&#x9875;&#x9762;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-v-70c98a68</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/title.1e9fa570.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">//&#x4EE3;&#x7801;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;~[npm&#x5305;&#x540D;]/xxx/logo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">//&#x6E32;&#x67D3;&#x540E;&#x7684;html&#x9875;&#x9762;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-v-70c98a68</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/img/logo.2f53e458.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/坑/" rel="tag"> <i class="fa fa-tag"></i> 坑</a>
+            
+              <a href="/tags/webpack/" rel="tag"> <i class="fa fa-tag"></i> webpack</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/13/scoped系列坑/" rel="next" title="scoped系列坑">
+                  <i class="fa fa-chevron-left"></i> scoped系列坑
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-中的-require-解析"><span class="nav-number">1.</span> <span class="nav-text">webpack 中的 require 解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析原因"><span class="nav-number">1.1.</span> <span class="nav-text">分析原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-打包-vue-项目"><span class="nav-number">2.</span> <span class="nav-text">webpack 打包 vue 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#url-loader"><span class="nav-number">2.1.</span> <span class="nav-text">url-loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分的路径处理"><span class="nav-number">2.2.</span> <span class="nav-text">部分的路径处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换规则-（科普学习）"><span class="nav-number">2.2.1.</span> <span class="nav-text">转换规则:（科普学习）</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+
+<embed src="http://player.video.qiyi.com/1b7b600614117e3f268b83e08f5c29eb/0/0/w_19rtcso3bp.swf-albumId=5130708409-tvId=5130708409-isPurchase=0-cnId=5" allowFullScreen="true" quality="high" width="100%" height="100" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
