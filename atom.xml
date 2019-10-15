@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-14T05:11:20.998Z</updated>
+  <updated>2019-10-15T12:39:34.708Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vuex中的getters</title>
+    <link href="http://yoursite.com/2019/10/15/vuex%E4%B8%AD%E7%9A%84getters/"/>
+    <id>http://yoursite.com/2019/10/15/vuex中的getters/</id>
+    <published>2019-10-15T10:55:18.000Z</published>
+    <updated>2019-10-15T12:39:34.708Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;getters-&amp;#x5E26;&amp;#x53C2;&quot;&gt;&lt;a href=&quot;#getters-&amp;#x5E26;&amp;#x53C2;&quot; class=&quot;headerlink&quot; title=&quot;getters &amp;#x5E26;&amp;#x53C2;&quot;&gt;&lt;/a&gt;getters &amp;#x5E26;&amp;#x53C2;&lt;/h2&gt;&lt;p&gt;&amp;#x5728;&amp;#x505A;&amp;#x7EC3;&amp;#x4E60; vue &amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x7528;&amp;#x5230;&amp;#x4E86; vuex&amp;#xFF0C;&amp;#x8FDB;&amp;#x884C;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7EC4;&amp;#x4EF6;&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x4F20;&amp;#x503C;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x4F7F;&amp;#x7528; vuex &amp;#x7684; getter &amp;#x83B7;&amp;#x53D6;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4F20;&amp;#x5165;&amp;#x53C2;&amp;#x6570;&lt;br&gt;&amp;#x5BF9; store &amp;#x91CC;&amp;#x7684;&amp;#x6570;&amp;#x7EC4;&amp;#x8FDB;&amp;#x884C;&amp;#x5E26;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x67E5;&amp;#x8BE2;&amp;#x65F6;&amp;#xFF0C;&amp;#x9047;&amp;#x5230;&amp;#x4E86;&amp;#x56F0;&amp;#x96BE;&lt;br&gt;&amp;#x5B98;&amp;#x65B9; demo&amp;#xFF08;&amp;#x4E00;&amp;#x8138;&amp;#x61F5;&amp;#x903C;&amp;#xFF09;&amp;#xFF1A;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="坑" scheme="http://yoursite.com/categories/%E5%9D%91/"/>
+    
+    
+      <category term="vuex" scheme="http://yoursite.com/tags/vuex/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack打包图片路径错误问题</title>
