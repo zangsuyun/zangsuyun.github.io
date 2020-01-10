@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-15T12:39:34.708Z</updated>
+  <updated>2020-01-10T05:56:18.542Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Typescript装饰器</title>
+    <link href="http://yoursite.com/2020/01/10/Typescript/"/>
+    <id>http://yoursite.com/2020/01/10/Typescript/</id>
+    <published>2020-01-10T05:34:03.000Z</published>
+    <updated>2020-01-10T05:56:18.542Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Typescript-&amp;#x88C5;&amp;#x9970;&amp;#x5668;&quot;&gt;&lt;a href=&quot;#Typescript-&amp;#x88C5;&amp;#x9970;&amp;#x5668;&quot; class=&quot;headerlink&quot; title=&quot;Typescript &amp;#x88C5;&amp;#x9970;&amp;#x5668;&quot;&gt;&lt;/a&gt;Typescript &amp;#x88C5;&amp;#x9970;&amp;#x5668;&lt;/h2&gt;&lt;p&gt;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x7279;&amp;#x6B8A;&amp;#x7C7B;&amp;#x578B;&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#xFF0C;&amp;#x5B83;&amp;#x80FD;&amp;#x591F;&amp;#x88AB;&amp;#x9644;&amp;#x52A0;&amp;#x5230;&amp;#x7C7B;&amp;#x58F0;&amp;#x660E;&amp;#xFF0C;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5C5E;&amp;#x6027;&amp;#x6216;&amp;#x53C2;&amp;#x6570;&amp;#x4E0A;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FEE;&amp;#x6539;&amp;#x7C7B;&amp;#x7684;&amp;#x884C;&amp;#x4E3A;&amp;#x3002;&amp;#x901A;&amp;#x4FD7;&amp;#x7684;&amp;#x8BB2;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x6CE8;&amp;#x5165;&amp;#x5230;&amp;#x7C7B;&amp;#xFF0C;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5C5E;&amp;#x6027;&amp;#x53C2;&amp;#x6570;&amp;#x4E0A;&amp;#x6765;&amp;#x6269;&amp;#x5C55;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x3002;&lt;br&gt;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x6709;&amp;#xFF1A;&amp;#x7C7B;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#xFF0C;&amp;#x5C5E;&amp;#x6027;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#xFF0C;&amp;#x65B9;&amp;#x6CD5;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#xFF0C;&amp;#x53C2;&amp;#x6570;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x3002;&lt;br&gt;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x6709;&amp;#xFF1A;&amp;#x666E;&amp;#x901A;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#xFF08;&amp;#x65E0;&amp;#x6CD5;&amp;#x4F20;&amp;#x53C2;&amp;#xFF09;&amp;#xFF0C;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x5DE5;&amp;#x5382;&amp;#xFF08;&amp;#x53EF;&amp;#x4F20;&amp;#x53C2;&amp;#xFF09;&lt;br&gt;&amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x662F;&amp;#x8FC7;&amp;#x53BB;&amp;#x51E0;&amp;#x5E74;&amp;#x4E2D; js &amp;#x6700;&amp;#x5927;&amp;#x7684;&amp;#x6210;&amp;#x5C31;&amp;#x4E4B;&amp;#x4E00;&amp;#xFF0C;&amp;#x4E5F;&amp;#x662F; ES7 &amp;#x7684;&amp;#x6807;&amp;#x51C6;&amp;#x7279;&amp;#x6027;&amp;#x4E4B;&amp;#x4E00;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="typescript" scheme="http://yoursite.com/tags/typescript/"/>
+    
+  </entry>
   
   <entry>
     <title>vuex中的getters</title>
