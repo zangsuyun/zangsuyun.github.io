@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x5728;&amp;#x8BB2;&amp;#x89E3;&amp;#x8FD9;&amp;#x4E9B;&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x5047;&amp;#x5982;&amp;#x6211;&amp;#x4EEC;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x7684;&amp;#x7ED3;&amp;#x6784;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;">
+<meta name="keywords" content="vuex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解vuex的辅助函数">
+<meta property="og:url" content="http://yoursite.com/2020/02/20/理解vuex的辅助函数/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x5728;&amp;#x8BB2;&amp;#x89E3;&amp;#x8FD9;&amp;#x4E9B;&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x5047;&amp;#x5982;&amp;#x6211;&amp;#x4EEC;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x7684;&amp;#x7ED3;&amp;#x6784;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-20T03:13:16.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解vuex的辅助函数">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x8BB2;&amp;#x89E3;&amp;#x8FD9;&amp;#x4E9B;&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x5047;&amp;#x5982;&amp;#x6211;&amp;#x4EEC;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x7684;&amp;#x7ED3;&amp;#x6784;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;">
+  <link rel="canonical" href="http://yoursite.com/2020/02/20/理解vuex的辅助函数/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>理解vuex的辅助函数 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/理解vuex的辅助函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">理解vuex的辅助函数
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-20 10:51:43 / 修改时间：11:13:16" itemprop="dateCreated datePublished" datetime="2020-02-20T10:51:43+08:00">2020-02-20</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/20/理解vuex的辅助函数/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/理解vuex的辅助函数/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&#x5728;&#x8BB2;&#x89E3;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x4E4B;&#x524D;&#xFF0C;&#x5047;&#x5982;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7684;&#x76EE;&#x5F55;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;<br>demo1 # &#x5DE5;&#x7A0B;&#x540D;<br>| |&#x2014; dist # &#x6253;&#x5305;&#x540E;&#x751F;&#x6210;&#x7684;&#x76EE;&#x5F55;&#x6587;&#x4EF6;<br>| |&#x2014; node_modules # &#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x5305;<br>| |&#x2014; app<br>| | |&#x2014;index<br>| | | |&#x2013; views # &#x5B58;&#x653E;&#x6240;&#x6709; vue &#x9875;&#x9762;&#x6587;&#x4EF6;<br>| | | | |&#x2013; parent.vue # &#x7236;&#x7EC4;&#x4EF6;<br>| | | | |&#x2013; child.vue # &#x5B50;&#x7EC4;&#x4EF6;<br>| | | | |&#x2013; index.vue<br>| | | |&#x2013; components # &#x5B58;&#x653E; vue &#x516C;&#x7528;&#x7684;&#x7EC4;&#x4EF6;<br>| | | |&#x2013; js # &#x5B58;&#x653E; js &#x6587;&#x4EF6;&#x7684;<br>| | | |&#x2013; store # store &#x4ED3;&#x5E93;<br>| | | | |&#x2014; actions.js<br>| | | | |&#x2014; mutations.js<br>| | | | |&#x2014; state.js<br>| | | | |&#x2014; mutations-types.js<br>| | | | |&#x2014; index.js<br>| | | |&#x2013; app.js # vue &#x5165;&#x53E3;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<br>| | | |&#x2013; router.js # &#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<br>| |&#x2014; views<br>| | |&#x2013; index.html # html &#x6587;&#x4EF6;<br>| |&#x2014; webpack.config.js # webpack &#x914D;&#x7F6E;&#x6587;&#x4EF6;<br>| |&#x2014; .gitignore<br>| |&#x2014; README.md<br>| |&#x2014; package.json<br>| |&#x2014; .babelrc # babel &#x8F6C;&#x7801;&#x6587;&#x4EF6;</p><a id="more"></a>
+<h3 id="&#x4E00;&#xFF1A;&#x7406;&#x89E3;-mapState-&#x7684;&#x4F7F;&#x7528;"><a href="#&#x4E00;&#xFF1A;&#x7406;&#x89E3;-mapState-&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="&#x4E00;&#xFF1A;&#x7406;&#x89E3; mapState &#x7684;&#x4F7F;&#x7528;"></a>&#x4E00;&#xFF1A;&#x7406;&#x89E3; mapState &#x7684;&#x4F7F;&#x7528;</h3><p>&#x5F53;&#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x90FD;&#x58F0;&#x660E;&#x4E3A;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x4F1A;&#x6709;&#x4E9B;&#x91CD;&#x590D;&#x548C;&#x5197;&#x4F59;&#xFF0C;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; mapState &#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570;&#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x3002;</p>
+<p>mapState &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x51FD;&#x6570;&#x5C06;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x4EEC;&#x5C06;&#x6700;&#x7EC8;&#x5BF9;&#x8C61;&#x4F20;&#x7ED9; computed &#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x9879;&#x76EE;&#x67B6;&#x6784;&#x5982;&#x4E0A;&#x9762;&#x793A;&#x610F;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5148;&#x770B;&#x770B; app/index/store/state.js &#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">  add: <span class="number">0</span>,</span><br><span class="line">  errors: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  counts: <span class="number">0</span></span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+<p>app/index/store/mutations.js &#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> types <span class="keyword">from</span> <span class="string">&quot;./mutations-types&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">  [types.ADD](state, payload) {</span><br><span class="line">    state.add = payload;</span><br><span class="line">  },</span><br><span class="line">  [types.SETERROR](state, payload) {</span><br><span class="line">    state.errors = payload;</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  [types.COUNTASYNC](state, payload) {</span><br><span class="line">    state.counts = payload;</span><br><span class="line">  }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+<p>app/index/store/mutations-types.js &#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x65B0;&#x589E;list</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD = <span class="string">&quot;ADD&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x8BBE;&#x7F6E;&#x9519;&#x8BEF;&#x63D0;&#x793A;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> SETERROR = <span class="string">&quot;SETERROR&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5F02;&#x6B65;&#x64CD;&#x4F5C;count</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> COUNTASYNC = <span class="string">&quot;COUNTASYNC&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>app/index/store/index.js &#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&quot;vuex&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> state <span class="keyword">from</span> <span class="string">&quot;./state&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> mutations <span class="keyword">from</span> <span class="string">&quot;./mutations&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> actions <span class="keyword">from</span> <span class="string">&quot;./actions&quot;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"></span><br><span class="line">Vue.config.devtools = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store({</span><br><span class="line">  state,</span><br><span class="line">  mutations,</span><br><span class="line">  actions</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x83B7;&#x53D6; add&#xFF0C;&#x6216; count &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528; this.store.state.add &#x6216; this.store.state.count &#x8FD9;&#x6837;&#x7684;&#x3002;<br>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528; <strong>mapState</strong> &#x7684;&#x8BDD;&#xFF0C;&#x4EE3;&#x7801;&#x5C31;&#x53D8;&#x6210;&#x5982;&#x4E0B;&#x4E86;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">import</span> { mapState } <span class="keyword">from</span> <span class="string">&apos;vuex&apos;</span>;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    data() {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line"></span><br><span class="line">    },</span><br><span class="line">    computed: {</span><br><span class="line">        ...mapState({</span><br><span class="line">          add: <span class="function"><span class="params">state</span> =&gt;</span> state.add,</span><br><span class="line">          counts: <span class="function"><span class="params">state</span> =&gt;</span> state.counts</span><br><span class="line">        })</span><br><span class="line">    },</span><br><span class="line">    mounted() {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.add); <span class="comment">// &#x6253;&#x5370;&#x51FA; 0</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.counts); <span class="comment">// &#x6253;&#x5370; 0</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x5982;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528; mapState &#x5DE5;&#x5177;&#x51FD;&#x6570;&#x4F1A;&#x5C06; store &#x4E2D;&#x7684; state &#x6620;&#x5C04;&#x5230;&#x5C40;&#x90E8;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x4E2D;&#x3002;<br>&#x6211;&#x4EEC;&#x5728; mounted &#x65B9;&#x6CD5;&#x5185;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528; this.xx &#x5373;&#x53EF;&#x4F7F;&#x7528;&#x5230;&#x5BF9;&#x5E94; computed &#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x4E86;&#x3002;&#x4E5F;&#x5C31;&#x662F; &#x6211;&#x4EEC;&#x4F7F;&#x7528; this.add &#x5C31;&#x76F4;&#x63A5;&#x6620;&#x5C04;&#x5230; this.$store.state.add &#x4E86; &#x3002;</p>
+<p>&#x5F53;&#x7136; mapState &#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x4E0B;&#x7B80;&#x5355;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">computed: {</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  ...mapState({</span></span><br><span class="line"><span class="comment">    add: state =&gt; state.add,</span></span><br><span class="line"><span class="comment">    counts: state =&gt; state.counts</span></span><br><span class="line"><span class="comment">  })</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  ...mapState([</span><br><span class="line">    <span class="string">&apos;add&apos;</span>,</span><br><span class="line">    <span class="string">&apos;counts&apos;</span></span><br><span class="line">  ])</span><br><span class="line">},</span><br><span class="line">mounted() {</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x5207;&#x8BB0;&#xFF1A;mapState &#x7684;&#x5C5E;&#x6027;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x548C; state &#x7684;&#x5C5E;&#x6027;&#x503C;&#x76F8;&#x5BF9;&#x5E94;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4; state &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x53EB; add&#xFF0C;&#x90A3;&#x4E48; mapState &#x5C31;&#x53EB; add</strong></p>
+<h3 id="&#x4E8C;&#xFF1A;&#x7406;&#x89E3;-mapActions-&#x7684;&#x4F7F;&#x7528;"><a href="#&#x4E8C;&#xFF1A;&#x7406;&#x89E3;-mapActions-&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="&#x4E8C;&#xFF1A;&#x7406;&#x89E3; mapActions &#x7684;&#x4F7F;&#x7528;"></a>&#x4E8C;&#xFF1A;&#x7406;&#x89E3; mapActions &#x7684;&#x4F7F;&#x7528;</h3><p>mapActions &#x7684;&#x601D;&#x60F3; &#x548C; mapState &#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x54E6;&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br>&#x5982;&#x679C;&#x6211;&#x4EEC;<strong>&#x4E0D;&#x4F7F;&#x7528; mapActions</strong>&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type=&quot;text/</span>javascript<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">  export default {</span></span><br><span class="line"><span class="string">    data() {</span></span><br><span class="line"><span class="string">      return {</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      }</span></span><br><span class="line"><span class="string">    },</span></span><br><span class="line"><span class="string">    created() {</span></span><br><span class="line"><span class="string">      this.test();</span></span><br><span class="line"><span class="string">    },</span></span><br><span class="line"><span class="string">    methods: {</span></span><br><span class="line"><span class="string">      test() {</span></span><br><span class="line"><span class="string">        // &#x8C03;&#x7528;action &#x9700;&#x8981;&#x65F6;&#x4F7F;&#x7528; this.$store.dispatch &#x8FD9;&#x6837;&#x7684;</span></span><br><span class="line"><span class="string">        Promise.all([this.$store.dispatch(&apos;commonActionGet&apos;, [&apos;getPower&apos;, {}])]).then((res) =&gt;{</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        });</span></span><br><span class="line"><span class="string">      }</span></span><br><span class="line"><span class="string">    },</span></span><br><span class="line"><span class="string">    computed: {</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    },</span></span><br><span class="line"><span class="string">    mounted() {</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    }</span></span><br><span class="line"><span class="string">  }</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;<strong>&#x4F7F;&#x7528; mapActions</strong>&#x7684;&#x8BDD;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">import</span> { mapActions } <span class="keyword">from</span> <span class="string">&apos;vuex&apos;</span>;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    data() {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">    },</span><br><span class="line">    created() {</span><br><span class="line">      <span class="keyword">this</span>.test();</span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      test() {</span><br><span class="line">        <span class="comment">// &#x8C03;&#x7528;</span></span><br><span class="line">        <span class="built_in">Promise</span>.all([<span class="keyword">this</span>.commonActionGet([<span class="string">&apos;getPower&apos;</span>, {}])]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> {</span><br><span class="line"></span><br><span class="line">        });</span><br><span class="line">      },</span><br><span class="line">      <span class="comment">// mapActions &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E00; &#x5C06; this.commonActionGet() &#x6620;&#x5C04;&#x4E3A; this.$store.dispatch(&apos;commonActionGet&apos;)</span></span><br><span class="line">      ...mapActions([<span class="string">&apos;commonActionGet&apos;</span>, <span class="string">&apos;commonActionGetJSON&apos;</span>, <span class="string">&apos;commonActionPost&apos;</span>, <span class="string">&apos;commonActionPostJSON&apos;</span>])</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">       // &#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;</span></span><br><span class="line"><span class="comment">       ...mapActions({</span></span><br><span class="line"><span class="comment">         &apos;commonActionGet&apos;: &apos;commonActionGet&apos;,</span></span><br><span class="line"><span class="comment">         &apos;commonActionGetJSON&apos;: &apos;commonActionGetJSON&apos;,</span></span><br><span class="line"><span class="comment">         &apos;commonActionPost&apos;: &apos;commonActionPost&apos;,</span></span><br><span class="line"><span class="comment">         &apos;commonActionPostJSON&apos;: &apos;commonActionPostJSON&apos;</span></span><br><span class="line"><span class="comment">       })</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x4E09;&#xFF1A;&#x7406;&#x89E3;-mapMutations-&#x7684;&#x4F7F;&#x7528;&#x3002;"><a href="#&#x4E09;&#xFF1A;&#x7406;&#x89E3;-mapMutations-&#x7684;&#x4F7F;&#x7528;&#x3002;" class="headerlink" title="&#x4E09;&#xFF1A;&#x7406;&#x89E3; mapMutations &#x7684;&#x4F7F;&#x7528;&#x3002;"></a>&#x4E09;&#xFF1A;&#x7406;&#x89E3; mapMutations &#x7684;&#x4F7F;&#x7528;&#x3002;</h3><p>&#x9996;&#x5148;&#x6211;&#x4EEC;<strong>&#x4E0D;&#x4F7F;&#x7528; mapMutations</strong>&#x7684;&#x8BDD;&#xFF0C;&#x8C03;&#x7528; mutations &#x91CC;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    data() {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">    },</span><br><span class="line">    created() {</span><br><span class="line">      <span class="keyword">this</span>.test();</span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      test() {</span><br><span class="line">        <span class="comment">// &#x8C03;&#x7528;Mutations &#x9700;&#x8981;&#x65F6;&#x4F7F;&#x7528; this.$store.commit(&apos;ADD&apos;, 1) &#x8FD9;&#x6837;&#x7684;</span></span><br><span class="line">        <span class="built_in">Promise</span>.all([<span class="keyword">this</span>.$store.commit(<span class="string">&apos;ADD&apos;</span>, <span class="number">1</span>)]).then(<span class="function"><span class="params">()</span> =&gt;</span>{</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        });</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x60F3;&#x83B7;&#x53D6;&#x503C;&#xFF0C;&#x4F7F;&#x7528; this.$store.state.add &#x5C31;&#x7B49;&#x4E8E; 1 &#x4E86;&#x3002;<br>&#x4E0B;&#x9762;&#x6211;&#x4EEC;<strong>&#x4F7F;&#x7528; mapMutations</strong>&#x8BDD;&#xFF0C;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x6539;&#x6210;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">  <span class="keyword">import</span> { mapMutations } <span class="keyword">from</span> <span class="string">&apos;vuex&apos;</span>;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    data() {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">    },</span><br><span class="line">    created() {</span><br><span class="line">      <span class="keyword">this</span>.test();</span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      test() {</span><br><span class="line">        <span class="comment">// &#x4F7F;&#x7528; mapMutations &#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</span></span><br><span class="line">        <span class="built_in">Promise</span>.all([<span class="keyword">this</span>.ADD(<span class="number">1</span>)]).then(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        });</span><br><span class="line">      },</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      // mapMutations &#x4F7F;&#x7528;&#x65B9;&#x6CD5;1</span></span><br><span class="line"><span class="comment">      ...mapMutations([&apos;ADD&apos;]), // &#x4F1A;&#x5C06; this.ADD &#x6620;&#x5C04;&#x6210; this.$store.commit(&apos;ADD&apos;)</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      <span class="comment">// mapMutations &#x4F7F;&#x7528;&#x65B9;&#x6CD5;2</span></span><br><span class="line">      ...mapMutations({</span><br><span class="line">        <span class="string">&apos;ADD&apos;</span>: <span class="string">&apos;ADD&apos;</span></span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/vuex/" rel="tag"> <i class="fa fa-tag"></i> vuex</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/01/10/Typescript/" rel="next" title="Typescript装饰器">
+                  <i class="fa fa-chevron-left"></i> Typescript装饰器
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：理解-mapState-的使用"><span class="nav-number">1.</span> <span class="nav-text">一：理解 mapState 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：理解-mapActions-的使用"><span class="nav-number">2.</span> <span class="nav-text">二：理解 mapActions 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三：理解-mapMutations-的使用。"><span class="nav-number">3.</span> <span class="nav-text">三：理解 mapMutations 的使用。</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
