@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2020%2F04%2F09%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>nodejs</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于无法加载文件]]></title>
+    <url>%2F2020%2F03%2F31%2F%E5%85%B3%E4%BA%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[&#x65E0;&#x6CD5;&#x52A0;&#x8F7D;&#x6587;&#x4EF6; C:\Users\Administrator\AppData\Roaming\npm\hexo.ps1&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x6B64; &#x7CFB;&#x7EDF;&#x4E0A;&#x7981;&#x6B62;&#x8FD0;&#x884C;&#x811A;&#x672C;&#x3002;&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x57FA;&#x4E8E;&#x6B64;&#x7684; hexo nodemon &#x7B49;&#x90FD;&#x9047;&#x5230;&#x8FD9;&#x4E2A;&#x95EE;&#x9898; &#x89E3;&#x51B3;&#x6B65;&#x9AA4;1.win+s &#x641C;&#x7D22; powershell &#x4EE5;&#x7BA1;&#x7406;&#x8EAB;&#x4EFD;&#x8FD0;&#x884C; 2.&#x4F7F;&#x7528; set-ExecutionPolicy RemoteSigned &#x547D;&#x4EE4;&#x5C06;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x7684;&#x6267;&#x884C;&#x7B56;&#x7565;&#x66F4;&#x6539;&#x4E3A; RemoteSigned,&#x8F93;&#x5165; Y &#x786E;&#x5B9A; 3.&#x67E5;&#x770B;&#x8BA1;&#x7B97;&#x673A;&#x6267;&#x884C;&#x7B56;&#x7565; get-ExecutionPolicy 4.&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;Set-ExecutionPolicy RemoteSigned -Scope Process 5.&#x518D;&#x6B21;&#x8F93;&#x5165; Y &#x95EE;&#x9898;&#x89E3;&#x51B3;]]></content>
+      <tags>
+        <tag>坑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[windows小箭头]]></title>
     <url>%2F2020%2F03%2F31%2Fwindows%E5%B0%8F%E7%AE%AD%E5%A4%B4%2F</url>
     <content type="text"><![CDATA[Windows &#x5C0F;&#x7BAD;&#x5934;&#x95EE;&#x9898;&#x65B0;&#x5EFA; txt&#xFF0C;&#x590D;&#x5236;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;,&#x540E;&#x7F00;&#x540D;&#x6539;&#x4E3A; bat, &#x6267;&#x884C;.bat &#x6587;&#x4EF6; window &#x6062;&#x590D;&#x5C0F;&#x7BAD;&#x5934;reg delete &#x201C;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&#x201D; /v 29 /ftaskkill /f /im explorer.exeattrib -s -r -h &#x201C;%userprofile%\AppData\Local\iconcache.db&#x201D;del &#x201C;%userprofile%\AppData\Local\iconcache.db&#x201D; /f /qstart explorerpause window &#x53BB;&#x9664;&#x5C0F;&#x7BAD;&#x5934;reg add &#x201C;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&#x201D; /v 29 /d &#x201C;%systemroot%\system32\imageres.dll,197&#x201D; /t reg_sz /ftaskkill /f /im explorer.exeattrib -s -r -h &#x201C;%userprofile%\AppData\Local\iconcache.db&#x201D;del &#x201C;%userprofile%\AppData\Local\iconcache.db&#x201D; /f /qstart explorerpause]]></content>
@@ -167,16 +186,5 @@
       <categories>
         <category>hexo</category>
       </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F09%2F24%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-      <categories>
-        <category>nodejs</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
   </entry>
 </search>

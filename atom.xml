@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-31T10:59:06.055Z</updated>
+  <updated>2019-09-27T09:42:29.312Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/04/09/hello-world/"/>
+    <id>http://yoursite.com/2020/04/09/hello-world/</id>
+    <published>2020-04-09T06:16:02.213Z</published>
+    <updated>2019-09-27T09:42:29.312Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="nodejs" scheme="http://yoursite.com/categories/nodejs/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于无法加载文件</title>
+    <link href="http://yoursite.com/2020/03/31/%E5%85%B3%E4%BA%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2020/03/31/关于无法加载文件/</id>
+    <published>2020-03-31T11:02:46.000Z</published>
+    <updated>2020-03-31T11:20:16.796Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;&amp;#x65E0;&amp;#x6CD5;&amp;#x52A0;&amp;#x8F7D;&amp;#x6587;&amp;#x4EF6;-C-Users-Administrator-AppData-Roaming-npm-hexo-ps1&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5728;&amp;#x6B64;-&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E0A;&amp;#x7981;&amp;#x6B62;&amp;#x8FD0;&amp;#x884C;&amp;#x811A;&amp;#x672C;&amp;#x3002;&amp;#x6709;&amp;#x5173;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&quot;&gt;&lt;a href=&quot;#&amp;#x65E0;&amp;#x6CD5;&amp;#x52A0;&amp;#x8F7D;&amp;#x6587;&amp;#x4EF6;-C-Users-Administrator-AppData-Roaming-npm-hexo-ps1&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5728;&amp;#x6B64;-&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E0A;&amp;#x7981;&amp;#x6B62;&amp;#x8FD0;&amp;#x884C;&amp;#x811A;&amp;#x672C;&amp;#x3002;&amp;#x6709;&amp;#x5173;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x65E0;&amp;#x6CD5;&amp;#x52A0;&amp;#x8F7D;&amp;#x6587;&amp;#x4EF6; C:\Users\Administrator\AppData\Roaming\npm\hexo.ps1&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5728;&amp;#x6B64; &amp;#x7CFB;&amp;#x7EDF;&amp;#x4E0A;&amp;#x7981;&amp;#x6B62;&amp;#x8FD0;&amp;#x884C;&amp;#x811A;&amp;#x672C;&amp;#x3002;&amp;#x6709;&amp;#x5173;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&quot;&gt;&lt;/a&gt;&amp;#x65E0;&amp;#x6CD5;&amp;#x52A0;&amp;#x8F7D;&amp;#x6587;&amp;#x4EF6; C:\Users\Administrator\AppData\Roaming\npm\hexo.ps1&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5728;&amp;#x6B64; &amp;#x7CFB;&amp;#x7EDF;&amp;#x4E0A;&amp;#x7981;&amp;#x6B62;&amp;#x8FD0;&amp;#x884C;&amp;#x811A;&amp;#x672C;&amp;#x3002;&amp;#x6709;&amp;#x5173;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&lt;/h3&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+  </entry>
   
   <entry>
     <title>windows小箭头</title>
@@ -393,27 +433,6 @@
     
       <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/09/24/hello-world/"/>
-    <id>http://yoursite.com/2019/09/24/hello-world/</id>
-    <published>2019-09-24T06:24:33.837Z</published>
-    <updated>2019-09-27T09:42:29.312Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="nodejs" scheme="http://yoursite.com/categories/nodejs/"/>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
