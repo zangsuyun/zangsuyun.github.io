@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&amp;#x201C;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x201D;.slice(5 - rate, 10 - r">
+<meta name="keywords" content="坑,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js黑科技">
+<meta property="og:url" content="http://yoursite.com/2020/10/09/js黑科技/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&amp;#x201C;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x201D;.slice(5 - rate, 10 - r">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-09T08:01:32.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js黑科技">
+<meta name="twitter:description" content="1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&amp;#x201C;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x201D;.slice(5 - rate, 10 - r">
+  <link rel="canonical" href="http://yoursite.com/2020/10/09/js黑科技/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>js黑科技 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/09/js黑科技/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">js黑科技
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-09 10:32:53 / 修改时间：16:01:32" itemprop="dateCreated datePublished" datetime="2020-10-09T10:32:53+08:00">2020-10-09</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/09/js黑科技/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/10/09/js黑科技/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1&#x3001;&#x5355;&#x884C;&#x5199;&#x4E00;&#x4E2A;&#x8BC4;&#x7EA7;&#x7EC4;&#x4EF6;"><a href="#1&#x3001;&#x5355;&#x884C;&#x5199;&#x4E00;&#x4E2A;&#x8BC4;&#x7EA7;&#x7EC4;&#x4EF6;" class="headerlink" title="1&#x3001;&#x5355;&#x884C;&#x5199;&#x4E00;&#x4E2A;&#x8BC4;&#x7EA7;&#x7EC4;&#x4EF6;"></a>1&#x3001;&#x5355;&#x884C;&#x5199;&#x4E00;&#x4E2A;&#x8BC4;&#x7EA7;&#x7EC4;&#x4EF6;</h4><p>&#x201C;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;&#x201D;.slice(5 - rate, 10 - rate);</p><a id="more"></a>
+<p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;rate&#x662F;1&#x5230;5&#x7684;&#x503C;</p>
+<h4 id="2&#x3001;&#x795E;&#x5947;&#x4EE3;&#x7801;-&#x9690;&#x5F0F;&#x8F6C;&#x6362;"><a href="#2&#x3001;&#x795E;&#x5947;&#x4EE3;&#x7801;-&#x9690;&#x5F0F;&#x8F6C;&#x6362;" class="headerlink" title="2&#x3001;&#x795E;&#x5947;&#x4EE3;&#x7801;(&#x9690;&#x5F0F;&#x8F6C;&#x6362;)"></a>2&#x3001;&#x795E;&#x5947;&#x4EE3;&#x7801;(&#x9690;&#x5F0F;&#x8F6C;&#x6362;)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(!(~+[])+{})[--[~+<span class="string">&quot;&quot;</span>][+[]]*[~+[]] + ~~!+[]]+({}+[])[[~!+[]]*~+[]]</span><br><span class="line"><span class="comment">// sb</span></span><br><span class="line"></span><br><span class="line">([][[]]+[])[+!![]]+([]+{})[!+[]+!![]]</span><br><span class="line"><span class="comment">// nb</span></span><br><span class="line"></span><br><span class="line">++[[]][+[]]+[+[]]</span><br><span class="line"><span class="comment">// &quot;10&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3&#x3001;JavaScript-&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x7684;&#x6B63;&#x786E;&#x59FF;&#x52BF;"><a href="#3&#x3001;JavaScript-&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x7684;&#x6B63;&#x786E;&#x59FF;&#x52BF;" class="headerlink" title="3&#x3001;JavaScript &#x9519;&#x8BEF;&#x5904;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x7684;&#x6B63;&#x786E;&#x59FF;&#x52BF;"></a>3&#x3001;JavaScript &#x9519;&#x8BEF;&#x5904;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x7684;&#x6B63;&#x786E;&#x59FF;&#x52BF;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> {</span><br><span class="line">  something</span><br><span class="line">} <span class="keyword">catch</span>(e){</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">&quot;http://stackoverflow.com/search?q=[js]+&quot;</span> + e.message;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="5&#x3001;&#x4ECE;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x5B66;&#x70B9;JavaScript"><a href="#5&#x3001;&#x4ECE;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x5B66;&#x70B9;JavaScript" class="headerlink" title="5&#x3001;&#x4ECE;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x5B66;&#x70B9;JavaScript"></a>5&#x3001;&#x4ECE;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x5B66;&#x70B9;JavaScript</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[].forEach.call($$(<span class="string">&quot;*&quot;</span>),<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>{</span><br><span class="line">  a.style.outline=<span class="string">&quot;1px solid #&quot;</span>+(~~(<span class="built_in">Math</span>.random()*(<span class="number">1</span>&lt;&lt;<span class="number">24</span>))).toString(<span class="number">16</span>)</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>&#x7FFB;&#x8BD1;&#x6210;&#x6B63;&#x5E38;&#x8BED;&#x8A00;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.forEach.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;*&apos;</span>), </span><br><span class="line">  dom =&gt; dom.style.outline = <span class="string">`1px solid #<span class="subst">${<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() *<span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">24</span>)).toString(<span class="number">16</span>)}</span>`</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="6&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;"><a href="#6&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="6&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;"></a>6&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substring(<span class="number">2</span>) <span class="comment">// 13&#x4F4D;</span></span><br><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substring(<span class="number">2</span>) <span class="comment">// 11&#x4F4D;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="7&#x3001;-10-&#x201C;toString&#x201D;-&#x201C;10&#x201D;"><a href="#7&#x3001;-10-&#x201C;toString&#x201D;-&#x201C;10&#x201D;" class="headerlink" title="7&#x3001;(10)&#x201C;toString&#x201D; === &#x201C;10&#x201D;"></a>7&#x3001;(10)<a href>&#x201C;toString&#x201D;</a> === &#x201C;10&#x201D;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10</span>)[<span class="string">&quot;toString&quot;</span>]() === <span class="string">&quot;10&quot;</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;"><a href="#8&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;" class="headerlink" title="8&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;"></a>8&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}() );</span><br><span class="line">( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{} ) ();</span><br><span class="line">[ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}() ];</span><br><span class="line">~ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line">! <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line">+ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line">- <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="keyword">void</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="number">1</span> ^ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="number">1</span> &gt; <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}();</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="9&#x3001;&#x53E6;&#x5916;&#x4E00;&#x79CD;undefined"><a href="#9&#x3001;&#x53E6;&#x5916;&#x4E00;&#x79CD;undefined" class="headerlink" title="9&#x3001;&#x53E6;&#x5916;&#x4E00;&#x79CD;undefined"></a>9&#x3001;&#x53E6;&#x5916;&#x4E00;&#x79CD;undefined</h4><p>&#x4ECE;&#x6765;&#x4E0D;&#x9700;&#x8981;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x662F;undefined&#xFF0C;&#x56E0;&#x4E3A;JavaScript&#x4F1A;&#x81EA;&#x52A8;&#x628A;&#x4E00;&#x4E2A;&#x672A;&#x8D4B;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x7F6E;&#x4E3A;undefined&#x3002;&#x6240;&#x6709;&#x5982;&#x679C;&#x4F60;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x8FD9;&#x4E48;&#x5199;&#xFF0C;&#x4F1A;&#x88AB;&#x9119;&#x89C6;&#x7684;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x5C31;&#x662F;&#x5F3A;&#x8FEB;&#x75C7;&#x53D1;&#x4F5C;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x518D;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x6682;&#x65F6;&#x6CA1;&#x6709;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x7684;&#x65F6;&#x5019;&#x8D4B;&#x4E0A;&#x4E00;&#x4E2A;undefined&#x3002;&#x90A3;&#x4F60;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x8FD9;&#x4E48;&#x505A;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="keyword">void</span> <span class="number">0</span>; </span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>void&#x5728;JavaScript&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5BF9;&#x4F20;&#x5165;&#x7684;&#x64CD;&#x4F5C;&#x4E0D;&#x6267;&#x884C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;undefined&#x3002;void&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8DDF;()&#x6765;&#x7528;&#xFF0C;&#x4F8B;&#x5982;void(0)&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x719F;&#x6089;&#xFF1F;&#x6CA1;&#x9519;&#xFF0C;&#x5728;HTML&#x91CC;&#x963B;&#x6B62;&#x5E26;href&#x7684;&#x9ED8;&#x8BA4;&#x70B9;&#x51FB;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x90FD;&#x559C;&#x6B22;&#x628A;href&#x5199;&#x6210;javascript:void(0)&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4E5F;&#x662F;&#x4F9D;&#x9760;void&#x64CD;&#x4F5C;&#x4E0D;&#x6267;&#x884C;&#x7684;&#x610F;&#x601D;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x9664;&#x4E86;&#x51FA;&#x4E8E;&#x88C5;&#x903C;&#x7684;&#x539F;&#x56E0;&#x5916;&#xFF0C;&#x5B9E;&#x9645;&#x7528;&#x9014;&#x4E0A;&#x4E0D;&#x592A;&#x8D5E;&#x6210;&#x4F7F;&#x7528;void&#xFF0C;&#x56E0;&#x4E3A;void&#x7684;&#x51FA;&#x73B0;&#x662F;&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x65E9;&#x8D77;ECMAScript&#x6807;&#x51C6;&#x4E2D;&#x6CA1;&#x6709;undefined&#x5C5E;&#x6027;&#x3002;void 0&#x7684;&#x5199;&#x6CD5;&#x8BA9;&#x4EE3;&#x7801;&#x6666;&#x6DA9;&#x96BE;&#x61C2;&#x3002;</p>
+<h4 id="10&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x6574;"><a href="#10&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x6574;" class="headerlink" title="10&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x6574;"></a>10&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x53D6;&#x6574;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = ~~<span class="number">2.33</span> <span class="comment">// 2</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2.33</span> | <span class="number">0</span> <span class="comment">// 2</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">2.33</span> &gt;&gt; <span class="number">0</span> <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="11&#x3001;&#x9017;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;"><a href="#11&#x3001;&#x9017;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;" class="headerlink" title="11&#x3001;&#x9017;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;"></a>11&#x3001;&#x9017;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;</h4><p>&#x7528;&#x9017;&#x53F7;&#x5206;&#x5F00;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x5206;&#x522B;&#x7ED3;&#x7B97;&#xFF0C;&#x4F46;&#x6574;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">var</span> b = ( a++, <span class="number">99</span> ); </span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// 99</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="12&#x3001;&#x91D1;&#x94B1;&#x683C;&#x5F0F;&#x5316;"><a href="#12&#x3001;&#x91D1;&#x94B1;&#x683C;&#x5F0F;&#x5316;" class="headerlink" title="12&#x3001;&#x91D1;&#x94B1;&#x683C;&#x5F0F;&#x5316;"></a>12&#x3001;&#x91D1;&#x94B1;&#x683C;&#x5F0F;&#x5316;</h4><p>&#x6B63;&#x5219;&#x9B54;&#x6CD5;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test1 = <span class="string">&apos;1234567890&apos;</span></span><br><span class="line"><span class="keyword">var</span> format = test1.replace(<span class="regexp">/\B(?=(\d{3})+(?!\d))/g</span>, <span class="string">&apos;,&apos;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(format) <span class="comment">// 1,234,567,890</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatCash</span>(<span class="params">str</span>) </span>{       </span><br><span class="line"><span class="keyword">return</span> str.split(<span class="string">&apos;&apos;</span>).reverse().reduce(<span class="function">(<span class="params">prev, next, index</span>) =&gt;</span> {            </span><br><span class="line"><span class="keyword">return</span> ((index % <span class="number">3</span>) ? next : (next + <span class="string">&apos;,&apos;</span>))+ prev       })}</span><br><span class="line"><span class="built_in">console</span>.log(formatCash(<span class="string">&apos;1234567890&apos;</span>)) <span class="comment">// 1,234,567,890</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="13&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x6700;&#x4F73;&#x7684;&#x8BA9;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#x4EA4;&#x6362;&#x6570;&#x503C;"><a href="#13&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x6700;&#x4F73;&#x7684;&#x8BA9;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#x4EA4;&#x6362;&#x6570;&#x503C;" class="headerlink" title="13&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x6700;&#x4F73;&#x7684;&#x8BA9;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#x4EA4;&#x6362;&#x6570;&#x503C;"></a>13&#x3001;&#x8BBA;&#x5982;&#x4F55;&#x6700;&#x4F73;&#x7684;&#x8BA9;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#x4EA4;&#x6362;&#x6570;&#x503C;</h4><p>&#x5E38;&#x89C4;&#x529E;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>,b=<span class="number">2</span>;</span><br><span class="line">a += b;</span><br><span class="line">b = a - b;</span><br><span class="line">a -= b;</span><br></pre></td></tr></table></figure>
+
+<p>&#x7F3A;&#x70B9;&#x4E5F;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x6574;&#x578B;&#x6570;&#x636E;&#x6EA2;&#x51FA;&#xFF0C;&#x5BF9;&#x4E8E;32&#x4F4D;&#x5B57;&#x7B26;&#x6700;&#x5927;&#x8868;&#x793A;&#x6570;&#x5B57;&#x662F;2147483647&#xFF0C;&#x5982;&#x679C;&#x662F;2147483645&#x548C;2147483646&#x4EA4;&#x6362;&#x5C31;&#x5931;&#x8D25;&#x4E86;&#x3002;&#x9ED1;&#x79D1;&#x6280;&#x529E;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a ^= b;</span><br><span class="line">b ^= a;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure>
+
+<h4 id="14&#x3001;&#x4E0D;&#x7528;Number&#x3001;parseInt&#x548C;parseFloat&#x548C;&#x65B9;&#x6CD5;&#x628A;&#x201D;1&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;"><a href="#14&#x3001;&#x4E0D;&#x7528;Number&#x3001;parseInt&#x548C;parseFloat&#x548C;&#x65B9;&#x6CD5;&#x628A;&#x201D;1&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;" class="headerlink" title="14&#x3001;&#x4E0D;&#x7528;Number&#x3001;parseInt&#x548C;parseFloat&#x548C;&#x65B9;&#x6CD5;&#x628A;&#x201D;1&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;"></a>14&#x3001;&#x4E0D;&#x7528;Number&#x3001;parseInt&#x548C;parseFloat&#x548C;&#x65B9;&#x6CD5;&#x628A;&#x201D;1&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;</h4><p>&#x54C8;&#x54C8;&#xFF0C;&#x4E0D;&#x51C6;&#x7528;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x60F3;&#x5230;&#x4E86;&#x5F3A;&#x5927;&#x4E86;&#x9690;&#x5F0F;&#x8F6C;&#x6362;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;1&quot;</span> </span><br><span class="line">+a</span><br></pre></td></tr></table></figure>
+
+<h4 id="15&#x3001;&#x5982;&#x4F55;&#x88C5;&#x903C;&#x7684;&#x5199;&#x51FA;&#x201D;hello-world-&#x201D;"><a href="#15&#x3001;&#x5982;&#x4F55;&#x88C5;&#x903C;&#x7684;&#x5199;&#x51FA;&#x201D;hello-world-&#x201D;" class="headerlink" title="15&#x3001;&#x5982;&#x4F55;&#x88C5;&#x903C;&#x7684;&#x5199;&#x51FA;&#x201D;hello world!&#x201D;"></a>15&#x3001;&#x5982;&#x4F55;&#x88C5;&#x903C;&#x7684;&#x5199;&#x51FA;&#x201D;hello world!&#x201D;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">([]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]])())[+[]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+{})[+[]])[+[]]+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([]+{})[+!![]]+(!![]+[])[+!![]]+(![]+[])[!+[]+!![]]+([][[]]+[])[!+[]+!![]]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+{})[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+{})[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+{})[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+{})[+!![]]+([]+{})[!+[]+!![]+!![]+!![]+!![]]+(+{}+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+{})[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+{})[+[]])[+[]]+(!+[]+!![]+[])+(+!![]+[]))</span><br><span class="line"></span><br><span class="line"><span class="comment">// &quot;hello world!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="16&#x3001;parseInt-0-0000008"><a href="#16&#x3001;parseInt-0-0000008" class="headerlink" title="16&#x3001;parseInt(0.0000008)"></a>16&#x3001;parseInt(0.0000008)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000001</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="17&#x3001;0-1-0-2-0-30000000000000004"><a href="#17&#x3001;0-1-0-2-0-30000000000000004" class="headerlink" title="17&#x3001;0.1+0.2 == 0.30000000000000004"></a>17&#x3001;0.1+0.2 == 0.30000000000000004</h4><p>0.1+0.2==0.3 &#x7ADF;&#x7136;&#x662F;&#x4E0D;&#x6210;&#x7ACB;&#x7684;&#x3002;&#x3002;&#x3002;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x5BF9;&#x4E8E;&#x8D27;&#x5E01;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x4F4D;&#x90FD;&#x662F;&#x5206;&#x3002;</p>
+<p>&#x7B80;&#x5355;&#x8BF4;&#xFF0C; 0.1&#x548C; 0.2&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6D6E;&#x70B9;&#x8868;&#x793A;&#x90FD;&#x4E0D;&#x662F;&#x7CBE;&#x786E;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x76F8;&#x52A0;&#x540E;&#x4E0D;&#x662F; 0.3&#xFF0C;&#x63A5;&#x8FD1;&#xFF08;&#x4E0D;&#x7B49;&#x4E8E;&#xFF09; 0.30000000000000004&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x6BD4;&#x8F83;&#x6570;&#x5B57;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x6709;&#x4E2A;&#x5BBD;&#x5BB9;&#x503C;&#x3002;ES6&#x4E2D;&#x8FD9;&#x4E2A;&#x5BBD;&#x5BB9;&#x503C;&#x88AB;&#x9884;&#x5B9A;&#x4E49;&#x4E86;&#xFF1A;Number.EPSILON&#x3002;</p>
+<h4 id="18&#x3001;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;"><a href="#18&#x3001;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;" class="headerlink" title="18&#x3001;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;"></a>18&#x3001;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, <span class="number">-85411</span>]; </span><br><span class="line"><span class="keyword">var</span> maxInNumbers = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, numbers); <span class="comment">// 122205</span></span><br><span class="line"><span class="keyword">var</span> minInNumbers = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, numbers); <span class="comment">// -85411</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/坑/" rel="tag"> <i class="fa fa-tag"></i> 坑</a>
+            
+              <a href="/tags/css/" rel="tag"> <i class="fa fa-tag"></i> css</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/09/02/图像缩放算法/" rel="next" title="图像缩放算法">
+                  <i class="fa fa-chevron-left"></i> 图像缩放算法
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、单行写一个评级组件"><span class="nav-number">1.</span> <span class="nav-text">1、单行写一个评级组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、神奇代码-隐式转换"><span class="nav-number">2.</span> <span class="nav-text">2、神奇代码(隐式转换)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、JavaScript-错误处理的方式的正确姿势"><span class="nav-number">3.</span> <span class="nav-text">3、JavaScript 错误处理的方式的正确姿势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、从一行代码里面学点JavaScript"><span class="nav-number">4.</span> <span class="nav-text">5、从一行代码里面学点JavaScript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、论如何优雅的取随机字符串"><span class="nav-number">5.</span> <span class="nav-text">6、论如何优雅的取随机字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、-10-“toString”-“10”"><span class="nav-number">6.</span> <span class="nav-text">7、(10)“toString” === “10”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、匿名函数自执行"><span class="nav-number">7.</span> <span class="nav-text">8、匿名函数自执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、另外一种undefined"><span class="nav-number">8.</span> <span class="nav-text">9、另外一种undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、论如何优雅的取整"><span class="nav-number">9.</span> <span class="nav-text">10、论如何优雅的取整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、逗号运算符"><span class="nav-number">10.</span> <span class="nav-text">11、逗号运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、金钱格式化"><span class="nav-number">11.</span> <span class="nav-text">12、金钱格式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、论如何最佳的让两个整数交换数值"><span class="nav-number">12.</span> <span class="nav-text">13、论如何最佳的让两个整数交换数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、不用Number、parseInt和parseFloat和方法把”1”字符串转换成数字"><span class="nav-number">13.</span> <span class="nav-text">14、不用Number、parseInt和parseFloat和方法把”1”字符串转换成数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、如何装逼的写出”hello-world-”"><span class="nav-number">14.</span> <span class="nav-text">15、如何装逼的写出”hello world!”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、parseInt-0-0000008"><span class="nav-number">15.</span> <span class="nav-text">16、parseInt(0.0000008)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、0-1-0-2-0-30000000000000004"><span class="nav-number">16.</span> <span class="nav-text">17、0.1+0.2 == 0.30000000000000004</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、取出一个数组中的最大值和最小值"><span class="nav-number">17.</span> <span class="nav-text">18、取出一个数组中的最大值和最小值</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>

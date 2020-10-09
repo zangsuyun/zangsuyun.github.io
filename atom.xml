@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-02T10:26:28.615Z</updated>
+  <updated>2020-10-09T08:01:32.652Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js黑科技</title>
+    <link href="http://yoursite.com/2020/10/09/js%E9%BB%91%E7%A7%91%E6%8A%80/"/>
+    <id>http://yoursite.com/2020/10/09/js黑科技/</id>
+    <published>2020-10-09T02:32:53.000Z</published>
+    <updated>2020-10-09T08:01:32.652Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;1&amp;#x3001;&amp;#x5355;&amp;#x884C;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BC4;&amp;#x7EA7;&amp;#x7EC4;&amp;#x4EF6;&lt;/h4&gt;&lt;p&gt;&amp;#x201C;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2605;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x2606;&amp;#x201D;.slice(5 - rate, 10 - rate);&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>图像缩放算法</title>
@@ -410,42 +431,6 @@
     
     
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git入门</title>
-    <link href="http://yoursite.com/2019/09/27/git%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2019/09/27/git入门/</id>
-    <published>2019-09-27T09:50:27.000Z</published>
-    <updated>2019-09-27T09:54:01.581Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Git-bash-&amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;a href=&quot;#Git-bash-&amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot; class=&quot;headerlink&quot; title=&quot;Git-bash &amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;/a&gt;Git-bash &amp;#x6587;&amp;#x4EF6;&amp;#x64CD;&amp;#x4F5C;&amp;#x76F8;&amp;#x5173;&amp;#x547D;&amp;#x4EE4;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;touch&amp;#xFF1A;&amp;#x521B;&amp;#x5EFA;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
-&lt;li&gt;cat&amp;#xFF1A;&amp;#x67E5;&amp;#x770B;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
-&lt;li&gt;less&amp;#xFF1A;&amp;#x67E5;&amp;#x770B;&amp;#x5927;&amp;#x6587;&amp;#x672C;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
-&lt;li&gt;vi&amp;#xFF1A;visual interface&lt;ul&gt;
-&lt;li&gt;Esc &amp;#x9000;&amp;#x51FA;&amp;#x5230;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
-&lt;li&gt;i &amp;#x8FDB;&amp;#x5165;&amp;#x63D2;&amp;#x5165;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
-&lt;li&gt;:q &amp;#x9000;&amp;#x51FA; vi&lt;/li&gt;
-&lt;li&gt;:w &amp;#x4FDD;&amp;#x5B58;&amp;#x7F16;&amp;#x8F91;&lt;/li&gt;
-&lt;li&gt;:wq &amp;#x4FDD;&amp;#x5B58;&amp;#x5E76;&amp;#x9000;&amp;#x51FA;&lt;/li&gt;
-&lt;li&gt;:q! &amp;#x5F3A;&amp;#x5236;&amp;#x9000;&amp;#x51FA;&amp;#x4E0D;&amp;#x4FDD;&amp;#x5B58;&amp;#x4FEE;&amp;#x6539;&lt;/li&gt;
-&lt;li&gt;vi &amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x64CD;&amp;#x4F5C;&amp;#x57FA;&amp;#x672C;&amp;#x5168;&amp;#x90E8;&amp;#x662F;&amp;#x547D;&amp;#x4EE4;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x638C;&amp;#x63E1;&amp;#x57FA;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#x57FA;&amp;#x4E8E;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E86;&lt;/li&gt;
-&lt;li&gt;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x4F7F;&amp;#x7528; git commit &amp;#x8FDB;&amp;#x884C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x591A;&amp;#x5199;&amp;#x51E0;&amp;#x884C;&amp;#x63D0;&amp;#x4EA4;&amp;#x65E5;&amp;#x5FD7;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5019;&amp;#x53EF;&amp;#x4EE5;&amp;#x7701;&amp;#x7565; -m &amp;#x53C2;&amp;#x6570;&amp;#x8FDB;&amp;#x5165; vi &amp;#x7F16;&amp;#x8F91;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
