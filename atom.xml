@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-09T08:01:32.652Z</updated>
+  <updated>2020-10-15T11:36:08.976Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零开始发布npm函数库</title>
+    <link href="http://yoursite.com/2020/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%8F%91%E5%B8%83npm%E5%87%BD%E6%95%B0%E5%BA%93/"/>
+    <id>http://yoursite.com/2020/10/15/从零开始发布npm函数库/</id>
+    <published>2020-10-15T09:34:05.000Z</published>
+    <updated>2020-10-15T11:36:08.976Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6982;&amp;#x8981;&amp;#xFF1A;&lt;/p&gt;&lt;p&gt;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EB;zsy-methods&amp;#x7684;javascript&amp;#x51FD;&amp;#x6570;&amp;#x5E93;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;wepback&amp;#x6784;&amp;#x5EFA;umd&amp;#x5F62;&amp;#x5F0F;&amp;#x7684;&amp;#x5305;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;npm&amp;#x53D1;&amp;#x5E03;&amp;#x4E0A;&amp;#x7EBF;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>js黑科技</title>
@@ -394,43 +413,6 @@
       <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
     
       <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6入门</title>
-    <link href="http://yoursite.com/2019/09/27/ES6%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2019/09/27/ES6入门/</id>
-    <published>2019-09-27T09:57:12.000Z</published>
-    <updated>2019-10-10T12:20:11.950Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Ecmascript-6&quot;&gt;&lt;a href=&quot;#Ecmascript-6&quot; class=&quot;headerlink&quot; title=&quot;Ecmascript 6&quot;&gt;&lt;/a&gt;Ecmascript 6&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;ECMAScript 6.0&amp;#xFF08;&amp;#x4EE5;&amp;#x4E0B;&amp;#x7B80;&amp;#x79F0; ES6&amp;#xFF09;&amp;#x662F; JavaScript &amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x4E0B;&amp;#x4E00;&amp;#x4EE3;&amp;#x6807;&amp;#x51C6;&amp;#xFF0C;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5728; 2015 &amp;#x5E74; 6 &amp;#x6708;&amp;#x6B63;&amp;#x5F0F;&amp;#x53D1;&amp;#x5E03;&amp;#x4E86;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;Ecmascript &amp;#x662F; JavaScript &amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x6807;&amp;#x6CE8;&amp;#x89C4;&amp;#x8303;&lt;/li&gt;
-&lt;li&gt;JavaScript &amp;#x662F; Ecmascript &amp;#x89C4;&amp;#x8303;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&lt;ul&gt;
-&lt;li&gt;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&amp;#x53D6;&amp;#x51B3;&amp;#x4E8E;&amp;#x5404;&amp;#x5927;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5382;&amp;#x5546;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x8FDB;&amp;#x5EA6;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Ecmascript 6 &amp;#x4E5F;&amp;#x88AB;&amp;#x79F0;&amp;#x4F5C; Ecmascript 2015&lt;/li&gt;
-&lt;li&gt;&amp;#x5404;&amp;#x5927;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5382;&amp;#x5546;&amp;#x5BF9;&amp;#x4E8E;&amp;#x6700;&amp;#x65B0;&amp;#x7684; Ecmascript 6 &amp;#x6807;&amp;#x51C6;&amp;#x652F;&amp;#x6301;&amp;#x53EF;&amp;#x4EE5;&amp;#x53C2;&amp;#x7167;&amp;#xFF1A;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://kangax.github.io/compat-table/es6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://kangax.github.io/compat-table/es6/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&amp;#x5BF9;&amp;#x4E8E;&amp;#x4E0D;&amp;#x652F;&amp;#x6301; ES6 &amp;#x7684;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;&amp;#x4E00;&amp;#x4E9B;&amp;#x7F16;&amp;#x8BD1;&amp;#x8F6C;&amp;#x7801;&amp;#x5DE5;&amp;#x5177;&amp;#x505A;&amp;#x8F6C;&amp;#x6362;&amp;#x5904;&amp;#x7406;&amp;#x518D;&amp;#x4F7F;&amp;#x7528;&lt;ul&gt;
-&lt;li&gt;&amp;#x4F8B;&amp;#x5982; babel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
