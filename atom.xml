@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-15T11:36:08.976Z</updated>
+  <updated>2020-10-23T10:07:57.712Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微前端通信</title>
+    <link href="http://yoursite.com/2020/10/23/%E5%BE%AE%E5%89%8D%E7%AB%AF%E9%80%9A%E4%BF%A1/"/>
+    <id>http://yoursite.com/2020/10/23/微前端通信/</id>
+    <published>2020-10-23T09:39:45.000Z</published>
+    <updated>2020-10-23T10:07:57.712Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x91C7;&amp;#x7528;qiankun&amp;#x5FAE;&amp;#x524D;&amp;#x7AEF;&amp;#x6846;&amp;#x67B6;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://qiankun.umijs.org/zh/api#initglobalstatestate&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;qiankun API&lt;/a&gt;&lt;/p&gt;&lt;p&gt;qiankun&amp;#x5185;&amp;#x90E8;&amp;#x4F7F;&amp;#x7528;initGlobalState(state)&amp;#x5B9A;&amp;#x4E49;&amp;#x5168;&amp;#x5C40;&amp;#x72B6;&amp;#x6001;&amp;#xFF0C;&amp;#x8BE5;&amp;#x65B9;&amp;#x6CD5;&amp;#x6267;&amp;#x884C;&amp;#x540E;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;MicroAppStateActions&amp;#x5B9E;&amp;#x4F8B;&amp;#xFF0C;&amp;#x5B9E;&amp;#x4F8B;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;&amp;#x4E09;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5206;&amp;#x522B;&amp;#x662F;&lt;em&gt;onGlobalStateChange&lt;em&gt;&amp;#x3001;&lt;/em&gt;setGlobalState&lt;em&gt;&amp;#x3001;&lt;/em&gt;offGlobalStateChange&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>从零开始发布npm函数库</title>
@@ -390,29 +409,6 @@
     
     
       <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack系列坑</title>
-    <link href="http://yoursite.com/2019/10/10/webpack%E7%B3%BB%E5%88%97%E5%9D%91/"/>
-    <id>http://yoursite.com/2019/10/10/webpack系列坑/</id>
-    <published>2019-10-10T11:03:26.000Z</published>
-    <updated>2019-10-14T04:13:52.029Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;&amp;#x5728;&amp;#x914D;&amp;#x7F6E;-Vue-Webpack-&amp;#x73AF;&amp;#x5883;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x51FA;&amp;#x73B0;&amp;#x4E86;&amp;#x5982;&amp;#x4E0B;&amp;#x9519;&amp;#x8BEF;&amp;#xFF1A;&quot;&gt;&lt;a href=&quot;#&amp;#x5728;&amp;#x914D;&amp;#x7F6E;-Vue-Webpack-&amp;#x73AF;&amp;#x5883;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x51FA;&amp;#x73B0;&amp;#x4E86;&amp;#x5982;&amp;#x4E0B;&amp;#x9519;&amp;#x8BEF;&amp;#xFF1A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5728;&amp;#x914D;&amp;#x7F6E; Vue+Webpack &amp;#x73AF;&amp;#x5883;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x51FA;&amp;#x73B0;&amp;#x4E86;&amp;#x5982;&amp;#x4E0B;&amp;#x9519;&amp;#x8BEF;&amp;#xFF1A;&quot;&gt;&lt;/a&gt;&amp;#x5728;&amp;#x914D;&amp;#x7F6E; Vue+Webpack &amp;#x73AF;&amp;#x5883;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x51FA;&amp;#x73B0;&amp;#x4E86;&amp;#x5982;&amp;#x4E0B;&amp;#x9519;&amp;#x8BEF;&amp;#xFF1A;&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vue-loader was used without the corresponding plugin. Make sure to include VueLoaderPlugin &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; your webpack config.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="入门" scheme="http://yoursite.com/categories/%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
-    
-      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
     
   </entry>
   
