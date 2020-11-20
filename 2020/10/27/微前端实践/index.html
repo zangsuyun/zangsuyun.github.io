@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x5C06;&amp;#x666E;&amp;#x901A;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6539;&amp;#x9020;&amp;#x6210; qiankun &amp;#x4E3B;&amp;#x5E94;&amp;#x7528;&amp;#x57FA;&amp;#x5EA7;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;&amp;#x884C;&amp;#x4E09;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF1A">
+<meta name="keywords" content="微前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微前端实践">
+<meta property="og:url" content="http://yoursite.com/2020/10/27/微前端实践/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x5C06;&amp;#x666E;&amp;#x901A;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6539;&amp;#x9020;&amp;#x6210; qiankun &amp;#x4E3B;&amp;#x5E94;&amp;#x7528;&amp;#x57FA;&amp;#x5EA7;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;&amp;#x884C;&amp;#x4E09;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF1A">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-29T09:44:48.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微前端实践">
+<meta name="twitter:description" content="&amp;#x5C06;&amp;#x666E;&amp;#x901A;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6539;&amp;#x9020;&amp;#x6210; qiankun &amp;#x4E3B;&amp;#x5E94;&amp;#x7528;&amp;#x57FA;&amp;#x5EA7;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;&amp;#x884C;&amp;#x4E09;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF1A">
+  <link rel="canonical" href="http://yoursite.com/2020/10/27/微前端实践/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>微前端实践 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/27/微前端实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">微前端实践
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-27 17:12:27" itemprop="dateCreated datePublished" datetime="2020-10-27T17:12:27+08:00">2020-10-27</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-29 17:44:48" itemprop="dateModified" datetime="2020-10-29T17:44:48+08:00">2020-10-29</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/27/微前端实践/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/10/27/微前端实践/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&#x5C06;&#x666E;&#x901A;&#x7684;&#x9879;&#x76EE;&#x6539;&#x9020;&#x6210; qiankun &#x4E3B;&#x5E94;&#x7528;&#x57FA;&#x5EA7;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E09;&#x6B65;&#x64CD;&#x4F5C;&#xFF1A;</p><a id="more"></a>
+<p>1.&#x521B;&#x5EFA;&#x5FAE;&#x5E94;&#x7528;&#x5BB9;&#x5668; - &#x7528;&#x4E8E;&#x627F;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x6E32;&#x67D3;&#x663E;&#x793A;&#x5FAE;&#x5E94;&#x7528;&#xFF1B;<br>2.&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528; - &#x8BBE;&#x7F6E;&#x5FAE;&#x5E94;&#x7528;&#x6FC0;&#x6D3B;&#x6761;&#x4EF6;&#xFF0C;&#x5FAE;&#x5E94;&#x7528;&#x5730;&#x5740;&#x7B49;&#x7B49;&#xFF1B;<br>3.&#x542F;&#x52A8; qiankun&#xFF1B;</p>
+<p>&#x968F;&#x968F;&#x4FBF;&#x4FBF;&#x5EFA;&#x4E00;&#x4E2A;vue&#x4F5C;&#x4E3A;&#x4E3B;&#x5E94;&#x7528;<br>&#x2014;&#x2014;&#x2014;&#x2014;&#x6B64;&#x5904;&#x7701;&#x7565;&#x9879;&#x76EE;&#x642D;&#x5EFA;&#x8FC7;&#x7A0B;&#x2014;&#x2014;&#x2014;-</p>
+<h4 id="&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;"><a href="#&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;" class="headerlink" title="&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;"></a>&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;</h4><p>&#x5728;&#x6784;&#x5EFA;&#x597D;&#x4E86;&#x4E3B;&#x6846;&#x67B6;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528; qiankun &#x7684; <em>registerMicroApps</em> &#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> apps = [</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * name: &#x5FAE;&#x5E94;&#x7528;&#x540D;&#x79F0; - &#x5177;&#x6709;&#x552F;&#x4E00;&#x6027;</span></span><br><span class="line"><span class="comment">   * entry: &#x5FAE;&#x5E94;&#x7528;&#x5165;&#x53E3; - &#x901A;&#x8FC7;&#x8BE5;&#x5730;&#x5740;&#x52A0;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;</span></span><br><span class="line"><span class="comment">   * container: &#x5FAE;&#x5E94;&#x7528;&#x6302;&#x8F7D;&#x8282;&#x70B9; - &#x5FAE;&#x5E94;&#x7528;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x5C06;&#x6302;&#x8F7D;&#x5728;&#x8BE5;&#x8282;&#x70B9;&#x4E0A;</span></span><br><span class="line"><span class="comment">   * activeRule: &#x5FAE;&#x5E94;&#x7528;&#x89E6;&#x53D1;&#x7684;&#x8DEF;&#x7531;&#x89C4;&#x5219; - &#x89E6;&#x53D1;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x540E;&#x5C06;&#x52A0;&#x8F7D;&#x8BE5;&#x5FAE;&#x5E94;&#x7528;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  {</span><br><span class="line">    name: <span class="string">&quot;ReactMicroApp&quot;</span>,</span><br><span class="line">    entry: <span class="string">&quot;//localhost:10100&quot;</span>,</span><br><span class="line">    container: <span class="string">&quot;#frame&quot;</span>,</span><br><span class="line">    activeRule: <span class="string">&quot;/react&quot;</span></span><br><span class="line">  },</span><br><span class="line">  {</span><br><span class="line">    name: <span class="string">&quot;VueMicroApp&quot;</span>,</span><br><span class="line">    entry: <span class="string">&quot;//localhost:10200&quot;</span>,</span><br><span class="line">    container: <span class="string">&quot;#frame&quot;</span>,</span><br><span class="line">    activeRule: <span class="string">&quot;/vue&quot;</span></span><br><span class="line">  },</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> apps;</span><br></pre></td></tr></table></figure>
+
+<h5 id="&#x5176;&#x4E2D;-activeRule-&#x6211;&#x53F8;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;"><a href="#&#x5176;&#x4E2D;-activeRule-&#x6211;&#x53F8;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;" class="headerlink" title="&#x5176;&#x4E2D; activeRule &#x6211;&#x53F8;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;"></a>&#x5176;&#x4E2D; activeRule &#x6211;&#x53F8;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ProdActiveRule</span>(<span class="params">item</span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> ProdActiveRule = [</span><br><span class="line">    <span class="string">`/manager/index.html#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">    <span class="string">`/manager/#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">    <span class="string">`/gray/index.html#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">    <span class="string">`/gray/#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">    <span class="string">`/index.html#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">    <span class="string">`/#/<span class="subst">${item.name}</span>`</span>,</span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ProdActiveRule;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="&#x5176;&#x4E2D;-entry-&#x6211;&#x53F8;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x5730;&#x5740;"><a href="#&#x5176;&#x4E2D;-entry-&#x6211;&#x53F8;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x5730;&#x5740;" class="headerlink" title="&#x5176;&#x4E2D; entry &#x6211;&#x53F8;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x5730;&#x5740;"></a>&#x5176;&#x4E2D; entry &#x6211;&#x53F8;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x5339;&#x914D;&#x4E0D;&#x540C;&#x5730;&#x5740;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderEntry</span>(<span class="params">item</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> entry = item.entry;</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">&apos;production&apos;</span>) {</span><br><span class="line">      entry =<span class="string">&apos;&apos;</span></span><br><span class="line">      <span class="comment">//&#x903B;&#x8F91;&#x4EE3;&#x7801;</span></span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> entry;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E00;&#x4E2A;&#x8FDB;&#x5EA6;&#x6761;&#x63D2;&#x4EF6;</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">&quot;nprogress&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;nprogress/nprogress.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> { message } <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> {</span><br><span class="line">  registerMicroApps,</span><br><span class="line">  addGlobalUncaughtErrorHandler,</span><br><span class="line">  start,</span><br><span class="line">} <span class="keyword">from</span> <span class="string">&quot;qiankun&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5FAE;&#x5E94;&#x7528;&#x6CE8;&#x518C;&#x4FE1;&#x606F;</span></span><br><span class="line"><span class="keyword">import</span> apps <span class="keyword">from</span> <span class="string">&quot;./apps&quot;</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;</span></span><br><span class="line"><span class="comment"> * &#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570; - &#x5FAE;&#x5E94;&#x7528;&#x7684;&#x6CE8;&#x518C;&#x4FE1;&#x606F;</span></span><br><span class="line"><span class="comment"> * &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570; - &#x5168;&#x5C40;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">registerMicroApps(apps, {</span><br><span class="line">  <span class="comment">// qiankun &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50; - &#x5FAE;&#x5E94;&#x7528;&#x52A0;&#x8F7D;&#x524D;</span></span><br><span class="line">  beforeLoad: <span class="function">(<span class="params">app: any</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">// &#x52A0;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#x524D;&#xFF0C;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x6761;</span></span><br><span class="line">    NProgress.start();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;before load&quot;</span>, app.name);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve();</span><br><span class="line">  },</span><br><span class="line">  <span class="comment">// qiankun &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50; - &#x5FAE;&#x5E94;&#x7528;&#x6302;&#x8F7D;&#x524D;</span></span><br><span class="line">  beforeMount: <span class="function">(<span class="params">app: any</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&quot;before mount&quot;</span>, app.name),</span><br><span class="line">  <span class="comment">// qiankun &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50; - &#x5FAE;&#x5E94;&#x7528;&#x6302;&#x8F7D;&#x540E;</span></span><br><span class="line">  afterMount: <span class="function">(<span class="params">app: any</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">// &#x52A0;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#x524D;&#xFF0C;&#x8FDB;&#x5EA6;&#x6761;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;</span></span><br><span class="line">    NProgress.done();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;after mount&quot;</span>, app.name);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve();</span><br><span class="line">  },</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x6DFB;&#x52A0;&#x5168;&#x5C40;&#x7684;&#x672A;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5668;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">addGlobalUncaughtErrorHandler(<span class="function">(<span class="params">event: Event | string</span>) =&gt;</span> {</span><br><span class="line">  <span class="built_in">console</span>.error(event);</span><br><span class="line">  <span class="keyword">const</span> { <span class="attr">message</span>: msg } = event <span class="keyword">as</span> any;</span><br><span class="line">  <span class="comment">// &#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x65F6;&#x63D0;&#x793A;</span></span><br><span class="line">  <span class="keyword">if</span> (msg &amp;&amp; msg.includes(<span class="string">&quot;died in status LOADING_SOURCE_CODE&quot;</span>)) {</span><br><span class="line">    message.error(<span class="string">&quot;&#x5FAE;&#x5E94;&#x7528;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#xFF0C;&#x8BF7;&#x68C0;&#x67E5;&#x5E94;&#x7528;&#x662F;&#x5426;&#x53EF;&#x8FD0;&#x884C;&quot;</span>);</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5BFC;&#x51FA; qiankun &#x7684;&#x542F;&#x52A8;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> start;</span><br></pre></td></tr></table></figure>
+
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5FAE;&#x5E94;&#x7528;&#x6CE8;&#x518C;&#x4FE1;&#x606F;&#x5728; apps &#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528; qiankun &#x7684; registerMicroApps &#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x6700;&#x540E;&#x5BFC;&#x51FA;&#x4E86; start &#x51FD;&#x6570;&#xFF0C;&#x6CE8;&#x518C;&#x5FAE;&#x5E94;&#x7528;&#x7684;&#x5DE5;&#x4F5C;&#x5C31;&#x5B8C;&#x6210;&#x5566;&#xFF01;</p>
+<h4 id="&#x542F;&#x52A8;&#x4E3B;&#x5E94;&#x7528;"><a href="#&#x542F;&#x52A8;&#x4E3B;&#x5E94;&#x7528;" class="headerlink" title="&#x542F;&#x52A8;&#x4E3B;&#x5E94;&#x7528;"></a>&#x542F;&#x52A8;&#x4E3B;&#x5E94;&#x7528;</h4><p>&#x6211;&#x4EEC;&#x5728;&#x6CE8;&#x518C;&#x597D;&#x4E86;&#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x5BFC;&#x51FA; start &#x51FD;&#x6570;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;&#x5408;&#x9002;&#x7684;&#x5730;&#x65B9;&#x8C03;&#x7528; start &#x542F;&#x52A8;&#x4E3B;&#x5E94;&#x7528;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x662F;&#x5728;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x542F;&#x52A8; qiankun &#x4E3B;&#x5E94;&#x7528;&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> startQiankun <span class="keyword">from</span> <span class="string">&quot;./micro&quot;</span>;</span><br><span class="line"></span><br><span class="line">startQiankun();</span><br></pre></td></tr></table></figure>
+
+<p>&#x6216;&#x8005;&#x5728;&#x524D;&#x9762;&#x6CE8;&#x518C;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;start</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start({</span><br><span class="line">  sandbox: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// prefetch: &apos;all&apos; // &#x4E3B;&#x5E94;&#x7528; start &#x540E;&#x5373;&#x5F00;&#x59CB;&#x9884;&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x5FAE;&#x5E94;&#x7528;&#x9759;&#x6001;&#x8D44;&#x6E90;</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x63A5;&#x5165;&#x5FAE;&#x5E94;&#x7528;"><a href="#&#x63A5;&#x5165;&#x5FAE;&#x5E94;&#x7528;" class="headerlink" title="&#x63A5;&#x5165;&#x5FAE;&#x5E94;&#x7528;"></a>&#x63A5;&#x5165;&#x5FAE;&#x5E94;&#x7528;</h4><p>qiankun &#x5185;&#x90E8;&#x901A;&#x8FC7; import-entry-html &#x52A0;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x8981;&#x6C42;&#x5FAE;&#x5E94;&#x7528;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x3002;<br>qiankun &#x5185;&#x90E8;&#x4F1A;&#x6821;&#x9A8C;&#x5FAE;&#x5E94;&#x7528;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5FAE;&#x5E94;&#x7528;&#x6CA1;&#x6709;&#x5BFC;&#x51FA;&#x8FD9;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x5FAE;&#x5E94;&#x7528;&#x4F1A;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x811A;&#x624B;&#x67B6;&#x642D;&#x5EFA;&#x5FAE;&#x5E94;&#x7528;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; webpack &#x914D;&#x7F6E;&#x5728;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x5904;&#x5BFC;&#x51FA;&#x8FD9;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x811A;&#x624B;&#x67B6;&#x7684;&#x8BDD;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x5FAE;&#x5E94;&#x7528;&#x7684; window &#x4E0A;&#x6302;&#x8F7D;&#x8FD9;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x3002;</p>
+<h4 id="&#x914D;&#x7F6E;&#x5FAE;&#x5E94;&#x7528;"><a href="#&#x914D;&#x7F6E;&#x5FAE;&#x5E94;&#x7528;" class="headerlink" title="&#x914D;&#x7F6E;&#x5FAE;&#x5E94;&#x7528;"></a>&#x914D;&#x7F6E;&#x5FAE;&#x5E94;&#x7528;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// micro-app-vue/src/public-path.js</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.__POWERED_BY_QIANKUN__) {</span><br><span class="line">  <span class="comment">// &#x52A8;&#x6001;&#x8BBE;&#x7F6E; webpack publicPath&#xFF0C;&#x9632;&#x6B62;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;&#x51FA;&#x9519;</span></span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-undef</span></span><br><span class="line">  __webpack_public_path__ = <span class="built_in">window</span>.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// micro-app-vue/src/main.js</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&quot;vue-router&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> Antd <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;ant-design-vue/dist/antd.css&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;./public-path&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&quot;./App.vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">&quot;./routes&quot;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line">Vue.use(Antd);</span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> router = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x6E32;&#x67D3;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="comment"> * &#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;&#x4E3B;&#x5E94;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x4E2D;&#x8FD0;&#x884C; / &#x5FAE;&#x5E94;&#x7528;&#x5355;&#x72EC;&#x542F;&#x52A8;&#x65F6;&#x8FD0;&#x884C;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="comment">// &#x5728; render &#x4E2D;&#x521B;&#x5EFA; VueRouter&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5728;&#x5378;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#x65F6;&#xFF0C;&#x79FB;&#x9664; location &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#xFF0C;&#x9632;&#x6B62;&#x4E8B;&#x4EF6;&#x6C61;&#x67D3;</span></span><br><span class="line">  router = <span class="keyword">new</span> VueRouter({</span><br><span class="line">    <span class="comment">// &#x8FD0;&#x884C;&#x5728;&#x4E3B;&#x5E94;&#x7528;&#x4E2D;&#x65F6;&#xFF0C;&#x6DFB;&#x52A0;&#x8DEF;&#x7531;&#x547D;&#x540D;&#x7A7A;&#x95F4; /vue</span></span><br><span class="line">    base: <span class="built_in">window</span>.__POWERED_BY_QIANKUN__ ? <span class="string">&quot;/vue&quot;</span> : <span class="string">&quot;/&quot;</span>,</span><br><span class="line">    mode: <span class="string">&quot;history&quot;</span>,</span><br><span class="line">    routes,</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x6302;&#x8F7D;&#x5E94;&#x7528;</span></span><br><span class="line">  instance = <span class="keyword">new</span> Vue({</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function">(<span class="params">h</span>) =&gt;</span> h(App),</span><br><span class="line">  }).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x76F4;&#x63A5;&#x6302;&#x8F7D;&#x5E94;&#x7528;</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.__POWERED_BY_QIANKUN__) {</span><br><span class="line">  render();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * bootstrap &#x53EA;&#x4F1A;&#x5728;&#x5FAE;&#x5E94;&#x7528;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x4E0B;&#x6B21;&#x5FAE;&#x5E94;&#x7528;&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x65F6;&#x4F1A;&#x76F4;&#x63A5;&#x8C03;&#x7528; mount &#x94A9;&#x5B50;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x91CD;&#x590D;&#x89E6;&#x53D1; bootstrap&#x3002;</span></span><br><span class="line"><span class="comment"> * &#x901A;&#x5E38;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x4E00;&#x4E9B;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x6BD4;&#x5982;&#x4E0D;&#x4F1A;&#x5728; unmount &#x9636;&#x6BB5;&#x88AB;&#x9500;&#x6BC1;&#x7684;&#x5E94;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x7F13;&#x5B58;&#x7B49;&#x3002;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;VueMicroApp bootstraped&quot;</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x5E94;&#x7528;&#x6BCF;&#x6B21;&#x8FDB;&#x5165;&#x90FD;&#x4F1A;&#x8C03;&#x7528; mount &#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x89E6;&#x53D1;&#x5E94;&#x7528;&#x7684;&#x6E32;&#x67D3;&#x65B9;&#x6CD5;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">mount</span>(<span class="params">props</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;VueMicroApp mount&quot;</span>, props);</span><br><span class="line">  render(props);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x5E94;&#x7528;&#x6BCF;&#x6B21; &#x5207;&#x51FA;/&#x5378;&#x8F7D; &#x4F1A;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F1A;&#x5378;&#x8F7D;&#x5FAE;&#x5E94;&#x7528;&#x7684;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">unmount</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;VueMicroApp unmount&quot;</span>);</span><br><span class="line">  instance.$destroy();</span><br><span class="line">  instance = <span class="literal">null</span>;</span><br><span class="line">  router = <span class="literal">null</span>;</span><br><span class="line">}</span><br><span class="line">&#x5728;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#x5165;&#x53E3;&#x6587;&#x4EF6; main.js &#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x914D;&#x7F6E; webpack&#xFF0C;&#x4F7F; main.js &#x5BFC;&#x51FA;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x88AB; qiankun &#x8BC6;&#x522B;&#x83B7;&#x53D6;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x914D;&#x7F6E; vue.config.js &#x5373;&#x53EF;&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</span><br><span class="line"></span><br><span class="line"><span class="comment">// micro-app-vue/vue.config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  devServer: {</span><br><span class="line">    <span class="comment">// &#x76D1;&#x542C;&#x7AEF;&#x53E3;</span></span><br><span class="line">    port: <span class="number">10200</span>,</span><br><span class="line">    <span class="comment">// &#x5173;&#x95ED;&#x4E3B;&#x673A;&#x68C0;&#x67E5;&#xFF0C;&#x4F7F;&#x5FAE;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x88AB; fetch</span></span><br><span class="line">    disableHostCheck: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// &#x914D;&#x7F6E;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5934;&#xFF0C;&#x89E3;&#x51B3;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x8DE8;&#x57DF;&#x95EE;&#x9898;</span></span><br><span class="line">    headers: {</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">  configureWebpack: {</span><br><span class="line">    resolve: {</span><br><span class="line">      alias: {</span><br><span class="line">        <span class="string">&quot;@&quot;</span>: path.resolve(__dirname, <span class="string">&quot;src&quot;</span>),</span><br><span class="line">      },</span><br><span class="line">    },</span><br><span class="line">    output: {</span><br><span class="line">      <span class="comment">// &#x5FAE;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0E;&#x4E3B;&#x5E94;&#x7528;&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#x5FAE;&#x5E94;&#x7528;&#x540D;&#x79F0;&#x4E00;&#x81F4;</span></span><br><span class="line">      library: <span class="string">&quot;VueMicroApp&quot;</span>,</span><br><span class="line">      <span class="comment">// &#x5C06;&#x4F60;&#x7684; library &#x66B4;&#x9732;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x4E0B;&#x90FD;&#x53EF;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x5F0F;</span></span><br><span class="line">      libraryTarget: <span class="string">&quot;umd&quot;</span>,</span><br><span class="line">      <span class="comment">// &#x6309;&#x9700;&#x52A0;&#x8F7D;&#x76F8;&#x5173;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A; webpackJsonp_VueMicroApp &#x5373;&#x53EF;</span></span><br><span class="line">      jsonpFunction: <span class="string">`webpackJsonp_VueMicroApp`</span>,</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#x5165;&#x53E3;&#x6587;&#x4EF6; main.js &#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x914D;&#x7F6E; webpack&#xFF0C;&#x4F7F; main.js &#x5BFC;&#x51FA;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x88AB; qiankun &#x8BC6;&#x522B;&#x83B7;&#x53D6;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x914D;&#x7F6E; vue.config.js &#x5373;&#x53EF;&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// micro-app-vue/vue.config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  devServer: {</span><br><span class="line">    <span class="comment">// &#x76D1;&#x542C;&#x7AEF;&#x53E3;</span></span><br><span class="line">    port: <span class="number">10200</span>,</span><br><span class="line">    <span class="comment">// &#x5173;&#x95ED;&#x4E3B;&#x673A;&#x68C0;&#x67E5;&#xFF0C;&#x4F7F;&#x5FAE;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x88AB; fetch</span></span><br><span class="line">    disableHostCheck: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// &#x914D;&#x7F6E;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5934;&#xFF0C;&#x89E3;&#x51B3;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x8DE8;&#x57DF;&#x95EE;&#x9898;</span></span><br><span class="line">    headers: {</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">  configureWebpack: {</span><br><span class="line">    resolve: {</span><br><span class="line">      alias: {</span><br><span class="line">        <span class="string">&quot;@&quot;</span>: path.resolve(__dirname, <span class="string">&quot;src&quot;</span>),</span><br><span class="line">      },</span><br><span class="line">    },</span><br><span class="line">    output: {</span><br><span class="line">      <span class="comment">// &#x5FAE;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0E;&#x4E3B;&#x5E94;&#x7528;&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#x5FAE;&#x5E94;&#x7528;&#x540D;&#x79F0;&#x4E00;&#x81F4;</span></span><br><span class="line">      library: <span class="string">&quot;VueMicroApp&quot;</span>,</span><br><span class="line">      <span class="comment">// &#x5C06;&#x4F60;&#x7684; library &#x66B4;&#x9732;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x4E0B;&#x90FD;&#x53EF;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x5F0F;</span></span><br><span class="line">      libraryTarget: <span class="string">&quot;umd&quot;</span>,</span><br><span class="line">      <span class="comment">// &#x6309;&#x9700;&#x52A0;&#x8F7D;&#x76F8;&#x5173;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A; webpackJsonp_VueMicroApp &#x5373;&#x53EF;</span></span><br><span class="line">      jsonpFunction: <span class="string">`webpackJsonp_VueMicroApp`</span>,</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x4E00;&#x4E0B; output &#x9009;&#x9879;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x628A; libraryTarget &#x8BBE;&#x7F6E;&#x4E3A; umd &#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x7684; library &#x5C31;&#x66B4;&#x9732;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x4E0B;&#x90FD;&#x53EF;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x4E86;&#xFF0C;&#x4E3B;&#x5E94;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x5FAE;&#x5E94;&#x7528;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E86;&#x3002;</p>
+<p>&#x5728; vue.config.js &#x4FEE;&#x6539;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x542F;&#x52A8; Vue &#x5FAE;&#x5E94;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x4E3B;&#x5E94;&#x7528;&#x57FA;&#x5EA7;  </p>
+<h4 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h4><h5 id="1-&#x8DEF;&#x7531;&#x6A21;&#x5F0F;"><a href="#1-&#x8DEF;&#x7531;&#x6A21;&#x5F0F;" class="headerlink" title="1.&#x8DEF;&#x7531;&#x6A21;&#x5F0F;"></a>1.&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</h5><p>&#x533A;&#x522B; hash &#x8FD8;&#x662F; history &#x6A21;&#x5F0F;<br>activeRule &#x4E2D;&#x4F1A;&#x5173;&#x7CFB;&#x5230;</p>
+<h5 id="2-&#x62A5;&#x9519;"><a href="#2-&#x62A5;&#x9519;" class="headerlink" title="2.&#x62A5;&#x9519;"></a>2.&#x62A5;&#x9519;</h5><h6 id="1-Uncaught-Error-application-&#x2018;micro-vue&#x2019;-died-in-status-NOT-MOUNTED-qiankun-Target-container-with-frame-not-existed-while-micro-vue-mounting"><a href="#1-Uncaught-Error-application-&#x2018;micro-vue&#x2019;-died-in-status-NOT-MOUNTED-qiankun-Target-container-with-frame-not-existed-while-micro-vue-mounting" class="headerlink" title="1.Uncaught Error: application &#x2018;micro-vue&#x2019; died in status NOT_MOUNTED: [qiankun] Target container with #frame not existed while micro-vue mounting!"></a>1.Uncaught Error: application &#x2018;micro-vue&#x2019; died in status NOT_MOUNTED: [qiankun] Target container with #frame not existed while micro-vue mounting!</h6><p>&#x56E0;&#x4E3A;&#x4E3B;&#x5E94;&#x7528;app.vue&#x4E2D;&#x5305;&#x4E86;&#x4E00;&#x5C42;<div id="app"></div></p>
+<h6 id="2-Avoided-redundant-navigation-to-current-location"><a href="#2-Avoided-redundant-navigation-to-current-location" class="headerlink" title="2.Avoided redundant navigation to current location:"></a>2.Avoided redundant navigation to current location:</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//push</span></span><br><span class="line"><span class="keyword">const</span> VueRouterPush = VueRouter.prototype.push</span><br><span class="line">VueRouter.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">to</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> VueRouterPush.call(<span class="keyword">this</span>, to).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//replace</span></span><br><span class="line"><span class="keyword">const</span> VueRouterReplace = VueRouter.prototype.replace</span><br><span class="line">VueRouter.prototype.replace = <span class="function"><span class="keyword">function</span> <span class="title">replace</span>(<span class="params">to</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> VueRouterReplace.call(<span class="keyword">this</span>, to).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-died-in-status-LOADING-SOURCE-CODE-qiankun-You-need-to-export-lifecycle-functions-in"><a href="#3-died-in-status-LOADING-SOURCE-CODE-qiankun-You-need-to-export-lifecycle-functions-in" class="headerlink" title="3.died in status LOADING_SOURCE_CODE: [qiankun] You need to export lifecycle functions in"></a>3.died in status LOADING_SOURCE_CODE: [qiankun] You need to export lifecycle functions in</h6><p>&#x4E00;&#x4E2A;&#x5947;&#x602A;&#x7684;&#x95EE;&#x9898;<br>&#x5927;&#x610F;&#x5C31;&#x662F;&#x5B50;&#x5E94;&#x7528;&#x6CA1;&#x6709;&#x5BFC;&#x51FA;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;<br>&#x5173;&#x952E;&#x662F;&#x6211;&#x6B63;&#x5E38;&#x5BFC;&#x51FA;&#x4E86;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x6B63;&#x5E38;&#xFF0C;&#x4E0D;&#x62A5;&#x9519;&#xFF0C;&#x5207;&#x6362;&#x5B50;&#x5E94;&#x7528;&#x540E;&#x518D;&#x5207;&#x56DE;&#x6B63;&#x786E;&#x52A0;&#x8F7D;&#x4E3B;&#x5E94;&#x7528;&#x4E0D;&#x80FD;&#x6E32;&#x67D3;&#xFF0C;&#x6211;&#x5C11;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x62A5;&#x9519;&#x4F46;&#x662F;&#x6B63;&#x5E38;&#x5207;&#x6362;&#x5E94;&#x7528;&#xFF0C;&#x867D;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x4E3B;&#x5E94;&#x7528;&#x80FD;&#x6B63;&#x786E;&#x6E32;&#x67D3;</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/微前端/" rel="tag"> <i class="fa fa-tag"></i> 微前端</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/10/23/微前端通信/" rel="next" title="微前端通信">
+                  <i class="fa fa-chevron-left"></i> 微前端通信
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/11/19/函数式编程之curry/" rel="prev" title="函数式编程之curry">
+                  函数式编程之curry <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册微应用"><span class="nav-number">1.</span> <span class="nav-text">注册微应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#其中-activeRule-我司采用数组形式匹配不同环境"><span class="nav-number">1.1.</span> <span class="nav-text">其中 activeRule 我司采用数组形式匹配不同环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其中-entry-我司匹配不同环境匹配不同地址"><span class="nav-number">1.2.</span> <span class="nav-text">其中 entry 我司匹配不同环境匹配不同地址</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动主应用"><span class="nav-number">2.</span> <span class="nav-text">启动主应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接入微应用"><span class="nav-number">3.</span> <span class="nav-text">接入微应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置微应用"><span class="nav-number">4.</span> <span class="nav-text">配置微应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">5.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-路由模式"><span class="nav-number">5.1.</span> <span class="nav-text">1.路由模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-报错"><span class="nav-number">5.2.</span> <span class="nav-text">2.报错</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-Uncaught-Error-application-‘micro-vue’-died-in-status-NOT-MOUNTED-qiankun-Target-container-with-frame-not-existed-while-micro-vue-mounting"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.Uncaught Error: application ‘micro-vue’ died in status NOT_MOUNTED: [qiankun] Target container with #frame not existed while micro-vue mounting!</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-Avoided-redundant-navigation-to-current-location"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.Avoided redundant navigation to current location:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-died-in-status-LOADING-SOURCE-CODE-qiankun-You-need-to-export-lifecycle-functions-in"><span class="nav-number">5.2.3.</span> <span class="nav-text">3.died in status LOADING_SOURCE_CODE: [qiankun] You need to export lifecycle functions in</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
