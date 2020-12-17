@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x7F13;&amp;#x5B58;&amp;#x7B56;&amp;#x7565;&amp;#x90FD;&amp;#x662F;&amp;#x901A;&amp;#x8FC7;&amp;#x8BBE;&amp;#x7F6E; HTTP Header &amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x3002;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x">
+<meta name="keywords" content="面试,浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存">
+<meta property="og:url" content="http://yoursite.com/2020/05/08/浏览器缓存/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x7F13;&amp;#x5B58;&amp;#x7B56;&amp;#x7565;&amp;#x90FD;&amp;#x662F;&amp;#x901A;&amp;#x8FC7;&amp;#x8BBE;&amp;#x7F6E; HTTP Header &amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x3002;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/08/浏览器缓存/Cache-Control.jpg">
+<meta property="og:updated_time" content="2020-12-17T09:12:03.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器缓存">
+<meta name="twitter:description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x7F13;&amp;#x5B58;&amp;#x7B56;&amp;#x7565;&amp;#x90FD;&amp;#x662F;&amp;#x901A;&amp;#x8FC7;&amp;#x8BBE;&amp;#x7F6E; HTTP Header &amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x3002;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/08/浏览器缓存/Cache-Control.jpg">
+  <link rel="canonical" href="http://yoursite.com/2020/05/08/浏览器缓存/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>浏览器缓存 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/08/浏览器缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">浏览器缓存
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-08 15:19:02" itemprop="dateCreated datePublished" datetime="2020-05-08T15:19:02+08:00">2020-05-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-17 17:12:03" itemprop="dateModified" datetime="2020-12-17T17:12:03+08:00">2020-12-17</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/08/浏览器缓存/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/05/08/浏览器缓存/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;"></a>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</h4><p>&#x7F13;&#x5B58;&#x7B56;&#x7565;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; HTTP Header &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;<br>&#x6D4F;&#x89C8;&#x5668;&#x6BCF;&#x6B21;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x4F1A;&#x5148;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x4E2D;&#x67E5;&#x627E;&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#x4EE5;&#x53CA;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x3002;<br>&#x6D4F;&#x89C8;&#x5668;&#x6BCF;&#x6B21;&#x62FF;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;&#x90FD;&#x4F1A;&#x5C06;&#x8BE5;&#x7ED3;&#x679C;&#x548C;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x5B58;&#x5165;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x4E2D;&#x3002;</p><a id="more"></a>
+<h5 id="&#x5F3A;&#x7F13;&#x5B58;"><a href="#&#x5F3A;&#x7F13;&#x5B58;" class="headerlink" title="&#x5F3A;&#x7F13;&#x5B58;"></a>&#x5F3A;&#x7F13;&#x5B58;</h5><p>&#x5F3A;&#x7F13;&#x5B58;&#xFF1A;&#x4E0D;&#x4F1A;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x76F4;&#x63A5;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x8BFB;&#x53D6;&#x8D44;&#x6E90;&#xFF0C;&#x5728;chrome&#x63A7;&#x5236;&#x53F0;&#x7684;Network&#x9009;&#x9879;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BE5;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;200&#x7684;&#x72B6;&#x6001;&#x7801;&#xFF0C;<br>&#x5E76;&#x4E14;Size&#x663E;&#x793A;from disk cache&#x6216;from memory cache&#x3002;&#x5F3A;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E24;&#x79CD; HTTP Header &#x5B9E;&#x73B0;&#xFF1A;Expires &#x548C; Cache-Control&#x3002;</p>
+<h6 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h6><p>&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8D44;&#x6E90;&#x5230;&#x671F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x5177;&#x4F53;&#x7684;&#x65F6;&#x95F4;&#x70B9;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;Expires=max-age + &#x8BF7;&#x6C42;&#x65F6;&#x95F4;&#xFF0C;<br>&#x9700;&#x8981;&#x548C;Last-modified&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x3002;Expires&#x662F;Web&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x5934;&#x5B57;&#x6BB5;&#xFF0C;&#x5728;&#x54CD;&#x5E94;http&#x8BF7;&#x6C42;&#x65F6;&#x544A;&#x8BC9;&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x53D6;&#x6570;&#x636E;&#xFF0C;<br>&#x800C;&#x65E0;&#x9700;&#x518D;&#x6B21;&#x8BF7;&#x6C42;&#x3002;Expires &#x662F; HTTP/1 &#x7684;&#x4EA7;&#x7269;&#xFF0C;&#x53D7;&#x9650;&#x4E8E;&#x672C;&#x5730;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x4E86;&#x672C;&#x5730;&#x65F6;&#x95F4;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x3002;<br>Expires: Wed, 22 Oct 2018 08:41:00 GMT&#x8868;&#x793A;&#x8D44;&#x6E90;&#x4F1A;&#x5728; Wed, 22 Oct 2018 08:41:00 GMT &#x540E;&#x8FC7;&#x671F;&#xFF0C;&#x9700;&#x8981;&#x518D;&#x6B21;&#x8BF7;&#x6C42;&#x3002;</p>
+<h6 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h6><p>&#x5728;HTTP/1.1&#x4E2D;&#xFF0C;Cache-Control&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x7F51;&#x9875;&#x7F13;&#x5B58;&#x3002;&#x6BD4;&#x5982;&#x5F53;Cache-Control:max-age=300&#x65F6;&#xFF0C;<br>&#x5219;&#x4EE3;&#x8868;&#x5728;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x6B63;&#x786E;&#x8FD4;&#x56DE;&#x65F6;&#x95F4;&#xFF08;&#x6D4F;&#x89C8;&#x5668;&#x4E5F;&#x4F1A;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF09;&#x7684;5&#x5206;&#x949F;&#x5185;&#x518D;&#x6B21;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;&#xFF0C;&#x5C31;&#x4F1A;&#x547D;&#x4E2D;&#x5F3A;&#x7F13;&#x5B58;&#x3002;<br>Cache-Control &#x53EF;&#x4EE5;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x6216;&#x8005;&#x54CD;&#x5E94;&#x5934;&#x4E2D;&#x8BBE;&#x7F6E;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x591A;&#x79CD;&#x6307;&#x4EE4;&#xFF1A;<br><img src="/2020/05/08/&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;/Cache-Control.jpg" alt="Cache-Control"></p>
+<h6 id="Expires&#x548C;Cache-Control&#x5BF9;&#x6BD4;"><a href="#Expires&#x548C;Cache-Control&#x5BF9;&#x6BD4;" class="headerlink" title="Expires&#x548C;Cache-Control&#x5BF9;&#x6BD4;"></a>Expires&#x548C;Cache-Control&#x5BF9;&#x6BD4;</h6><p>&#x5176;&#x5B9E;&#x8FD9;&#x4E24;&#x8005;&#x5DEE;&#x522B;&#x4E0D;&#x5927;&#xFF0C;&#x533A;&#x522B;&#x5C31;&#x5728;&#x4E8E; Expires &#x662F;http1.0&#x7684;&#x4EA7;&#x7269;&#xFF0C;Cache-Control&#x662F;http1.1&#x7684;&#x4EA7;&#x7269;&#xFF0C;&#x4E24;&#x8005;&#x540C;&#x65F6;&#x5B58;&#x5728;&#x7684;&#x8BDD;&#xFF0C;<br>Cache-Control&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x4E8E;Expires&#xFF1B;&#x5728;&#x67D0;&#x4E9B;&#x4E0D;&#x652F;&#x6301;HTTP1.1&#x7684;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;Expires&#x5C31;&#x4F1A;&#x53D1;&#x6325;&#x7528;&#x5904;&#x3002;&#x6240;&#x4EE5;Expires&#x5176;&#x5B9E;&#x662F;&#x8FC7;&#x65F6;&#x7684;&#x4EA7;&#x7269;&#xFF0C;<br>&#x73B0;&#x9636;&#x6BB5;&#x5B83;&#x7684;&#x5B58;&#x5728;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x517C;&#x5BB9;&#x6027;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x5F3A;&#x7F13;&#x5B58;&#x5224;&#x65AD;&#x662F;&#x5426;&#x7F13;&#x5B58;&#x7684;&#x4F9D;&#x636E;&#x6765;&#x81EA;&#x4E8E;&#x662F;&#x5426;&#x8D85;&#x51FA;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6216;&#x8005;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#xFF0C;&#x800C;&#x4E0D;&#x5173;&#x5FC3;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x66F4;&#x65B0;&#xFF0C;<br>&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x4E0D;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6700;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x83B7;&#x77E5;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5185;&#x5BB9;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x4E86;&#x66F4;&#x65B0;&#x5462;&#xFF1F;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x5230;&#x534F;&#x5546;&#x7F13;&#x5B58;&#x7B56;&#x7565;&#x3002;</p>
+<h5 id="&#x534F;&#x5546;&#x7F13;&#x5B58;"><a href="#&#x534F;&#x5546;&#x7F13;&#x5B58;" class="headerlink" title="&#x534F;&#x5546;&#x7F13;&#x5B58;"></a>&#x534F;&#x5546;&#x7F13;&#x5B58;</h5><p>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x5C31;&#x662F;&#x5F3A;&#x5236;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x540E;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x643A;&#x5E26;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x7531;&#x670D;&#x52A1;&#x5668;&#x6839;&#x636E;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;<br>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x751F;&#x6548;&#xFF0C;&#x8FD4;&#x56DE;304&#x548C;Not Modified<br>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x5931;&#x6548;&#xFF0C;&#x8FD4;&#x56DE;200&#x548C;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;<br>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E24;&#x79CD; HTTP Header &#x5B9E;&#x73B0;&#xFF1A;Last-Modified &#x548C; ETag &#x3002;</p>
+<h6 id="Last-Modified-&#x548C;-If-Modified-Since"><a href="#Last-Modified-&#x548C;-If-Modified-Since" class="headerlink" title="Last-Modified &#x548C; If-Modified-Since"></a>Last-Modified &#x548C; If-Modified-Since</h6><p>&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x8D44;&#x6E90;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x5728;response header&#x4E2D;&#x6DFB;&#x52A0; Last-Modified &#x7684;header&#xFF0C;<br>&#x503C;&#x662F;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x63A5;&#x6536;&#x540E;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x548C; header&#xFF1B;<br>&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x68C0;&#x6D4B;&#x5230;&#x6709; Last-Modified&#x8FD9;&#x4E2A;header&#xFF0C;&#x4E8E;&#x662F;&#x6DFB;&#x52A0;If-Modified-Since&#x8FD9;&#x4E2A;header&#xFF0C;<br>&#x503C;&#x5C31;&#x662F;Last-Modified&#x4E2D;&#x7684;&#x503C;&#xFF1B;&#x670D;&#x52A1;&#x5668;&#x518D;&#x6B21;&#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x8BF7;&#x6C42;&#xFF0C;&#x4F1A;&#x6839;&#x636E; If-Modified-Since &#x4E2D;&#x7684;&#x503C;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x5BF9;&#x6BD4;&#xFF0C;<br>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#xFF0C;&#x8FD4;&#x56DE;304&#x548C;&#x7A7A;&#x7684;&#x54CD;&#x5E94;&#x4F53;&#xFF0C;&#x76F4;&#x63A5;&#x4ECE;&#x7F13;&#x5B58;&#x8BFB;&#x53D6;&#xFF0C;&#x5982;&#x679C;If-Modified-Since&#x7684;&#x65F6;&#x95F4;&#x5C0F;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF0C;&#x8BF4;&#x660E;&#x6587;&#x4EF6;&#x6709;&#x66F4;&#x65B0;&#xFF0C;&#x4E8E;&#x662F;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x548C;200&#x3002;</p>
+<h6 id="&#x5F0A;&#x7AEF;"><a href="#&#x5F0A;&#x7AEF;" class="headerlink" title="&#x5F0A;&#x7AEF;"></a>&#x5F0A;&#x7AEF;</h6><p>&#x5982;&#x679C;&#x672C;&#x5730;&#x6253;&#x5F00;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x5BF9;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x8FD8;&#x662F;&#x4F1A;&#x9020;&#x6210; Last-Modified &#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x4E0D;&#x80FD;&#x547D;&#x4E2D;&#x7F13;&#x5B58;&#x5BFC;&#x81F4;&#x53D1;&#x9001;&#x76F8;&#x540C;&#x7684;&#x8D44;&#x6E90;<br>&#x56E0;&#x4E3A; Last-Modified &#x53EA;&#x80FD;&#x4EE5;&#x79D2;&#x8BA1;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x4E0D;&#x53EF;&#x611F;&#x77E5;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x4FEE;&#x6539;&#x5B8C;&#x6210;&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x8BA4;&#x4E3A;&#x8D44;&#x6E90;&#x8FD8;&#x662F;&#x547D;&#x4E2D;&#x4E86;&#xFF0C;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x6B63;&#x786E;&#x7684;&#x8D44;&#x6E90;</p>
+<h6 id="ETag-&#x548C;-If-None-Match"><a href="#ETag-&#x548C;-If-None-Match" class="headerlink" title="ETag &#x548C; If-None-Match"></a>ETag &#x548C; If-None-Match</h6><p>Etag &#x662F;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x6807;&#x8BC6;(&#x7531;&#x670D;&#x52A1;&#x5668;&#x751F;&#x6210;)&#xFF0C;&#x53EA;&#x8981;&#x8D44;&#x6E90;&#x6709;&#x53D8;&#x5316;&#xFF0C;Etag&#x5C31;&#x4F1A;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x3002;<br>&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x4F1A;&#x5C06;&#x4E0A;&#x4E00;&#x6B21;&#x8FD4;&#x56DE;&#x7684;Etag&#x503C;&#x653E;&#x5230;request header&#x91CC;&#x7684;If-None-Match&#x91CC;&#xFF0C;<br>&#x670D;&#x52A1;&#x5668;&#x53EA;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x6765;&#x7684;If-None-Match&#x8DDF;&#x81EA;&#x5DF1;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x8BE5;&#x8D44;&#x6E90;&#x7684;ETag&#x662F;&#x5426;&#x4E00;&#x81F4;&#xFF0C;&#x5C31;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5224;&#x65AD;&#x8D44;&#x6E90;&#x76F8;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x800C;&#x8A00;&#x662F;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#x8FC7;&#x4E86;&#x3002;<br>&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x73B0;ETag&#x5339;&#x914D;&#x4E0D;&#x4E0A;&#xFF0C;&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x4EE5;&#x5E38;&#x89C4;GET 200&#x56DE;&#x5305;&#x5F62;&#x5F0F;&#x5C06;&#x65B0;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x5F53;&#x7136;&#x4E5F;&#x5305;&#x62EC;&#x4E86;&#x65B0;&#x7684;ETag&#xFF09;&#x53D1;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1B;&#x5982;&#x679C;ETag&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;304&#x77E5;&#x4F1A;&#x5BA2;&#x6237;&#x7AEF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x5373;&#x53EF;&#x3002;</p>
+<h6 id="&#x5BF9;&#x6BD4;"><a href="#&#x5BF9;&#x6BD4;" class="headerlink" title="&#x5BF9;&#x6BD4;"></a>&#x5BF9;&#x6BD4;</h6><p>&#x9996;&#x5148;&#x5728;&#x7CBE;&#x786E;&#x5EA6;&#x4E0A;&#xFF0C;Etag&#x8981;&#x4F18;&#x4E8E;Last-Modified&#x3002;Last-Modified&#x7684;&#x65F6;&#x95F4;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5728;1&#x79D2;&#x5185;&#x6539;&#x53D8;&#x4E86;&#x591A;&#x6B21;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x4EEC;&#x7684;Last-Modified&#x5176;&#x5B9E;&#x5E76;&#x6CA1;&#x6709;&#x4F53;&#x73B0;&#x51FA;&#x6765;&#x4FEE;&#x6539;&#xFF0C;<br>&#x4F46;&#x662F;Etag&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x6539;&#x53D8;&#x786E;&#x4FDD;&#x4E86;&#x7CBE;&#x5EA6;&#xFF1B;&#x5982;&#x679C;&#x662F;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5404;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x751F;&#x6210;&#x7684;Last-Modified&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x4E0D;&#x4E00;&#x81F4;&#x3002;<br>&#x7B2C;&#x4E8C;&#x5728;&#x6027;&#x80FD;&#x4E0A;&#xFF0C;Etag&#x8981;&#x900A;&#x4E8E;Last-Modified&#xFF0C;&#x6BD5;&#x7ADF;Last-Modified&#x53EA;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x65F6;&#x95F4;&#xFF0C;&#x800C;Etag&#x9700;&#x8981;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8FC7;&#x7B97;&#x6CD5;&#x6765;&#x8BA1;&#x7B97;&#x51FA;&#x4E00;&#x4E2A;hash&#x503C;&#x3002;<br>&#x7B2C;&#x4E09;&#x5728;&#x4F18;&#x5148;&#x7EA7;&#x4E0A;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x6821;&#x9A8C;&#x4F18;&#x5148;&#x8003;&#x8651;Etag</p>
+<h5 id="&#x7F13;&#x5B58;&#x673A;&#x5236;"><a href="#&#x7F13;&#x5B58;&#x673A;&#x5236;" class="headerlink" title="&#x7F13;&#x5B58;&#x673A;&#x5236;"></a>&#x7F13;&#x5B58;&#x673A;&#x5236;</h5><p>&#x5F3A;&#x5236;&#x7F13;&#x5B58;&#x4F18;&#x5148;&#x4E8E;&#x534F;&#x5546;&#x7F13;&#x5B58;&#x8FDB;&#x884C;&#xFF0C;&#x82E5;&#x5F3A;&#x5236;&#x7F13;&#x5B58;(Expires&#x548C;Cache-Control)&#x751F;&#x6548;&#x5219;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x82E5;&#x4E0D;&#x751F;&#x6548;&#x5219;&#x8FDB;&#x884C;&#x534F;&#x5546;&#x7F13;&#x5B58;(Last-Modified / If-Modified-Since&#x548C;Etag / If-None-Match)&#xFF0C;<br>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x7531;&#x670D;&#x52A1;&#x5668;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x82E5;&#x534F;&#x5546;&#x7F13;&#x5B58;&#x5931;&#x6548;&#xFF0C;&#x90A3;&#x4E48;&#x4EE3;&#x8868;&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x7F13;&#x5B58;&#x5931;&#x6548;&#xFF0C;&#x8FD4;&#x56DE;200&#xFF0C;&#x91CD;&#x65B0;&#x8FD4;&#x56DE;&#x8D44;&#x6E90;&#x548C;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#xFF0C;&#x518D;&#x5B58;&#x5165;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x4E2D;&#xFF1B;&#x751F;&#x6548;&#x5219;&#x8FD4;&#x56DE;304&#xFF0C;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x3002;</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/面试/" rel="tag"> <i class="fa fa-tag"></i> 面试</a>
+            
+              <a href="/tags/浏览器/" rel="tag"> <i class="fa fa-tag"></i> 浏览器</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/05/07/面试题/" rel="next" title="面试题">
+                  <i class="fa fa-chevron-left"></i> 面试题
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/05/09/水平垂直居中/" rel="prev" title="水平垂直居中">
+                  水平垂直居中 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Expires"><span class="nav-number">1.1.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.1.2.</span> <span class="nav-text">Cache-Control</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Expires和Cache-Control对比"><span class="nav-number">1.1.3.</span> <span class="nav-text">Expires和Cache-Control对比</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Last-Modified-和-If-Modified-Since"><span class="nav-number">1.2.1.</span> <span class="nav-text">Last-Modified 和 If-Modified-Since</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#弊端"><span class="nav-number">1.2.2.</span> <span class="nav-text">弊端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ETag-和-If-None-Match"><span class="nav-number">1.2.3.</span> <span class="nav-text">ETag 和 If-None-Match</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对比"><span class="nav-number">1.2.4.</span> <span class="nav-text">对比</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存机制"><span class="nav-number">1.3.</span> <span class="nav-text">缓存机制</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>

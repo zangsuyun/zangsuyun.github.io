@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x5728;&amp;#x8FDB;&amp;#x884C;&amp;#x7A97;&amp;#x53E3;&amp;#x7684;resize&amp;#x3001;scroll&amp;#xFF0C;&amp;#x8F93;&amp;#x5165;&amp;#x6846;&amp;#x5185;&amp;#x5BB9;&amp;#x6821;&amp;#x9A8C;&amp;#x7B49;&amp;#x64CD;&amp;#x4F5C;&amp;#x65F6;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x4E8B;&amp;#x4">
+<meta name="keywords" content="JavaScript,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js防抖和节流">
+<meta property="og:url" content="http://yoursite.com/2020/05/17/js防抖和节流/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x5728;&amp;#x8FDB;&amp;#x884C;&amp;#x7A97;&amp;#x53E3;&amp;#x7684;resize&amp;#x3001;scroll&amp;#xFF0C;&amp;#x8F93;&amp;#x5165;&amp;#x6846;&amp;#x5185;&amp;#x5BB9;&amp;#x6821;&amp;#x9A8C;&amp;#x7B49;&amp;#x64CD;&amp;#x4F5C;&amp;#x65F6;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x4E8B;&amp;#x4">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-17T09:13:16.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js防抖和节流">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x8FDB;&amp;#x884C;&amp;#x7A97;&amp;#x53E3;&amp;#x7684;resize&amp;#x3001;scroll&amp;#xFF0C;&amp;#x8F93;&amp;#x5165;&amp;#x6846;&amp;#x5185;&amp;#x5BB9;&amp;#x6821;&amp;#x9A8C;&amp;#x7B49;&amp;#x64CD;&amp;#x4F5C;&amp;#x65F6;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x4E8B;&amp;#x4">
+  <link rel="canonical" href="http://yoursite.com/2020/05/17/js防抖和节流/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>js防抖和节流 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/17/js防抖和节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">js防抖和节流
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-17 15:36:53" itemprop="dateCreated datePublished" datetime="2020-05-17T15:36:53+08:00">2020-05-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-17 17:13:16" itemprop="dateModified" datetime="2020-12-17T17:13:16+08:00">2020-12-17</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/17/js防抖和节流/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/05/17/js防抖和节流/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>&#x5728;&#x8FDB;&#x884C;&#x7A97;&#x53E3;&#x7684;resize&#x3001;scroll&#xFF0C;&#x8F93;&#x5165;&#x6846;&#x5185;&#x5BB9;&#x6821;&#x9A8C;&#x7B49;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x9891;&#x7387;&#x65E0;&#x9650;&#x5236;&#xFF0C;&#x4F1A;&#x52A0;&#x91CD;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8D1F;&#x62C5;&#xFF0C;&#x5BFC;&#x81F4;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x975E;&#x5E38;&#x7CDF;&#x7CD5;&#x3002;<br>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91C7;&#x7528;debounce&#xFF08;&#x9632;&#x6296;&#xFF09;&#x548C;throttle&#xFF08;&#x8282;&#x6D41;&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x51CF;&#x5C11;&#x8C03;&#x7528;&#x9891;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x53C8;&#x4E0D;&#x5F71;&#x54CD;&#x5B9E;&#x9645;&#x6548;&#x679C;&#x3002;</p><a id="more"></a>
+<h5 id="&#x51FD;&#x6570;&#x9632;&#x6296;"><a href="#&#x51FD;&#x6570;&#x9632;&#x6296;" class="headerlink" title="&#x51FD;&#x6570;&#x9632;&#x6296;"></a>&#x51FD;&#x6570;&#x9632;&#x6296;</h5><p>&#x51FD;&#x6570;&#x9632;&#x6296;&#xFF08;debounce&#xFF09;&#xFF1A;&#x5F53;&#x6301;&#x7EED;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x6CA1;&#x6709;&#x518D;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#xFF0C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5230;&#x6765;&#x4E4B;&#x524D;&#xFF0C;&#x53C8;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x4E86;&#x4E8B;&#x4EF6;&#xFF0C;&#x5C31;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x5EF6;&#x65F6;</p>
+<h6 id="&#x9632;&#x6296;debounce&#x4EE3;&#x7801;&#xFF1A;"><a href="#&#x9632;&#x6296;debounce&#x4EE3;&#x7801;&#xFF1A;" class="headerlink" title="&#x9632;&#x6296;debounce&#x4EE3;&#x7801;&#xFF1A;"></a>&#x9632;&#x6296;debounce&#x4EE3;&#x7801;&#xFF1A;</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x9632;&#x6296;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, wait</span>) </span>{    </span><br><span class="line">    <span class="keyword">var</span> timeout = <span class="literal">null</span>;    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{        </span><br><span class="line">        <span class="keyword">if</span>(timeout !== <span class="literal">null</span>)   clearTimeout(timeout);        </span><br><span class="line">        timeout = setTimeout(fn, wait);    </span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">// &#x5904;&#x7406;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>{    </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random()); </span><br><span class="line">}</span><br><span class="line"><span class="comment">// &#x6EDA;&#x52A8;&#x4E8B;&#x4EF6;</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&apos;scroll&apos;</span>, debounce(handle, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+
+<p>&#x5F53;&#x6301;&#x7EED;&#x89E6;&#x53D1;scroll&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;handle&#x53EA;&#x5728;&#x505C;&#x6B62;&#x6EDA;&#x52A8;1000&#x6BEB;&#x79D2;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5728;&#x6301;&#x7EED;&#x89E6;&#x53D1;scroll&#x4E8B;&#x4EF6;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;handle&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x3002;</p>
+<h5 id="&#x51FD;&#x6570;&#x8282;&#x6D41;"><a href="#&#x51FD;&#x6570;&#x8282;&#x6D41;" class="headerlink" title="&#x51FD;&#x6570;&#x8282;&#x6D41;"></a>&#x51FD;&#x6570;&#x8282;&#x6D41;</h5><p>&#x51FD;&#x6570;&#x8282;&#x6D41;&#xFF08;throttle&#xFF09;&#xFF1A;&#x5F53;&#x6301;&#x7EED;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;&#x8282;&#x6D41;&#x901A;&#x4FD7;&#x89E3;&#x91CA;&#x5C31;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x6C34;&#x9F99;&#x5934;&#x653E;&#x6C34;&#xFF0C;<br>&#x9600;&#x95E8;&#x4E00;&#x6253;&#x5F00;&#xFF0C;&#x6C34;&#x54D7;&#x54D7;&#x7684;&#x5F80;&#x4E0B;&#x6D41;&#xFF0C;&#x79C9;&#x7740;&#x52E4;&#x4FED;&#x8282;&#x7EA6;&#x7684;&#x4F18;&#x826F;&#x4F20;&#x7EDF;&#x7F8E;&#x5FB7;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x628A;&#x6C34;&#x9F99;&#x5934;&#x5173;&#x5C0F;&#x70B9;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x5982;&#x6211;&#x4EEC;&#x5FC3;&#x610F;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x89C4;&#x5F8B;&#x5728;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x5185;&#x4E00;&#x6EF4;&#x4E00;&#x6EF4;&#x7684;&#x5F80;&#x4E0B;&#x6EF4;&#x3002;</p>
+<h6 id="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;&#xFF09;&#xFF1A;"><a href="#&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;&#xFF09;&#xFF1A;" class="headerlink" title="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;&#xFF09;&#xFF1A;"></a>&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;&#xFF09;&#xFF1A;</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">func, delay</span>) </span>{            </span><br><span class="line">&#x3000;&#x3000;<span class="keyword">var</span> prev = <span class="built_in">Date</span>.now();            </span><br><span class="line">&#x3000;&#x3000;<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{                </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;<span class="keyword">var</span> context = <span class="keyword">this</span>;                </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;<span class="keyword">var</span> args = <span class="built_in">arguments</span>;                </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;<span class="keyword">var</span> now = <span class="built_in">Date</span>.now();                </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;<span class="keyword">if</span> (now - prev &gt;= delay) {                    </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;func.apply(context, args);                    </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;prev = <span class="built_in">Date</span>.now();                </span><br><span class="line">&#x3000;&#x3000;&#x3000;&#x3000;}            </span><br><span class="line">&#x3000;&#x3000;}        </span><br><span class="line">}        </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>{            </span><br><span class="line">&#x3000;&#x3000;<span class="built_in">console</span>.log(<span class="built_in">Math</span>.random());        </span><br><span class="line">}        </span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&apos;scroll&apos;</span>, throttle(handle, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+
+<h6 id="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;"><a href="#&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;" class="headerlink" title="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;"></a>&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle=<span class="function"><span class="keyword">function</span> (<span class="params">fun,delay</span>)</span>{</span><br><span class="line">	<span class="keyword">var</span> timer=<span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">		<span class="keyword">var</span> context=<span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">var</span> args=<span class="built_in">arguments</span>;</span><br><span class="line">		<span class="keyword">if</span>(!timer){</span><br><span class="line">			timer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">				fun.apply(context,args);</span><br><span class="line">				timer=<span class="literal">null</span>;</span><br><span class="line">			},delay)</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>{            </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random());        </span><br><span class="line">}        </span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&apos;scroll&apos;</span>, throttle(handle, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+
+<p>&#x5F53;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x518D;&#x6B21;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x5B9A;&#x65F6;&#x5668;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4E0D;&#x6267;&#x884C;&#xFF0C;&#x76F4;&#x5230;delay&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x5B9A;&#x65F6;&#x5668;&#x6267;&#x884C;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;<br>&#x5E76;&#x4E14;&#x6E05;&#x7A7A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E0B;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#x3002;&#x5F53;&#x7B2C;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x662F;&#x5728;delay&#x79D2;&#x540E;&#x624D;&#x6267;&#x884C;&#x3002;<br>&#x800C;&#x540E;&#x518D;&#x600E;&#x4E48;&#x9891;&#x7E41;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#xFF0C;&#x4E5F;&#x90FD;&#x662F;&#x6BCF;delay&#x65F6;&#x95F4;&#x624D;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x5F53;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x505C;&#x6B62;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x7531;&#x4E8E;&#x5B9A;&#x65F6;&#x5668;&#x7684;delay&#x5EF6;&#x8FDF;&#xFF0C;&#x53EF;&#x80FD;&#x8FD8;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x3002;</p>
+<h6 id="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;-&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;"><a href="#&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;-&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;" class="headerlink" title="&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;+&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;"></a>&#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;+&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x8282;&#x6D41;throttle&#x4EE3;&#x7801;&#xFF08;&#x65F6;&#x95F4;&#x6233;+&#x5B9A;&#x65F6;&#x5668;&#xFF09;&#xFF1A;</span></span><br><span class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">func, delay</span>) </span>{     </span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span>;     </span><br><span class="line">    <span class="keyword">var</span> startTime = <span class="built_in">Date</span>.now();     </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{             </span><br><span class="line">        <span class="keyword">var</span> curTime = <span class="built_in">Date</span>.now();             </span><br><span class="line">        <span class="keyword">var</span> remaining = delay - (curTime - startTime);             </span><br><span class="line">        <span class="keyword">var</span> context = <span class="keyword">this</span>;             </span><br><span class="line">        <span class="keyword">var</span> args = <span class="built_in">arguments</span>;             </span><br><span class="line">        clearTimeout(timer);              </span><br><span class="line">        <span class="keyword">if</span> (remaining &lt;= <span class="number">0</span>) {                    </span><br><span class="line">            func.apply(context, args);                    </span><br><span class="line">            startTime = <span class="built_in">Date</span>.now();              </span><br><span class="line">        } <span class="keyword">else</span> {                    </span><br><span class="line">            timer = setTimeout(func, remaining);              </span><br><span class="line">        }      </span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>{      </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.random());</span><br><span class="line">} </span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&apos;scroll&apos;</span>, throttle(handle, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728;&#x8282;&#x6D41;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x5F00;&#x59CB;&#x65F6;&#x95F4;startTime&#x3001;&#x5F53;&#x524D;&#x65F6;&#x95F4;curTime&#x4E0E;delay&#x6765;&#x8BA1;&#x7B97;&#x5269;&#x4F59;&#x65F6;&#x95F4;remaining&#xFF0C;&#x5F53;remaining&lt;=0&#x65F6;&#x8868;&#x793A;&#x8BE5;&#x6267;&#x884C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x4E86;<br>&#xFF08;&#x4FDD;&#x8BC1;&#x4E86;&#x7B2C;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x5C31;&#x80FD;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x548C;&#x6BCF;&#x9694;delay&#x65F6;&#x95F4;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF09;&#x3002;&#x5982;&#x679C;&#x8FD8;&#x6CA1;&#x5230;&#x65F6;&#x95F4;&#x7684;&#x8BDD;&#x5C31;&#x8BBE;&#x5B9A;&#x5728;remaining&#x65F6;&#x95F4;&#x540E;&#x518D;&#x89E6;&#x53D1;<br>&#xFF08;&#x4FDD;&#x8BC1;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x540E;&#x8FD8;&#x80FD;&#x518D;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF09;&#x3002;&#x5F53;&#x7136;&#x5728;remaining&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x4E2D;&#x5982;&#x679C;&#x53C8;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x53D6;&#x6D88;&#x5F53;&#x524D;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;remaining&#x6765;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h4><p>&#x51FD;&#x6570;&#x9632;&#x6296;&#xFF1A;&#x5C06;&#x51E0;&#x6B21;&#x64CD;&#x4F5C;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x6B64;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x3002;&#x539F;&#x7406;&#x662F;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x8BA1;&#x65F6;&#x5668;&#xFF0C;&#x89C4;&#x5B9A;&#x5728;delay&#x65F6;&#x95F4;&#x540E;&#x89E6;&#x53D1;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5728;delay&#x65F6;&#x95F4;&#x5185;&#x518D;&#x6B21;&#x89E6;&#x53D1;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x53D6;&#x6D88;&#x4E4B;&#x524D;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x800C;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x53EA;&#x6709;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#x80FD;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x51FD;&#x6570;&#x8282;&#x6D41;&#xFF1A;&#x4F7F;&#x5F97;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x53EA;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x3002;&#x539F;&#x7406;&#x662F;&#x901A;&#x8FC7;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5230;&#x8FBE;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x6765;&#x89E6;&#x53D1;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x533A;&#x522B;&#xFF1A; &#x51FD;&#x6570;&#x8282;&#x6D41;&#x4E0D;&#x7BA1;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x6709;&#x591A;&#x9891;&#x7E41;&#xFF0C;&#x90FD;&#x4F1A;&#x4FDD;&#x8BC1;&#x5728;&#x89C4;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x4E00;&#x5B9A;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x771F;&#x6B63;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x51FD;&#x6570;&#x9632;&#x6296;&#x53EA;&#x662F;&#x5728;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x540E;&#x624D;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x3002;<br> &#x6BD4;&#x5982;&#x5728;&#x9875;&#x9762;&#x7684;&#x65E0;&#x9650;&#x52A0;&#x8F7D;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x6237;&#x5728;&#x6EDA;&#x52A8;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x6BCF;&#x9694;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x53D1;&#x4E00;&#x6B21; Ajax &#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x7528;&#x6237;&#x505C;&#x4E0B;&#x6EDA;&#x52A8;&#x9875;&#x9762;&#x64CD;&#x4F5C;&#x65F6;&#x624D;&#x53BB;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x5C31;&#x9002;&#x5408;&#x7528;&#x8282;&#x6D41;&#x6280;&#x672F;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+            
+              <a href="/tags/面试/" rel="tag"> <i class="fa fa-tag"></i> 面试</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/05/16/webpack基本配置/" rel="next" title="webpack基本配置">
+                  <i class="fa fa-chevron-left"></i> webpack基本配置
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/08/13/项目中遇到的坑/" rel="prev" title="项目中遇到的坑">
+                  项目中遇到的坑 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数防抖"><span class="nav-number">1.</span> <span class="nav-text">函数防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#防抖debounce代码："><span class="nav-number">1.1.</span> <span class="nav-text">防抖debounce代码：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数节流"><span class="nav-number">2.</span> <span class="nav-text">函数节流</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#节流throttle代码（时间戳）："><span class="nav-number">2.1.</span> <span class="nav-text">节流throttle代码（时间戳）：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#节流throttle代码（定时器）："><span class="nav-number">2.2.</span> <span class="nav-text">节流throttle代码（定时器）：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#节流throttle代码（时间戳-定时器）："><span class="nav-number">2.3.</span> <span class="nav-text">节流throttle代码（时间戳+定时器）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>

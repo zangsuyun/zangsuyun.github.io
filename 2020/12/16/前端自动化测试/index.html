@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;&amp;#x524D;&amp;#x8A00;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;?">
+<meta name="keywords" content="工程化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端自动化测试">
+<meta property="og:url" content="http://yoursite.com/2020/12/16/前端自动化测试/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;&amp;#x524D;&amp;#x8A00;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;?">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-16T09:18:13.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端自动化测试">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;&amp;#x524D;&amp;#x8A00;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x524D;&amp;#x7AEF;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x6D4B;&amp;#x8BD5;?">
+  <link rel="canonical" href="http://yoursite.com/2020/12/16/前端自动化测试/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>前端自动化测试 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/16/前端自动化测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">前端自动化测试
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-16 17:17:30 / 修改时间：17:18:13" itemprop="dateCreated datePublished" datetime="2020-12-16T17:17:30+08:00">2020-12-16</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/16/前端自动化测试/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/12/16/前端自动化测试/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;"><a href="#&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;"></a>&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;</h1><h3 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h3><p><strong>&#x4EC0;&#x4E48;&#x662F;&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;?</strong></p><a id="more"></a>
+<p>&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x53EF;&#x8BFB;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x901A;&#x8FC7;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x68C0;&#x6D4B;&#x4F60;&#x7684;css&#x6539;&#x52A8;&#x662F;&#x5426;&#x5BFC;&#x81F4;&#x9875;&#x9762;&#x9519;&#x4F4D;&#x3001;js&#x6539;&#x52A8;&#x662F;&#x5426;&#x5BFC;&#x81F4;&#x529F;&#x80FD;&#x4E0D;&#x6B63;&#x5E38;&#x3002;&#x51CF;&#x5C11;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x4EE5;&#x53CA;&#x4EBA;&#x5DE5;&#x6D4B;&#x8BD5;&#x7684;&#x9057;&#x6F0F;&#x3002;</p>
+<p><strong>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x505A;&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#xFF1F;</strong></p>
+<p>&#x540C;&#x4E0A;&#xFF0C;</p>
+<ol>
+<li>&#x8FED;&#x4EE3;&#x65F6;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x6A21;&#x5757;</li>
+<li>&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x8D28;&#x91CF;</li>
+<li>&#x4E00;&#x5B9A;&#x7684;&#x6587;&#x6863;&#x4F5C;&#x7528;&#xFF08;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x63CF;&#x8FF0;&#x4E86;&#x89E3;&#x6A21;&#x5757;&#x7684;&#x903B;&#x8F91;&#xFF09;</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5C31;&#x662F;&#x7B2C;&#x4E00;&#x6761;&#xFF1A;&#x51CF;&#x5C11; bug &#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7684; bug &#x6570;&#x3002;</p>
+<h3 id="&#x5E94;&#x7528;&#x573A;&#x666F;"><a href="#&#x5E94;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x5E94;&#x7528;&#x573A;&#x666F;"></a>&#x5E94;&#x7528;&#x573A;&#x666F;</h3><p><strong>&#x4E00;&#x3001;&#x7ED9;&#x4E1A;&#x52A1;&#x4E3B;&#x6D41;&#x7A0B;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</strong><br>&#x5F53;&#x6211;&#x4EEC;&#x6539;&#x52A8;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E3B;&#x6D41;&#x7A0B;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4F1A;&#x91CD;&#x65B0;&#x8DD1;&#x4E00;&#x904D;&#xFF0C;&#x5982;&#x679C;&#x5F71;&#x54CD;&#x4E86;&#x4E3B;&#x6D41;&#x7A0B;&#xFF0C;&#x4F1A;&#x53CA;&#x65F6;&#x7ED9;&#x51FA;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x3002;</p>
+<p><strong>&#x4E8C;&#x3001;&#x7ED9;&#x516C;&#x5171;&#x7EC4;&#x4EF6;&#x548C;&#x516C;&#x5171;&#x51FD;&#x6570;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</strong><br>&#x7EC4;&#x4EF6;&#x6216;&#x51FD;&#x6570;&#x6709;&#x6269;&#x5C55;&#x548C;&#x4F18;&#x5316;&#xFF0C;&#x4E4B;&#x524D;&#x7684;&#x7528;&#x4F8B;&#x4F9D;&#x7136;&#x80FD;&#x591F;&#x8DD1;&#x901A;&#xFF0C;&#x5C31;&#x6709;&#x6781;&#x5927;&#x7684;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;</p>
+<h3 id="&#x6D4B;&#x8BD5;&#x7684;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;"><a href="#&#x6D4B;&#x8BD5;&#x7684;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x7684;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;"></a>&#x6D4B;&#x8BD5;&#x7684;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;</h3><p><strong>&#x4E00;&#x3001;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;</strong><br>&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#xFF0C;&#x662F;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x6765;&#x68C0;&#x6D4B;&#x6BCF;&#x4E2A;&#x529F;&#x80FD;&#x662F;&#x5426;&#x90FD;&#x80FD;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x3002;</p>
+<p><strong>&#x4E8C;&#x3001;&#x767D;&#x76D2;&#x6D4B;&#x8BD5;</strong><br>&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x6D4B;&#x8BD5;&#xFF0C;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p><strong>&#x4E09;&#x3001;&#x5355;&#x5143;&#x6D4B;&#x8BD5;</strong><br>&#x5BF9;&#x7A0B;&#x5E8F;&#x4E2D;&#x6700;&#x5C0F;&#x53EF;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x8FDB;&#x884C;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F8B;&#x5982;&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3001;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x3001;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x2026;</p>
+<p><strong>&#x56DB;&#x3001;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;</strong><br>&#x5C06;&#x4E92;&#x76F8;&#x4E4B;&#x95F4;&#x6709;&#x5305;&#x542B;&#x5173;&#x7CFB;&#x7684;&#x5355;&#x5143;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F8B;&#x5982;&#x6D4B;&#x8BD5;&#x5305;&#x542B;Column&#x548C;Row&#x7B49;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x7684;Table&#x7EC4;&#x4EF6;</p>
+<p><strong>&#x4E94;&#x3001;TDD</strong><br>&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1; (Test-Driven Development)&#x3002;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li>&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</li>
+<li>&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;</li>
+<li>&#x7F16;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;</li>
+<li>&#x4F18;&#x5316;&#x4EE3;&#x7801;&#xFF0C;&#x5B8C;&#x6210;&#x5F00;&#x53D1;</li>
+<li>&#x91CD;&#x590D;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;</li>
+</ol>
+<p><strong>&#x516D;&#x3001;BDD</strong><br>&#x884C;&#x4E3A;&#x9A71;&#x52A8;&#x5F00;&#x53D1; (Behavior Driven Development)&#x3002;&#x5148;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x57FA;&#x4E8E;&#x7528;&#x6237;&#x884C;&#x4E3A;&#xFF0C;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x3002;</p>
+<h4 id="&#x4E00;&#x4E9B;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x7684;&#x7ED3;&#x8BBA;"><a href="#&#x4E00;&#x4E9B;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x7684;&#x7ED3;&#x8BBA;" class="headerlink" title="&#x4E00;&#x4E9B;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x7684;&#x7ED3;&#x8BBA;"></a>&#x4E00;&#x4E9B;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x7684;&#x7ED3;&#x8BBA;</h4><p><strong>&#x96C6;&#x6210;&#x6D4B;&#x8BD5; + BDD&#xFF1A;</strong><br>&#x548C;&#x7EC4;&#x4EF6;&#x91CC;&#x7684;&#x6570;&#x636E;&#x8026;&#x5408;&#x6027;&#x5F88;&#x5C0F;&#xFF0C;&#x80FD;&#x591F;&#x5F88;&#x597D;&#x7684;&#x4FDD;&#x8BC1;&#x9879;&#x76EE;&#x8D28;&#x91CF;&#xFF0C;&#x4FDD;&#x8BC1;&#x7528;&#x6237;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;<br>&#x4F46;&#x662F;&#x4EE3;&#x7801;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x76F8;&#x5BF9;&#x8F83;&#x4F4E;</p>
+<p><strong>&#x5355;&#x5143;&#x6D4B;&#x8BD5; + TDD&#xFF1A;</strong><br>&#x548C;&#x7EC4;&#x4EF6;&#x91CC;&#x7684;&#x6570;&#x636E;&#x8026;&#x5408;&#x6027;&#x592A;&#x5F3A;&#xFF0C;&#x53EA;&#x4FDD;&#x8BC1;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x6574;&#x4F53;&#x9879;&#x76EE;&#x8D28;&#x91CF;</p>
+<p><strong>&#x6D4B;&#x8BD5;&#x4E1A;&#x52A1;&#x65F6;</strong>&#xFF1A; &#x96C6;&#x6210;&#x6D4B;&#x8BD5; + BDD<br><strong>&#x6D4B;&#x8BD5;&#x5355;&#x4E00;&#x51FD;&#x6570;&#x65F6;</strong>&#xFF1A;&#x5355;&#x5143;&#x6D4B;&#x8BD5; + TDD<br><strong>&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x3002;</strong></p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x5E76;&#x4E0D;&#x80FD;&#x4EE3;&#x8868;&#x4E00;&#x5207;&#xFF0C;&#x8981;&#x7ED3;&#x5408;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4F5C;&#x51FA;&#x9009;&#x62E9;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x8BA9;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x5B66;&#x4E60;&#x600E;&#x4E48;&#x5199;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5427;&#xFF01;</p>
+<h3 id="&#x5B66;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD9;&#x4E9B;&#x5C31;&#x591F;&#x4E86;&#x2014;&#x2014;jest&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;"><a href="#&#x5B66;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD9;&#x4E9B;&#x5C31;&#x591F;&#x4E86;&#x2014;&#x2014;jest&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="&#x5B66;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD9;&#x4E9B;&#x5C31;&#x591F;&#x4E86;&#x2014;&#x2014;jest&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>&#x5B66;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD9;&#x4E9B;&#x5C31;&#x591F;&#x4E86;&#x2014;&#x2014;jest&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h3><blockquote>
+<p>jest &#x662F;facebook&#x63A8;&#x51FA;&#x7684;&#x4E00;&#x6B3E;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x81EA;&#x52A8;&#x96C6;&#x6210;&#x4E86;&#x65AD;&#x8A00;&#x3001;JSDom&#x3001;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#x7B49;&#x5F00;&#x53D1;&#x8005;&#x6240;&#x9700;&#x8981;&#x7684;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x3002;</p>
+</blockquote>
+<p>&#x6765;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functions  <span class="keyword">from</span> <span class="string">&apos;../src/functions&apos;</span>; <span class="comment">// &#x4E00;&#x4E2A;&#x52A0;&#x6CD5;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">&apos;sum(2 + 2) &#x7B49;&#x4E8E; 4&apos;</span>, () =&gt; {</span><br><span class="line">  expect(functions.sum(<span class="number">2</span>, <span class="number">2</span>)).toBe(<span class="number">4</span>);</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p>&#x7FFB;&#x8BD1;&#x8D77;&#x6765;&#x5C31;&#x662F;&#xFF1A;</p>
+<p><code>&#x6D4B;&#x8BD5;(&apos;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x63CF;&#x8FF0;&apos;, () =&gt; {
+  &#x671F;&#x671B;(&#x6D4B;&#x8BD5;&#x5185;&#x5BB9;).&#x662F;(&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;)
+})</code></p>
+<p>&#x770B;&#x8D77;&#x6765;&#x662F;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;<code>toBe</code> &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x4ECB;&#x7ECD;&#x66F4;&#x591A;&#x5E38;&#x7528;&#x7684;&#x5339;&#x914D;&#x5668;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E0B;&#x5E38;&#x7528;&#x7684; jest &#x65AD;&#x8A00;&#x548C;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF0C;&#x65E0;&#x804A;&#x4F46;&#x6709;&#x7528;&#xFF1A;</p>
+<h4 id="&#x4E00;&#x3001;jest&#x5E38;&#x7528;&#x5339;&#x914D;&#x5668;"><a href="#&#x4E00;&#x3001;jest&#x5E38;&#x7528;&#x5339;&#x914D;&#x5668;" class="headerlink" title="&#x4E00;&#x3001;jest&#x5E38;&#x7528;&#x5339;&#x914D;&#x5668;"></a>&#x4E00;&#x3001;jest&#x5E38;&#x7528;&#x5339;&#x914D;&#x5668;</h4><p><strong>1. toBe</strong><br>&#x76F8;&#x5F53;&#x4E8E;js&#x4E2D;&#x7684; === &#xFF0C; &#x5339;&#x914D;&#x7C7B;&#x578B;&#x548C;&#x5185;&#x5BB9;&#xFF0C;&#x56E0;&#x6B64;<strong>&#x65E0;&#x6CD5;&#x6821;&#x9A8C;&#x5F15;&#x7528;&#x7C7B;&#x578B;</strong></p>
+<p><strong>2. toEqual</strong><br>&#x53EA;&#x5339;&#x914D;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x5339;&#x914D;&#x7C7B;&#x578B;&#xFF0C;<strong>&#x53EF;&#x4EE5;&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x5185;&#x5BB9;&#x662F;&#x5426;&#x76F8;&#x7B49;</strong></p>
+<p><strong>3. toBeNull</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F; null</p>
+<p><strong>4. toBeUndefined</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F; undefined</p>
+<p><strong>5. toBeDefined</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B9A;&#x4E49;&#x8FC7; </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="literal">null</span>; </span><br><span class="line">expect(a).toBeDefined(); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> b = <span class="literal">undefined</span>; </span><br><span class="line">expect(b).toBeDefined(); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>6. toBeFalsy</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F; false</p>
+<p><strong>7. toBeTruthy</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F; true</p>
+<p><strong>8. not</strong><br>&#x53D6;&#x53CD;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expect(a).not.toBeFalsy()</span><br><span class="line"><span class="comment">// &#x76F8;&#x5F53;&#x4E8E;</span></span><br><span class="line">expect(a).toBeTruthy()</span><br></pre></td></tr></table></figure>
+
+<p><strong>9. toBeGreaterThan</strong><br>&#x6570;&#x5B57; - &#x662F;&#x5426;&#x5927;&#x4E8E;</p>
+<p><strong>10. toBeLessThan</strong><br>&#x6570;&#x5B57; - &#x662F;&#x5426;&#x5C0F;&#x4E8E;</p>
+<p><strong>11. toBeGreaterThanOrEqual</strong><br>&#x6570;&#x5B57; - &#x662F;&#x5426;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;</p>
+<p><strong>12. toBeLessThanOrEqual</strong><br>&#x6570;&#x5B57; - &#x662F;&#x5426;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;</p>
+<p><strong>13. toBeCloseTo</strong><br>&#x6570;&#x5B57; - &#x6D6E;&#x70B9;&#x6570;&#x7EA6;&#x7B49;&#x4E8E;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">0.2</span>;</span><br><span class="line">expect(a + b).toBeEqual(<span class="number">0.3</span>); <span class="comment">// false</span></span><br><span class="line">expect(a + b).toBeCloseTo(<span class="number">0.3</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>14. toMatch</strong><br>String - &#x5224;&#x65AD;&#x662F;&#x5426;&#x5305;&#x542B;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;</p>
+<p><strong>15. toContain</strong><br>Array, Set - &#x5224;&#x65AD;&#x6570;&#x7EC4;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x9879;</p>
+<p><strong>16. toThrow</strong><br>&#x5224;&#x65AD;&#x662F;&#x5426;&#x629B;&#x51FA;&#x5F02;&#x5E38;</p>
+<h4 id="&#x4E8C;&#x3001;jest&#x4E2D;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x548C;&#x4F5C;&#x7528;&#x57DF;"><a href="#&#x4E8C;&#x3001;jest&#x4E2D;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x548C;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x4E8C;&#x3001;jest&#x4E2D;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x548C;&#x4F5C;&#x7528;&#x57DF;"></a>&#x4E8C;&#x3001;jest&#x4E2D;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x548C;&#x4F5C;&#x7528;&#x57DF;</h4><h5 id="&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x94A9;&#x5B50;"><a href="#&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x94A9;&#x5B50;" class="headerlink" title="&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x94A9;&#x5B50;"></a>&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x94A9;&#x5B50;</h5><p><strong>1. beforeAll</strong></p>
+<blockquote>
+<p>&#x5728;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x4E00;&#x6B21;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">beforeAll(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  ...</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. afterAll</strong></p>
+<blockquote>
+<p>&#x5F53;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x90FD;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x6267;&#x884C;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">afterAll(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  ...</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. beforeEach</strong></p>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x4E00;&#x904D;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  ...</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. afterEach</strong></p>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6267;&#x884C;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x4E00;&#x904D;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">afterEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  ...</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<h5 id="describe&#x51FD;&#x6570;"><a href="#describe&#x51FD;&#x6570;" class="headerlink" title="describe&#x51FD;&#x6570;"></a>describe&#x51FD;&#x6570;</h5><blockquote>
+<p>&#x5BF9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C;&#x5206;&#x7EC4;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&apos;....&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="comment">// &#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;</span></span><br><span class="line">  beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    ...</span><br><span class="line">  })</span><br><span class="line">  test(<span class="string">&apos;...&apos;</span>, () =&gt; {</span><br><span class="line">    ...</span><br><span class="line">  });</span><br><span class="line">  test(<span class="string">&apos;...&apos;</span>, () =&gt; {</span><br><span class="line">    ...</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<h5 id="&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;"><a href="#&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;"></a>&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;</h5><blockquote>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5728;<code>describe</code>&#x5185;&#x90E8;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x6709;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#xFF0C;&#x90A3;&#x4E48;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x662F;&#x7531;&#x5916;&#x5230;&#x5185;&#x7684;</p>
+<p>eg&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&apos;&#x6700;&#x5916;&#x5C42;&apos;</span>, () =&gt; {</span><br><span class="line">  beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  })</span><br><span class="line">  afterEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">  })</span><br><span class="line">  </span><br><span class="line">  describe(<span class="string">&apos;test1&apos;</span>, () =&gt; {</span><br><span class="line">    beforeEach(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">11111</span>)</span><br><span class="line">    })</span><br><span class="line">    test(<span class="string">&apos;...&apos;</span>, () =&gt; {</span><br><span class="line">    ...</span><br><span class="line">    });</span><br><span class="line">    test(<span class="string">&apos;...&apos;</span>, () =&gt; {</span><br><span class="line">      ...</span><br><span class="line">    })</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p>&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF1A; 1 -&gt; 11111 -&gt; 2</p>
+<h5 id="&#x6CE8;&#x610F;"><a href="#&#x6CE8;&#x610F;" class="headerlink" title="&#x6CE8;&#x610F;"></a>&#x6CE8;&#x610F;</h5><ul>
+<li>&#x51C6;&#x5907;&#x7C7B;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x4E00;&#x5B9A;&#x8981;&#x5199;&#x5728;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x91CC;&#x9762;&#xFF0C;&#x5426;&#x5219;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#xFF1A;<code>let counter = new Counter();</code></li>
+</ul>
+<h4 id="jest&#x4E2D;&#x7684;&#x5FEB;&#x7167;"><a href="#jest&#x4E2D;&#x7684;&#x5FEB;&#x7167;" class="headerlink" title="jest&#x4E2D;&#x7684;&#x5FEB;&#x7167;"></a>jest&#x4E2D;&#x7684;&#x5FEB;&#x7167;</h4><h5 id="toMatchSnapshot"><a href="#toMatchSnapshot" class="headerlink" title="toMatchSnapshot()"></a>toMatchSnapshot()</h5><p>&#x751F;&#x6210;&#x5FEB;&#x7167;&#x6587;&#x4EF6;_snapshot&#x3002;</p>
+<p><strong>&#x4E00;&#x3001;&#x751F;&#x6210;&#x5FEB;&#x7167;&#xFF0C;&#x548C;&#x4E0A;&#x4E00;&#x6B21;&#x7ED3;&#x679C;&#x76F8;&#x6BD4;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">generateConfig() {</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        http: <span class="string">&apos;https&apos;</span>,</span><br><span class="line">        host: <span class="string">&apos;10.23.2&apos;</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; generateConfig &#x51FD;&#x6570;&apos;</span>, () =&gt; {</span><br><span class="line">    expect(generateConfig()).toMatchSnapshot();</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p>&#x4E0D;&#x901A;&#x8FC7;&#x65F6;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165; <code>u</code> &#x6765;&#x66F4;&#x65B0;&#x5FEB;&#x7167;</p>
+<p><strong>&#x4E8C;&#x3001;&#x5982;&#x679C;&#x9700;&#x8981;&#x5BF9;&#x6BD4;&#x7684;&#x7ED3;&#x679C;&#x6709;&#x4E00;&#x76F4;&#x5728;&#x53D8;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;expect.any(&#x7C7B;&#x578B;)&#x6765;&#x517C;&#x5BB9;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">generateConfig() {</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        http: <span class="string">&apos;https&apos;</span>,</span><br><span class="line">        host: <span class="string">&apos;10.23.2&apos;</span>,</span><br><span class="line">        time: <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; generateConfig &#x51FD;&#x6570;&apos;</span>, () =&gt; {</span><br><span class="line">    expect(generateConfig()).toMatchSnapshot({</span><br><span class="line">        time: expect.any(<span class="built_in">Date</span>)</span><br><span class="line">    });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<h4 id="jest&#x4E2D;&#x7684;mock"><a href="#jest&#x4E2D;&#x7684;mock" class="headerlink" title="jest&#x4E2D;&#x7684;mock"></a>jest&#x4E2D;&#x7684;mock</h4><h5 id="jest-fn"><a href="#jest-fn" class="headerlink" title="jest.fn()"></a>jest.fn()</h5><blockquote>
+<ol>
+<li>&#x6355;&#x83B7;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x548C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x4EE5;&#x53CA;this&#x548C;&#x8C03;&#x7528;&#x987A;&#x5E8F;</li>
+<li>&#x5B83;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x81EA;&#x7531;&#x7684;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</li>
+<li>&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;</li>
+</ol>
+</blockquote>
+<h5 id="jest-fn-mock"><a href="#jest-fn-mock" class="headerlink" title="jest.fn().mock"></a>jest.fn().mock</h5><p><code>jest.fn().mock</code> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x56DB;&#x4E2A;&#x53C2;&#x6570;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  calls: [[<span class="string">&apos;abc&apos;</span>]],</span><br><span class="line">  instances: [ <span class="literal">undefined</span> ],</span><br><span class="line">  invocationCallOrder: [ <span class="number">1</span> ],</span><br><span class="line">  result: [{</span><br><span class="line">    type: <span class="string">&apos;return&apos;</span>,</span><br><span class="line">    value: <span class="literal">undefined</span></span><br><span class="line">  }]</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>calls</code> &#x88AB;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;&#x53CA;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x65F6;&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#x7684;&#x53C2;&#x6570;</li>
+<li><code>instances</code> &#x88AB;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;&#x53CA;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x65F6;this&#x7684;&#x6307;&#x5411;</li>
+<li><code>invocationCallOrder</code> &#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x8C03;&#x7528;&#x4E09;&#x6B21;&#x5373; [1, 2, 3]</li>
+<li><code>result</code> &#x88AB;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;&#x53CA;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;</li>
+</ul>
+<p><strong>&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A; callback() &#x51FD;&#x6570;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> runCallback = <span class="function">(<span class="params">callback</span>) =&gt;</span> {</span><br><span class="line">  callback(<span class="string">&apos;abc&apos;</span>)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B; </p>
+<blockquote>
+<p>&#x5229;&#x7528; <code>jest.fn()</code> &#x751F;&#x6210;mock&#x51FD;&#x6570;&#xFF0C;&#x6355;&#x83B7;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;</p>
+</blockquote>
+<p><strong>1. &#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; runCallback &#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">const</span> func = jest.fn(); <span class="comment">// &#x521B;&#x5EFA;mock&#x51FD;&#x6570;</span></span><br><span class="line">  runCallback(func); <span class="comment">// &#x6267;&#x884C;runCallback</span></span><br><span class="line">  expect(func).toBeCalled(); <span class="comment">// &#x9A8C;&#x8BC1;func&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;</span></span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. &#x6D4B;&#x8BD5;&#x88AB;&#x8C03;&#x7528;&#x4E86;&#x51E0;&#x6B21;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; runCallback &#x88AB;&#x8C03;&#x7528;&#x4E86;&#x4E24;&#x6B21;&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">const</span> func = jest.fn();</span><br><span class="line">  runCallback(func);</span><br><span class="line">  runCallback(func);</span><br><span class="line">  expect(func.mock.calls.length).toBe(<span class="number">2</span>); </span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. &#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x5426;&#x6B63;&#x786E;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; runCallback &#x662F;&#x5426;&#x8FD4;&#x56DE; &#x201C;abc&#x201D;&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">const</span> func = jest.fn();</span><br><span class="line">  runCallback(func);</span><br><span class="line">  expect(func.mock.calls[<span class="number">0</span>]).toEqual([<span class="string">&apos;abc&apos;</span>]); </span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x6A21;&#x62DF;mock&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</strong></p>
+<blockquote>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x81EA;&#x7531;&#x7684;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</p>
+</blockquote>
+<p><code>mockReturnValueOnce(&#x2018;dear&#x2019;)</code> &#x6A21;&#x62DF;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x94FE;&#x5F0F;&#x8C03;&#x7528;<br><code>mockReturnValue(&apos;sun&apos;)</code> &#x6A21;&#x62DF;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;&#x6D4B;&#x8BD5; runCallback &#x662F;&#x5426;&#x8FD4;&#x56DE; &#x201C;yes&#x201D;&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">const</span> func = jest.fn();</span><br><span class="line">  func.mockReturnValue(<span class="string">&apos;yes&apos;</span>)</span><br><span class="line">  runCallback(func);</span><br><span class="line">  expect(func.mock.result[<span class="number">0</span>].value).toEqual(<span class="string">&apos;yes&apos;</span>); </span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x6A21;&#x62DF;axios&#x8BF7;&#x6C42;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getData = <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&apos;/api&apos;</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.data)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&apos;axios;</span></span><br><span class="line"><span class="string">jest.mock(&apos;</span>axios<span class="string">&apos;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">test(&apos;</span>&#x6D4B;&#x8BD5; axios &#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x6210;&#x529F;<span class="string">&apos;, async () =&gt; {</span></span><br><span class="line"><span class="string">  axios.get.mockResolvedValue({data: &apos;</span><span class="number">333</span><span class="string">&apos;})</span></span><br><span class="line"><span class="string">  await getData().then(data =&gt; {</span></span><br><span class="line"><span class="string">    expect(data).toBe(&apos;</span><span class="number">333</span><span class="string">&apos;)</span></span><br><span class="line"><span class="string">  })</span></span><br><span class="line"><span class="string">})</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="jest&#x4E2D;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;"><a href="#jest&#x4E2D;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;" class="headerlink" title="jest&#x4E2D;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;"></a>jest&#x4E2D;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</h4><h5 id="&#x4E00;&#x3001;&#x56DE;&#x8C03;&#x7C7B;&#x578B;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x6D4B;&#x8BD5;"><a href="#&#x4E00;&#x3001;&#x56DE;&#x8C03;&#x7C7B;&#x578B;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x4E00;&#x3001;&#x56DE;&#x8C03;&#x7C7B;&#x578B;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x6D4B;&#x8BD5;"></a>&#x4E00;&#x3001;&#x56DE;&#x8C03;&#x7C7B;&#x578B;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x6D4B;&#x8BD5;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchData = <span class="function">(<span class="params">fn</span>) =&gt;</span> {</span><br><span class="line">  axios.get(<span class="string">&apos;http...&apos;</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> {</span><br><span class="line">    fn(res.data)</span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>done()</code> &#x51FD;&#x6570;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709;<code>done()</code>&#xFF0C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4F1A;&#x5728;&#x8C03;&#x7528;<code>fetchData</code>&#x65F6;&#x5C31;&#x7ED3;&#x675F;&#x6389;&#xFF0C;&#x8FBE;&#x4E0D;&#x5230;&#x6D4B;&#x8BD5;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; { success : true }&apos;</span>, (done) =&gt; {</span><br><span class="line">  fetchData(<span class="function"><span class="params">data</span> =&gt;</span> {</span><br><span class="line">    expect(data).toEqual({</span><br><span class="line">      success: <span class="literal">true</span></span><br><span class="line">    })</span><br><span class="line">    <span class="comment">// &#x5728;&#x56DE;&#x8C03;&#x7ED3;&#x675F;&#x540E;&#x6267;&#x884C;done()&#x51FD;&#x6570;&#xFF0C;&#x544A;&#x8BC9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD9;&#x662F;&#x518D;&#x7ED3;&#x675F;&#x6D4B;&#x8BD5;</span></span><br><span class="line">    done();</span><br><span class="line">  })</span><br><span class="line">}<span class="string">&apos;)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="&#x4E8C;&#x3001;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;promise"><a href="#&#x4E8C;&#x3001;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;promise" class="headerlink" title="&#x4E8C;&#x3001;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;promise"></a>&#x4E8C;&#x3001;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;promise</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchData = <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&apos;http...&apos;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x6210;&#x529F; then</strong></p>
+<p><em>&#x65B9;&#x6CD5;&#x4E00;</em></p>
+<blockquote>
+<p><code>return promise.then()</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; { success : true }&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">return</span> fetchData().then(<span class="function"><span class="params">res</span> =&gt;</span> {</span><br><span class="line">    expect(response.data).toEqual({</span><br><span class="line">      success: <span class="literal">true</span></span><br><span class="line">    })</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x65B9;&#x6CD5;&#x4E8C;</em></p>
+<blockquote>
+<p><code>resolves.toMatchObject()</code> &#x5339;&#x914D;&#x5BF9;&#x8C61;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; { success : true }&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">return</span> expect(fetchData()).resolves.toMatchObject({</span><br><span class="line">    data: {</span><br><span class="line">      success: <span class="literal">true</span></span><br><span class="line">    }</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x65B9;&#x6CD5;&#x4E09;</em></p>
+<blockquote>
+<p><code>async await 1</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; { success : true }&apos;</span>, <span class="keyword">async</span> () =&gt; {</span><br><span class="line">  <span class="keyword">await</span> expect(fetchData()).resolves.toMatchObject({</span><br><span class="line">    data: {</span><br><span class="line">      success: <span class="literal">true</span></span><br><span class="line">    }</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x65B9;&#x6CD5;&#x56DB;</em></p>
+<blockquote>
+<p><code>async await 2</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; { success : true }&apos;</span>, <span class="keyword">async</span> () =&gt; {</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> fetchData();</span><br><span class="line">  expect(res.data).toEqual({</span><br><span class="line">    success: <span class="literal">true</span></span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x5931;&#x8D25;</strong></p>
+<p><em>&#x65B9;&#x6CD5;&#x4E00;</em></p>
+<blockquote>
+<p><code>return promise.catch()</code></p>
+</blockquote>
+<p>&#x5751;&#xFF1A;</p>
+<p>catch &#x4E00;&#x5B9A;&#x8981;&#x5199; <code>expect.assertions(1);</code> 1 &#x662F;&#x540E;&#x9762;&#x8981;&#x6267;&#x884C;&#x7684; <code>expect</code> &#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x5982;&#x679C;&#x6267;&#x884C;&#x6210;&#x529F;&#x5C31;&#x4E0D;&#x4F1A;&#x8D70;&#x5230;<code>catch</code>&#x56DE;&#x8C03;&#x91CC;&#x9762;&#x53BB;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; 404&apos;</span>, () =&gt; {</span><br><span class="line">  expect.assertions(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> fetchData().catch(<span class="function"><span class="params">e</span> =&gt;</span> {</span><br><span class="line">    expect(e.toString().indexOf(<span class="string">&apos;404&apos;</span>) &gt; <span class="number">-1</span>).toBe(<span class="literal">true</span>)</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x65B9;&#x6CD5;&#x4E8C;</em></p>
+<blockquote>
+<p><code>rejects.toThrow()</code> &#x6355;&#x83B7;&#x5F02;&#x5E38;</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; 404&apos;</span>, () =&gt; {</span><br><span class="line">  <span class="keyword">return</span> expect(fetchData()).rejects.toThrow()</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x65B9;&#x6CD5;&#x4E09;</em></p>
+<blockquote>
+<p><code>async await</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&apos;fetchData &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A; 404&apos;</span>, <span class="keyword">async</span> () =&gt; {</span><br><span class="line">  <span class="keyword">await</span> expect(fetchData()).rejects.toThrow()</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/工程化/" rel="tag"> <i class="fa fa-tag"></i> 工程化</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/12/01/js乱序问题/" rel="next" title="js乱序问题">
+                  <i class="fa fa-chevron-left"></i> js乱序问题
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/12/17/vue视图不更新了/" rel="prev" title="vue视图不更新了">
+                  vue视图不更新了 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端自动化测试"><span class="nav-number">1.</span> <span class="nav-text">前端自动化测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.0.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">1.0.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试的几个概念"><span class="nav-number">1.0.3.</span> <span class="nav-text">测试的几个概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一些实际应用的结论"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">一些实际应用的结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学写测试用例这些就够了——jest的基础知识"><span class="nav-number">1.0.4.</span> <span class="nav-text">学写测试用例这些就够了——jest的基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、jest常用匹配器"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">一、jest常用匹配器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、jest中的钩子函数和作用域"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">二、jest中的钩子函数和作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#四个核心钩子"><span class="nav-number">1.0.4.2.1.</span> <span class="nav-text">四个核心钩子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#describe函数"><span class="nav-number">1.0.4.2.2.</span> <span class="nav-text">describe函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#生命周期函数的作用域"><span class="nav-number">1.0.4.2.3.</span> <span class="nav-text">生命周期函数的作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意"><span class="nav-number">1.0.4.2.4.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jest中的快照"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">jest中的快照</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#toMatchSnapshot"><span class="nav-number">1.0.4.3.1.</span> <span class="nav-text">toMatchSnapshot()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jest中的mock"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">jest中的mock</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#jest-fn"><span class="nav-number">1.0.4.4.1.</span> <span class="nav-text">jest.fn()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jest-fn-mock"><span class="nav-number">1.0.4.4.2.</span> <span class="nav-text">jest.fn().mock</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jest中异步代码的测试方法"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">jest中异步代码的测试方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、回调类型异步函数的测试"><span class="nav-number">1.0.4.5.1.</span> <span class="nav-text">一、回调类型异步函数的测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、异步函数直接返回promise"><span class="nav-number">1.0.4.5.2.</span> <span class="nav-text">二、异步函数直接返回promise</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
