@@ -262,6 +262,212 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/05/10/算法/" class="post-title-link" itemprop="url">算法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-10 15:39:09" itemprop="dateCreated datePublished" datetime="2020-05-10T15:39:09+08:00">2020-05-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-17 17:12:32" itemprop="dateModified" datetime="2020-12-17T17:12:32+08:00">2020-12-17</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/10/算法/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/算法/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="&#x7B97;&#x6CD5;"><a href="#&#x7B97;&#x6CD5;" class="headerlink" title="&#x7B97;&#x6CD5;"></a>&#x7B97;&#x6CD5;</h3><h4 id="1-&#x5192;&#x6CE1;"><a href="#1-&#x5192;&#x6CE1;" class="headerlink" title="1.&#x5192;&#x6CE1;"></a>1.&#x5192;&#x6CE1;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params">ary</span>)</span>{</span><br><span class="line">    <span class="keyword">let</span> temp=<span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// &#x5916;&#x5C42;&#x5FAA;&#x73AF;I&#x63A7;&#x5236;&#x6BD4;&#x8F83;&#x7684;&#x8F6E;&#x6570;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;ary.length<span class="number">-1</span>;i++){</span><br><span class="line">        <span class="comment">// &#x91CC;&#x5C42;&#x5FAA;&#x73AF;&#x63A7;&#x5236;&#x6BCF;&#x4E00;&#x8F6E;&#x6BD4;&#x8F83;&#x7684;&#x6B21;&#x6570;J</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;ary.length<span class="number">-1</span>-i;j++){</span><br><span class="line">            <span class="keyword">if</span>(ary[j]&gt;ary[j+<span class="number">1</span>]){</span><br><span class="line">                <span class="comment">// &#x5F53;&#x524D;&#x9879;&#x5927;&#x4E8E;&#x540E;&#x4E00;&#x9879;</span></span><br><span class="line">                temp=ary[j];</span><br><span class="line">                ary[j]=ary[j+<span class="number">1</span>];</span><br><span class="line">                ary[j+<span class="number">1</span>]=temp;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ary;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">let</span> ary = [<span class="number">12</span>,<span class="number">8</span>,<span class="number">24</span>,<span class="number">16</span>,<span class="number">1</span>];</span><br><span class="line">ary=bubble(ary);</span><br><span class="line"><span class="built_in">console</span>.log(ary);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/10/算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/水平垂直居中/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/05/09/水平垂直居中/" class="post-title-link" itemprop="url">水平垂直居中</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-09 15:23:43" itemprop="dateCreated datePublished" datetime="2020-05-09T15:23:43+08:00">2020-05-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-17 17:12:22" itemprop="dateModified" datetime="2020-12-17T17:12:22+08:00">2020-12-17</time>
+              </span>
+            
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/09/水平垂直居中/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/05/09/水平垂直居中/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-&#x638C;&#x63E1;&#x76D2;&#x5B50;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6848;"><a href="#1-&#x638C;&#x63E1;&#x76D2;&#x5B50;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6848;" class="headerlink" title="1.&#x638C;&#x63E1;&#x76D2;&#x5B50;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6848;"></a>1.&#x638C;&#x63E1;&#x76D2;&#x5B50;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6848;</h4><p>1.&#x5B9A;&#x4F4D;&#xFF1A;&#x4E09;&#x79CD;<br><code>&#x77E5;&#x9053;&#x5BBD;&#x9AD8;</code></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/09/水平垂直居中/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/08/浏览器缓存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1086,217 +1292,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/14/劫持富文本文件图片上传服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zangsuyun">
-      <meta itemprop="description" content="你若盛开，清风自来">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="臧苏云の博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/04/14/劫持富文本文件图片上传服务器/" class="post-title-link" itemprop="url">劫持富文本文件图片上传服务器</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-14 09:32:26 / 修改时间：09:57:16" itemprop="dateCreated datePublished" datetime="2020-04-14T09:32:26+08:00">2020-04-14</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/04/14/劫持富文本文件图片上传服务器/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/04/14/劫持富文本文件图片上传服务器/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Vue-Quill-Editor-&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x548C;&#x56FE;&#x7247;&#x4E0A;&#x4F20;"><a href="#Vue-Quill-Editor-&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x548C;&#x56FE;&#x7247;&#x4E0A;&#x4F20;" class="headerlink" title="Vue-Quill-Editor &#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x548C;&#x56FE;&#x7247;&#x4E0A;&#x4F20;"></a>Vue-Quill-Editor &#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x548C;&#x56FE;&#x7247;&#x4E0A;&#x4F20;</h3><h5 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h5><p>&#x5BCC;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x4E0A;&#x4F20;&#x662F;&#x5C06;&#x56FE;&#x7247;&#x8F6C;&#x4E3A;<code>base64&#x683C;&#x5F0F;</code>&#x7684;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x4E0D;&#x4E0B;<code>base64</code>&#x5B57;&#x7B26;,&#x9700;&#x8981;&#x628A;&#x56FE;&#x7247;&#x4E0A;&#x4F20;&#x81F3;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4FDD;&#x5B58;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x56FE;&#x7247;&#x5730;&#x5740;<br>&#x5982;&#x679C;&#x9700;&#x8981;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x3002;</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2020/04/14/劫持富文本文件图片上传服务器/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zangsuyun">
-      <meta itemprop="description" content="你若盛开，清风自来">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="臧苏云の博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/04/09/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-09 14:16:02" itemprop="dateCreated datePublished" datetime="2020-04-09T14:16:02+08:00">2020-04-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-27 17:42:29" itemprop="dateModified" datetime="2019-09-27T17:42:29+08:00">2019-09-27</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/04/09/hello-world/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/04/09/hello-world/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2020/04/09/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1351,7 +1346,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1377,7 +1372,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

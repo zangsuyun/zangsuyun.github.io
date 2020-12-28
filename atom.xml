@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-12-21T07:41:11.193Z</updated>
+  <updated>2020-12-28T11:59:37.914Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>favicon.ico</title>
+    <link href="http://yoursite.com/2020/12/23/favicon-ico/"/>
+    <id>http://yoursite.com/2020/12/23/favicon-ico/</id>
+    <published>2020-12-23T10:22:30.000Z</published>
+    <updated>2020-12-28T11:59:37.914Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x5728;&amp;#x6807;&amp;#x7B7E;&amp;#x680F;&amp;#x7684;icon&amp;#x4F4D;&amp;#x7F6E;&amp;#x64AD;&amp;#x653E;&amp;#x89C6;&amp;#x9891;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;canvas&amp;#x7ED8;&amp;#x5236;video&amp;#x5E76;&amp;#x8BBE;&amp;#x7F6E;icon&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="黑科技" scheme="http://yoursite.com/tags/%E9%BB%91%E7%A7%91%E6%8A%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chrome DevTools中的操作分享</title>
+    <link href="http://yoursite.com/2020/12/23/DevTools%E4%B8%AD%E7%9A%84%E8%BF%99%E4%BA%9B%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2020/12/23/DevTools中的这些骚操作/</id>
+    <published>2020-12-23T08:14:49.000Z</published>
+    <updated>2020-12-23T10:22:23.225Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;&amp;#x5F15;&amp;#x8A00;&quot;&gt;&lt;a href=&quot;#&amp;#x5F15;&amp;#x8A00;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5F15;&amp;#x8A00;&quot;&gt;&lt;/a&gt;&amp;#x5F15;&amp;#x8A00;&lt;/h4&gt;&lt;p&gt;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5F00;&amp;#x53D1;&amp;#x4EBA;&amp;#x5458;&amp;#xFF0C;&amp;#x5E73;&amp;#x65F6;&amp;#x7528;&amp;#x7684;&amp;#x6700;&amp;#x591A;&amp;#x7684;&amp;#x5C31;&amp;#x662F;Chrome devtools&amp;#x4E86;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x53EF;&amp;#x80FD;&amp;#x5F88;&amp;#x591A;&amp;#x540C;&amp;#x5B66;&amp;#x90FD;&amp;#x50CF;&amp;#x6211;&amp;#x4E00;&amp;#x6837;&amp;#x5E73;&amp;#x65F6;&amp;#x7528;&amp;#x7684;&amp;#x6700;&amp;#x591A;&amp;#x4E5F;&amp;#x5C31;&amp;#x53EA;&amp;#x662F;Console&amp;#x548C;Elements&amp;#x9762;&amp;#x677F;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="浏览器" scheme="http://yoursite.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>从零开始发布npm脚手架</title>
@@ -373,48 +411,6 @@
       <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
       <category term="网络&amp;安全" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C-%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法</title>
-    <link href="http://yoursite.com/2020/05/10/%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2020/05/10/算法/</id>
-    <published>2020-05-10T07:39:09.000Z</published>
-    <updated>2020-12-17T09:12:32.450Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;&amp;#x7B97;&amp;#x6CD5;&quot;&gt;&lt;a href=&quot;#&amp;#x7B97;&amp;#x6CD5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7B97;&amp;#x6CD5;&quot;&gt;&lt;/a&gt;&amp;#x7B97;&amp;#x6CD5;&lt;/h3&gt;&lt;h4 id=&quot;1-&amp;#x5192;&amp;#x6CE1;&quot;&gt;&lt;a href=&quot;#1-&amp;#x5192;&amp;#x6CE1;&quot; class=&quot;headerlink&quot; title=&quot;1.&amp;#x5192;&amp;#x6CE1;&quot;&gt;&lt;/a&gt;1.&amp;#x5192;&amp;#x6CE1;&lt;/h4&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bubble&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;ary&lt;/span&gt;)&lt;/span&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; temp=&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// &amp;#x5916;&amp;#x5C42;&amp;#x5FAA;&amp;#x73AF;I&amp;#x63A7;&amp;#x5236;&amp;#x6BD4;&amp;#x8F83;&amp;#x7684;&amp;#x8F6E;&amp;#x6570;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;i&amp;lt;ary.length&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;;i++){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// &amp;#x91CC;&amp;#x5C42;&amp;#x5FAA;&amp;#x73AF;&amp;#x63A7;&amp;#x5236;&amp;#x6BCF;&amp;#x4E00;&amp;#x8F6E;&amp;#x6BD4;&amp;#x8F83;&amp;#x7684;&amp;#x6B21;&amp;#x6570;J&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; j=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;j&amp;lt;ary.length&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;-i;j++){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(ary[j]&amp;gt;ary[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// &amp;#x5F53;&amp;#x524D;&amp;#x9879;&amp;#x5927;&amp;#x4E8E;&amp;#x540E;&amp;#x4E00;&amp;#x9879;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                temp=ary[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                ary[j]=ary[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                ary[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]=temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; ary;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; ary = [&lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;24&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ary=bubble(ary);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(ary);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>水平垂直居中</title>
-    <link href="http://yoursite.com/2020/05/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
-    <id>http://yoursite.com/2020/05/09/水平垂直居中/</id>
-    <published>2020-05-09T07:23:43.000Z</published>
-    <updated>2020-12-17T09:12:22.100Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;1-&amp;#x638C;&amp;#x63E1;&amp;#x76D2;&amp;#x5B50;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;&amp;#x51E0;&amp;#x4E2A;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;a href=&quot;#1-&amp;#x638C;&amp;#x63E1;&amp;#x76D2;&amp;#x5B50;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;&amp;#x51E0;&amp;#x4E2A;&amp;#x65B9;&amp;#x6848;&quot; class=&quot;headerlink&quot; title=&quot;1.&amp;#x638C;&amp;#x63E1;&amp;#x76D2;&amp;#x5B50;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;&amp;#x51E0;&amp;#x4E2A;&amp;#x65B9;&amp;#x6848;&quot;&gt;&lt;/a&gt;1.&amp;#x638C;&amp;#x63E1;&amp;#x76D2;&amp;#x5B50;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;&amp;#x51E0;&amp;#x4E2A;&amp;#x65B9;&amp;#x6848;&lt;/h4&gt;&lt;p&gt;1.&amp;#x5B9A;&amp;#x4F4D;&amp;#xFF1A;&amp;#x4E09;&amp;#x79CD;&lt;br&gt;&lt;code&gt;&amp;#x77E5;&amp;#x9053;&amp;#x5BBD;&amp;#x9AD8;&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
