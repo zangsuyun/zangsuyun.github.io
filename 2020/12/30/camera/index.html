@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="title: cameradate: 2020-12-30 19:48:44tags: &amp;#x9ED1;&amp;#x79D1;&amp;#x6280;&amp;#x6574;&amp;#x4E2A;&amp;#x6444;&amp;#x50CF;&amp;#x5934;12345678910111213async initCam(){    let video = document.createElement(&amp;apos;video&amp;apos;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="臧苏云の博客">
+<meta property="og:url" content="http://yoursite.com/2020/12/30/camera/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="title: cameradate: 2020-12-30 19:48:44tags: &amp;#x9ED1;&amp;#x79D1;&amp;#x6280;&amp;#x6574;&amp;#x4E2A;&amp;#x6444;&amp;#x50CF;&amp;#x5934;12345678910111213async initCam(){    let video = document.createElement(&amp;apos;video&amp;apos;)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-31T03:03:32.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="臧苏云の博客">
+<meta name="twitter:description" content="title: cameradate: 2020-12-30 19:48:44tags: &amp;#x9ED1;&amp;#x79D1;&amp;#x6280;&amp;#x6574;&amp;#x4E2A;&amp;#x6444;&amp;#x50CF;&amp;#x5934;12345678910111213async initCam(){    let video = document.createElement(&amp;apos;video&amp;apos;)">
+  <link rel="canonical" href="http://yoursite.com/2020/12/30/camera/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title> | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/30/camera/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-30 19:48:44" itemprop="dateCreated datePublished" datetime="2020-12-30T19:48:44+08:00">2020-12-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-31 11:03:32" itemprop="dateModified" datetime="2020-12-31T11:03:32+08:00">2020-12-31</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/30/camera/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/12/30/camera/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr><p>title: camera<br>date: 2020-12-30 19:48:44</p><h2 id="tags-&#x9ED1;&#x79D1;&#x6280;"><a href="#tags-&#x9ED1;&#x79D1;&#x6280;" class="headerlink" title="tags: &#x9ED1;&#x79D1;&#x6280;"></a>tags: &#x9ED1;&#x79D1;&#x6280;</h2><p>&#x6574;&#x4E2A;&#x6444;&#x50CF;&#x5934;</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> initCam(){</span><br><span class="line">    <span class="keyword">let</span> video = <span class="built_in">document</span>.createElement(<span class="string">&apos;video&apos;</span>)</span><br><span class="line">    video.width=<span class="keyword">this</span>.width</span><br><span class="line">    video.autoplay=<span class="string">&quot;autoplay&quot;</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(video)</span><br><span class="line">    <span class="keyword">this</span>.video = video</span><br><span class="line">    <span class="keyword">const</span> mediaStream =  <span class="keyword">await</span> navigator.mediaDevices.getUserMedia({<span class="attr">video</span>:<span class="literal">true</span>})</span><br><span class="line">    <span class="keyword">this</span>.video.srcObject = mediaStream</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.video.addEventListener(<span class="string">&apos;timeupdate&apos;</span>,()=&gt;{</span><br><span class="line">        <span class="keyword">this</span>.videoToImageByFilter()</span><br><span class="line">    },<span class="literal">false</span>)</span><br><span class="line">}</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+
+<p>&#x6574;&#x4E2A;&#x6EE4;&#x955C;</p>
+<p>canvas&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x50CF;&#x7D20;&#x989C;&#x8272;&#x503C;&#xFF0C;&#x5BF9;&#x9700;&#x8981;&#x7684;&#x6EE4;&#x955C;&#xFF0C;&#x627E;&#x5230;&#x516C;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x5C31;&#x884C;&#xFF0C;&#x6BD4;&#x5982;&#x7070;&#x8272;&#x6EE4;&#x955C;&#xFF0C;&#x8BA1;&#x7B97;&#x83B7;&#x53D6;&#x5355;&#x4F4D;&#x5143;&#x7D20;&#x7684;RBG&#x7136;&#x540E;&#x53D6;&#x5E73;&#x5747;&#x503C; &#x7136;&#x540E;&#x590D;&#x5236;&#x7ED9;&#x81EA;&#x8EAB;&#x5F97;&#x5230;&#x7070;&#x8272;&#x7684;&#x56FE;&#x50CF;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">videoToImageByFilter() {</span><br><span class="line">  <span class="keyword">const</span> context = <span class="keyword">this</span>.canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">  context.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.SIDE, <span class="keyword">this</span>.SIDE);</span><br><span class="line">  context.drawImage(<span class="keyword">this</span>.video, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.SIDE, <span class="keyword">this</span>.SIDE);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//&#x83B7;&#x53D6;ImageData&#x7684;&#x5C5E;&#x6027;&#xFF1A;width&#xFF0C;height&#xFF0C;data&#xFF08;&#x5305;&#x542B; R G B A &#x56DB;&#x4E2A;&#x503C;&#xFF09;&#xFF1B;</span></span><br><span class="line">  <span class="keyword">var</span> imgdata = context.getImageData(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.SIDE, <span class="keyword">this</span>.SIDE);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// for(var i=0;i&lt;imgdata.data.length;i += 4){</span></span><br><span class="line">  <span class="comment">// &#x7070;&#x8272;&#x6EE4;&#x955C;</span></span><br><span class="line">  <span class="comment">//&#x8BA1;&#x7B97;&#x83B7;&#x53D6;&#x5355;&#x4F4D;&#x5143;&#x7D20;&#x7684;RBG&#x7136;&#x540E;&#x53D6;&#x5E73;&#x5747;&#x503C; &#x7136;&#x540E;&#x590D;&#x5236;&#x7ED9;&#x81EA;&#x8EAB;&#x5F97;&#x5230;&#x7070;&#x8272;&#x7684;&#x56FE;&#x50CF;</span></span><br><span class="line">  <span class="comment">// var avg =  (imgdata.data[i]+ imgdata.data[i+1]+ imgdata.data[i+2])/3</span></span><br><span class="line">  <span class="comment">// imgdata.data[i] = imgdata.data[i+1] =imgdata.data[i+2] =avg</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x53CD;&#x8272;&#x6EE4;&#x955C;</span></span><br><span class="line">  <span class="comment">//&#x5C06;&#x6240;&#x6709;&#x7684;RGB&#x503C;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF08;&#x5E95;&#x7247;&#x6548;&#x679C; = 255 - &#x5F53;&#x524D;&#x7684;RGB&#x503C;&#xFF09;</span></span><br><span class="line">  <span class="comment">// imgdata.data[i] =255-imgdata.data[i];</span></span><br><span class="line">  <span class="comment">// imgdata.data[i+1] =255-imgdata.data[i+1];</span></span><br><span class="line">  <span class="comment">// imgdata.data[i+2] =255-imgdata.data[i+2];</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x9ED1;&#x767D;&#x6EE4;&#x955C;</span></span><br><span class="line">  <span class="comment">// var avg =  (imgdata.data[i]+ imgdata.data[i+1]+ imgdata.data[i+2])/3;</span></span><br><span class="line">  <span class="comment">// imgdata.data[i] =avg&gt;128 ? 255 :0;</span></span><br><span class="line">  <span class="comment">// imgdata.data[i+1] =avg&gt;128 ? 255 :0;</span></span><br><span class="line">  <span class="comment">// imgdata.data[i+2] =avg&gt;128 ? 255 :0;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//&#x9EC4;&#x8272;&#x6EE4;&#x955C;&#x7684;&#x7B97;&#x6CD5;&#xFF1A;&#x7EA2;&#x8272;&#x901A;&#x9053;&#x503C;&#x548C;&#x7EFF;&#x8272;&#x901A;&#x9053;&#x503C;&#x589E;&#x52A0;50&#xFF08;&#x7EA2;&#x8272;+&#x7EFF;&#x8272; = &#x9EC4;&#x8272;&#xFF09;</span></span><br><span class="line">  <span class="comment">// var r = imgdata.data[i] +50;</span></span><br><span class="line">  <span class="comment">// var g = imgdata.data[i+1] +50</span></span><br><span class="line">  <span class="comment">// //&#x6CE8;&#xFF1A;&#x5F53;&#x524D;&#x503C;&#x5927;&#x4E8E;255&#x65F6;&#x5C06;&#x5176;&#x8D4B;&#x503C;255</span></span><br><span class="line">  <span class="comment">// imgdata.data[i] = r &gt; 255 ? 255 : r;</span></span><br><span class="line">  <span class="comment">// imgdata.data[i+1] = g &gt; 255 ? 255 : g;</span></span><br><span class="line">  <span class="comment">// }</span></span><br><span class="line">  <span class="comment">// &#x6000;&#x65E7;&#x6EE4;&#x955C;</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; imgdata.height * imgdata.width; i++) {</span><br><span class="line">    <span class="keyword">var</span> r = imgdata.data[i * <span class="number">4</span>],</span><br><span class="line">      g = imgdata.data[i * <span class="number">4</span> + <span class="number">1</span>],</span><br><span class="line">      b = imgdata.data[i * <span class="number">4</span> + <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> newR = <span class="number">0.393</span> * r + <span class="number">0.769</span> * g + <span class="number">0.189</span> * b;</span><br><span class="line">    <span class="keyword">var</span> newG = <span class="number">0.349</span> * r + <span class="number">0.686</span> * g + <span class="number">0.168</span> * b;</span><br><span class="line">    <span class="keyword">var</span> newB = <span class="number">0.272</span> * r + <span class="number">0.534</span> * g + <span class="number">0.131</span> * b;</span><br><span class="line">    <span class="keyword">var</span> rgbArr = [newR, newG, newB].map(<span class="function">(<span class="params">e</span>) =&gt;</span> {</span><br><span class="line">      <span class="keyword">return</span> e &lt; <span class="number">0</span> ? <span class="number">0</span> : e &gt; <span class="number">255</span> ? <span class="number">255</span> : e;</span><br><span class="line">    });</span><br><span class="line">    [</span><br><span class="line">      imgdata.data[i * <span class="number">4</span>],</span><br><span class="line">      imgdata.data[i * <span class="number">4</span> + <span class="number">1</span>],</span><br><span class="line">      imgdata.data[i * <span class="number">4</span> + <span class="number">2</span>],</span><br><span class="line">    ] = rgbArr;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">//&#x5C06;&#x56FE;&#x50CF;&#x4FE1;&#x606F;&#x7ED8;&#x5236;&#x7B2C;&#x4E8C;&#x4E2A;canvas&#x4E2D;&#xFF0C;&#x6CE8;&#xFF1A;&#x4E00;&#x822C;&#x53EA;&#x80FD;&#x5728;&#x670D;&#x52A1;&#x4E0B;&#x8FD0;&#x884C;</span></span><br><span class="line">  <span class="keyword">this</span>.canvasFilter.getContext(<span class="string">&quot;2d&quot;</span>).putImageData(imgdata, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  setFavico(<span class="keyword">this</span>.canvasFilter);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/12/29/vue3新特性（理论篇）/" rel="next" title="vue3新特性（理论篇）">
+                  <i class="fa fa-chevron-left"></i> vue3新特性（理论篇）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2021/01/04/React-Hooks实战/" rel="prev" title="React-Hooks实战">
+                  React-Hooks实战 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags-黑科技"><span class="nav-number">1.</span> <span class="nav-text">tags: 黑科技</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>

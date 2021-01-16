@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x9879;&amp;#x76EE;&amp;#x642D;&amp;#x5EFA; node 8+ npm 6.1+ vue-cli 4+ vue-cli&amp;#x5347;&amp;#x7EA7;&amp;#x547D;&amp;#x4EE4;&amp;#x53D8;&amp;#x66F4;&amp;#xFF0C;&amp;#x4F4E;&amp;#x4E8E;3.0&amp;#x7248;&amp;#x672C;&amp;#x7684;&amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x5378;&amp;">
+<meta name="keywords" content="Vue3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3常用API">
+<meta property="og:url" content="http://yoursite.com/2021/01/08/vue3-API/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x642D;&amp;#x5EFA; node 8+ npm 6.1+ vue-cli 4+ vue-cli&amp;#x5347;&amp;#x7EA7;&amp;#x547D;&amp;#x4EE4;&amp;#x53D8;&amp;#x66F4;&amp;#xFF0C;&amp;#x4F4E;&amp;#x4E8E;3.0&amp;#x7248;&amp;#x672C;&amp;#x7684;&amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x5378;&amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/08/vue3-API/vue3-API8.jpg">
+<meta property="og:updated_time" content="2021-01-09T05:55:35.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue3常用API">
+<meta name="twitter:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x642D;&amp;#x5EFA; node 8+ npm 6.1+ vue-cli 4+ vue-cli&amp;#x5347;&amp;#x7EA7;&amp;#x547D;&amp;#x4EE4;&amp;#x53D8;&amp;#x66F4;&amp;#xFF0C;&amp;#x4F4E;&amp;#x4E8E;3.0&amp;#x7248;&amp;#x672C;&amp;#x7684;&amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x5378;&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2021/01/08/vue3-API/1.jpg">
+  <link rel="canonical" href="http://yoursite.com/2021/01/08/vue3-API/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>vue3常用API | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/08/vue3-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">vue3常用API
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2021-01-08 19:31:50" itemprop="dateCreated datePublished" datetime="2021-01-08T19:31:50+08:00">2021-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-09 13:55:35" itemprop="dateModified" datetime="2021-01-09T13:55:35+08:00">2021-01-09</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/08/vue3-API/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2021/01/08/vue3-API/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="&#x9879;&#x76EE;&#x642D;&#x5EFA;"><a href="#&#x9879;&#x76EE;&#x642D;&#x5EFA;" class="headerlink" title="&#x9879;&#x76EE;&#x642D;&#x5EFA;"></a>&#x9879;&#x76EE;&#x642D;&#x5EFA;</h4><ul>
+<li>node 8+</li>
+<li>npm 6.1+</li>
+<li>vue-cli 4+</li>
+</ul><p>vue-cli&#x5347;&#x7EA7;&#x547D;&#x4EE4;&#x53D8;&#x66F4;&#xFF0C;&#x4F4E;&#x4E8E;3.0&#x7248;&#x672C;&#x7684;&#x9700;&#x8981;&#x5148;&#x5378;&#x8F7D;&#x518D;&#x5B89;&#x88C5;</p><a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5378;&#x8F7D;</span></span><br><span class="line">npm uninstall vue-cli -g</span><br><span class="line"><span class="comment">// &#x5B89;&#x88C5;</span></span><br><span class="line">npm install @vue/cli -g</span><br></pre></td></tr></table></figure>
+
+<p>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x9009; Vue 3 Preview &#x7B80;&#x914D;&#x7248;</p>
+<p><img src="/2021/01/08/vue3-API/1.jpg" alt></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x9009;&#x914D; TS,Vuex&#xFF0C;Router &#x7B49;</p>
+<p><img src="/2021/01/08/vue3-API/2.jpg" alt></p>
+<p>&#x6216;&#x8005;<br><code>1.&#x5148;&#x901A;&#x8FC7; vue-cli&#x811A;&#x624B;&#x67B6;&#x7684; vue create &#x9879;&#x76EE;&#x540D; &#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; vue2&#x9879;&#x76EE;</code><br><code>2.&#x5728;&#x539F;&#x6765;&#x7684; vue&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;&#x901A;&#x8FC7;&#x547D;&#x4EE4; vue add vue-next &#x4E5F;&#x53EF;&#x4EE5;&#x5C06;Vue2&#x5347;&#x7EA7;&#x6210;Vue3</code></p>
+<h4 id="&#x5F00;&#x59CB;"><a href="#&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;</h4><p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;Vue2&#x6BCF;&#x6B21;&#x90FD;&#x628A;&#x6574;&#x4E2A;Vue&#x5BFC;&#x5165;&#xFF0C;&#x4F8B;&#x5982;Vue2&#x7684; main.js &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EE3;&#x7801;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue2</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&apos;./App.vue&apos;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">}).$mount(<span class="string">&apos;#app&apos;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>&#x4F46;&#x5F88;&#x660E;&#x663E;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x4E0D;&#x53EF;&#x80FD;&#x7528;&#x5230;Vue&#x6240;&#x6709;&#x7684;API&#xFF0C;&#x56E0;&#x6B64;&#x5F88;&#x591A;&#x6A21;&#x5757;&#x5176;&#x5B9E;&#x662F;&#x6CA1;&#x6709;&#x7528;&#x7684;</p>
+<p>&#x90A3;&#x4E48;&#x5728;Vue3&#x4E2D;&#xFF0C;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x4E86;&#x5F88;&#x591A;&#x7684;API&#x4F9B;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5C06;&#x6240;&#x9700;&#x8981;&#x7684;API&#x4ECE;Vue&#x4E2D;&#x5BFC;&#x5165;&#x3002;&#x4F8B;&#x5982; main.js &#x4E2D;&#x7684;&#x4EE3;&#x7801;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue3</span></span><br><span class="line"><span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&apos;./App.vue&apos;</span></span><br><span class="line"></span><br><span class="line">createApp(App).mount(<span class="string">&apos;#app&apos;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>&#x5229;&#x7528;&#x4E86; import &#x548C; export &#x7684;&#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x8BED;&#x6CD5;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x6309;&#x9700;&#x6253;&#x5305;&#x6A21;&#x5757;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x9879;&#x76EE;&#x6253;&#x5305;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x4F53;&#x79EF;&#x660E;&#x663E;&#x5C0F;&#x4E86;&#x5F88;&#x591A;</p>
+<h5 id="1-setup"><a href="#1-setup" class="headerlink" title="1.setup"></a>1.setup</h5><p>setup &#x51FD;&#x6570;&#x4E5F;&#x662F; <strong>Compsition API</strong> &#x7684;&#x5165;&#x53E3;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x53D8;&#x91CF;&#x3001;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x5728;&#x8BE5;&#x51FD;&#x6570;&#x91CC;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  	&lt;p&gt;{{ number }}&lt;/p&gt;</span><br><span class="line">  	&lt;button @click=&quot;add&quot;&gt;&#x589E;&#x52A0;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 1. &#x4ECE; vue &#x4E2D;&#x5F15;&#x5165; ref &#x51FD;&#x6570;</span><br><span class="line">import {ref} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">  name: &apos;App&apos;,</span><br><span class="line">  setup() {</span><br><span class="line">  	// 2. &#x7528; ref &#x51FD;&#x6570;&#x5305;&#x88C5;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x53D8;&#x91CF; number</span><br><span class="line">    let number = ref(0)</span><br><span class="line">    </span><br><span class="line">    // 3. &#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;</span><br><span class="line">    function add() {</span><br><span class="line">    	// number&#x662F;&#x88AB;ref&#x51FD;&#x6570;&#x5305;&#x88C5;&#x8FC7;&#x4E86;&#x7684;&#xFF0C;&#x5176;&#x503C;&#x4FDD;&#x5B58;&#x5728;.value&#x4E2D;</span><br><span class="line">		number.value ++</span><br><span class="line">	}</span><br><span class="line">    </span><br><span class="line">    // 4. &#x5C06; number &#x548C; add &#x8FD4;&#x56DE;&#x51FA;&#x53BB;&#xFF0C;&#x4F9B;template&#x4E2D;&#x4F7F;&#x7528;</span><br><span class="line">    return {number, add}</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x8FD9;&#x6837;&#x5C31;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x6570;&#x5B57;&#x52A0;1&#x7684;&#x529F;&#x80FD;</p>
+<p>&#x5728;Vue2&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8BBF;&#x95EE; data &#x6216; props &#x4E2D;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x7C7B;&#x4F3C; this.number &#x8FD9;&#x6837;&#x7684;&#x5F62;&#x5F0F;&#x53BB;&#x83B7;&#x53D6;&#x7684;&#xFF0C;&#x4F46;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;setup&#x4E2D;&#xFF0C;this &#x6307;&#x5411;&#x7684;&#x662F; undefined&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E0D;&#x80FD;&#x518D;&#x5411;Vue2&#x4E00;&#x6837;&#x901A;&#x8FC7; this &#x53BB;&#x83B7;&#x53D6;&#x53D8;&#x91CF;&#x4E86;</p>
+<p>&#x90A3;&#x4E48;&#x5230;&#x5E95;&#x8BE5;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5230; props &#x4E2D;&#x7684;&#x6570;&#x636E;&#x5462;&#xFF1F;</p>
+<p>&#x5176;&#x5B9E; setup &#x51FD;&#x6570;&#x8FD8;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5206;&#x522B;&#x662F; props &#x3001;context&#xFF0C;&#x524D;&#x8005;&#x5B58;&#x50A8;&#x7740;&#x5B9A;&#x4E49;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5141;&#x8BB8;&#x5916;&#x754C;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x4EE5;&#x53CA;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF1B;&#x540E;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x5BF9;&#x8C61;&#xFF0C;&#x80FD;&#x4ECE;&#x4E2D;&#x8BBF;&#x95EE;&#x5230; attr &#x3001;emit &#x3001;slots</p>
+<p>&#x5176;&#x4E2D; emit &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x719F;&#x6089;&#x7684;Vue2&#x4E2D;&#x4E0E;&#x7236;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62FF;&#x6765;&#x8C03;&#x7528;</p>
+<h5 id="2-&#x751F;&#x547D;&#x5468;&#x671F;"><a href="#2-&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="2.&#x751F;&#x547D;&#x5468;&#x671F;"></a>2.&#x751F;&#x547D;&#x5468;&#x671F;</h5><p>Vue2&#x4E2D;&#x6709; beforeCreate &#x3001;created &#x3001;beforeMount &#x3001;mounted &#x3001;beforeUpdate &#x7B49;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;</p>
+<p>&#x800C;&#x5728;Vue3&#x4E2D;&#xFF0C;&#x8FD9;&#x4E9B;&#x751F;&#x547D;&#x5468;&#x671F;&#x90E8;&#x5206;&#x6709;&#x6240;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x5F0F;&#x4E5F;&#x6709;&#x6240;&#x6539;&#x53D8;&#xFF0C;&#x4E0B;&#x9762;&#x653E;&#x4E0A;&#x4E00;&#x5F20;&#x53D8;&#x5316;&#x56FE;&#x6765;&#x7B80;&#x5355;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;</p>
+<p><img src="/2021/01/08/vue3-API/3.jpg" alt></p>
+<p>Vue3&#x7684;&#x8FD9;&#x4E9B;&#x751F;&#x547D;&#x5468;&#x671F;&#x8C03;&#x7528;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x540C;&#x6837;&#x662F;&#x5148;&#x4ECE; vue &#x4E2D;&#x5BFC;&#x5165;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x76F4;&#x63A5;&#x8C03;&#x7528;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 1. &#x4ECE; vue &#x4E2D;&#x5F15;&#x5165; &#x591A;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;</span><br><span class="line">import {onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, unMounted} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">  name: &apos;App&apos;,</span><br><span class="line">  setup() {</span><br><span class="line">	onBeforeMount(() =&gt; {</span><br><span class="line">		// &#x5728;&#x6302;&#x8F7D;&#x524D;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line">  	</span><br><span class="line">	onMounted(() =&gt; {</span><br><span class="line">		// &#x5728;&#x6302;&#x8F7D;&#x540E;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line"></span><br><span class="line">	onBeforeUpdate(() =&gt; {</span><br><span class="line">		// &#x5728;&#x66F4;&#x65B0;&#x524D;&#x524D;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line"></span><br><span class="line">	onUpdated(() =&gt; {</span><br><span class="line">		// &#x5728;&#x66F4;&#x65B0;&#x540E;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line"></span><br><span class="line">	onBeforeUnmount(() =&gt; {</span><br><span class="line">		// &#x5728;&#x7EC4;&#x4EF6;&#x9500;&#x6BC1;&#x524D;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line"></span><br><span class="line">	unMounted(() =&gt; {</span><br><span class="line">		// &#x5728;&#x7EC4;&#x4EF6;&#x9500;&#x6BC1;&#x540E;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;</span><br><span class="line">	})</span><br><span class="line"></span><br><span class="line">    return {}</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-reactive"><a href="#3-reactive" class="headerlink" title="3.reactive"></a>3.reactive</h5><p><strong>reactive</strong> &#x65B9;&#x6CD5;&#x662F;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;API&#x4E5F;&#x5F88;&#x597D;&#x5730;&#x89E3;&#x51B3;&#x4E86;Vue2&#x901A;&#x8FC7; <strong>defineProperty</strong> &#x5B9E;&#x73B0;&#x6570;&#x636E;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x7F3A;&#x9677;</p>
+<p>&#x7528;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x5C06;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x5373;&#x53EF;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  	&lt;!-- 4. &#x8BBF;&#x95EE;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x4E2D;&#x7684; count  --&gt;</span><br><span class="line">  	{{ state.count }}</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 1. &#x4ECE; vue &#x4E2D;&#x5BFC;&#x5165; reactive </span><br><span class="line">import {reactive} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">  name: &apos;App&apos;,</span><br><span class="line">  setup() {</span><br><span class="line">  	// 2. &#x521B;&#x5EFA;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;</span><br><span class="line">	const state = reactive({count: 3})</span><br><span class="line">	</span><br><span class="line">	// 3. &#x5C06;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x5BF9;&#x8C61;state return &#x51FA;&#x53BB;&#xFF0C;&#x4F9B;template&#x4F7F;&#x7528;</span><br><span class="line">    return {state}</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-ref"><a href="#4-ref" class="headerlink" title="4.ref"></a>4.ref</h5><p>&#x5728;&#x4ECB;&#x7ECD; setup &#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86; ref &#x51FD;&#x6570;&#x5305;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x91CC;&#x8868;&#x9762;&#x4E0A;&#x770B;&#x4E0A;&#x53BB;&#x8DDF; reactive &#x597D;&#x50CF;&#x529F;&#x80FD;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x554A;&#xFF0C;&#x786E;&#x5B9E;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x56E0;&#x4E3A; ref &#x5C31;&#x662F;&#x901A;&#x8FC7; reactive &#x5305;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61; &#xFF0C;&#x7136;&#x540E;&#x662F;&#x5C06;&#x503C;&#x4F20;&#x7ED9;&#x8BE5;&#x5BF9;&#x8C61;&#x4E2D;&#x7684; value &#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x89E3;&#x91CA;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x65F6;&#x6211;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x52A0;&#x4E0A; .value</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x628A; ref(obj) &#x7406;&#x89E3;&#x4E3A;&#x8FD9;&#x4E2A;&#x6837;&#x5B50; reactive({value: obj})</p>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5199;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x6765;&#x5177;&#x4F53;&#x770B;&#x4E00;&#x4E0B;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> {ref, reactive} <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">  name: <span class="string">&apos;App&apos;</span>,</span><br><span class="line">  setup() {</span><br><span class="line">  	<span class="keyword">const</span> obj = {<span class="attr">count</span>: <span class="number">3</span>}</span><br><span class="line">  	<span class="keyword">const</span> state1 = ref(obj)</span><br><span class="line">  	<span class="keyword">const</span> state2 = reactive(obj)</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(state1)</span><br><span class="line">	<span class="built_in">console</span>.log(state2)</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x6253;&#x5370;&#x7ED3;&#x679C;</p>
+<p><img src="/2021/01/08/vue3-API/4.jpg" alt></p>
+<p><code>&#x6CE8;&#x610F;&#xFF1A; &#x8FD9;&#x91CC;&#x6307;&#x7684; .value &#x662F;&#x5728; setup &#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE; ref &#x5305;&#x88C5;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x65F6;&#x624D;&#x9700;&#x8981;&#x52A0;&#x7684;&#xFF0C;&#x5728; template &#x6A21;&#x677F;&#x4E2D;&#x8BBF;&#x95EE;&#x65F6;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x5176;&#x662F;&#x5426;&#x4E3A; ref &#x5305;&#x88C5;&#x8FC7;&#x7684;</code></p>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5230;&#x5E95;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x62E9; <strong>ref</strong> &#x548C; <strong>reactive</strong> &#x5462;&#xFF1F;</p>
+<p>1.&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x503C;&#xFF08;String &#x3001;Nmuber &#x3001;Boolean &#x7B49;&#xFF09;&#x6216;&#x5355;&#x503C;&#x5BF9;&#x8C61;&#xFF08;&#x7C7B;&#x4F3C;&#x50CF; {count: 3} &#x8FD9;&#x6837;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#x4F7F;&#x7528; ref<br>2.&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#xFF08;Object &#x3001;Array&#xFF09;&#x4F7F;&#x7528; reactive</p>
+<h5 id="5-toRef"><a href="#5-toRef" class="headerlink" title="5.toRef"></a>5.toRef</h5><p><strong>toRef</strong> &#x662F;&#x5C06;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x503C;&#x8F6C;&#x5316;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; obj &#x5BF9;&#x8C61;&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x540D;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. &#x5BFC;&#x5165; toRef</span></span><br><span class="line"><span class="keyword">import</span> {toRef} <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    setup() {</span><br><span class="line">        <span class="keyword">const</span> obj = {<span class="attr">count</span>: <span class="number">3</span>}</span><br><span class="line">        <span class="comment">// 2. &#x5C06; obj &#x5BF9;&#x8C61;&#x4E2D;&#x5C5E;&#x6027;count&#x7684;&#x503C;&#x8F6C;&#x5316;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;</span></span><br><span class="line">        <span class="keyword">const</span> state = toRef(obj, <span class="string">&apos;count&apos;</span>)</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 3. &#x5C06;toRef&#x5305;&#x88C5;&#x8FC7;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x4F9B;template&#x4F7F;&#x7528;</span></span><br><span class="line">        <span class="keyword">return</span> {state}</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x4F46;&#x5176;&#x5B9E;&#x8868;&#x9762;&#x4E0A;&#x770B;&#x4E0A;&#x53BB; toRef &#x8FD9;&#x4E2A;API&#x597D;&#x50CF;&#x975E;&#x5E38;&#x7684;&#x6CA1;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; ref &#x5B9E;&#x73B0;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">// 1. &#x5BFC;&#x5165; ref</span><br><span class="line">import {ref} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {count: 3}</span><br><span class="line">        // 2. &#x5C06; obj &#x5BF9;&#x8C61;&#x4E2D;&#x5C5E;&#x6027;count&#x7684;&#x503C;&#x8F6C;&#x5316;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;</span><br><span class="line">        const state = ref(obj.count)</span><br><span class="line">		</span><br><span class="line">		// 3. &#x5C06;ref&#x5305;&#x88C5;&#x8FC7;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x4F9B;template&#x4F7F;&#x7528;</span><br><span class="line">        return {state}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x901A;&#x8FC7;&#x5BF9;&#x6BD4;&#x5B9E;&#x73B0;&#x5176;&#x5B9E;&#x8FD8;&#x662F;&#x6709;&#x533A;&#x522B;&#x7684;</p>
+<p><strong>ref</strong> &#x662F;&#x5BF9;&#x4F20;&#x5165;&#x6570;&#x636E;&#x7684;&#x62F7;&#x8D1D;&#xFF1B;<strong>toRef</strong> &#x662F;&#x5BF9;&#x4F20;&#x5165;&#x6570;&#x636E;&#x7684;&#x5F15;&#x7528;<br><strong>ref</strong> &#x7684;&#x503C;&#x6539;&#x53D8;&#x4F1A;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#xFF1B;<strong>toRef</strong> &#x7684;&#x503C;&#x6539;&#x53D8;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;&#x89C6;&#x56FE;</p>
+<h5 id="6-toRefs"><a href="#6-toRefs" class="headerlink" title="6. toRefs"></a>6. toRefs</h5><p>&#x4E86;&#x89E3;&#x5B8C; toRef &#x540E;&#xFF0C;&#x5C31;&#x5F88;&#x597D;&#x7406;&#x89E3; toRefs &#x4E86;&#xFF0C;&#x5176;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x91CC;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x90FD;&#x8F6C;&#x5316;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x652F;&#x6301;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373; obj &#x5BF9;&#x8C61;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. &#x5BFC;&#x5165; toRefs</span></span><br><span class="line"><span class="keyword">import</span> {toRefs} <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    setup() {</span><br><span class="line">        <span class="keyword">const</span> obj = {</span><br><span class="line">			name: <span class="string">&apos;&#x81E7;&#x82CF;&#x4E91;&apos;</span>,</span><br><span class="line">			age: <span class="number">23</span>,</span><br><span class="line">			gender: <span class="number">0</span></span><br><span class="line">		}</span><br><span class="line">        <span class="comment">// 2. &#x5C06; obj &#x5BF9;&#x8C61;&#x4E2D;&#x5C5E;&#x6027;count&#x7684;&#x503C;&#x8F6C;&#x5316;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;</span></span><br><span class="line">        <span class="keyword">const</span> state = toRefs(obj)</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 3. &#x6253;&#x5370;&#x67E5;&#x770B;&#x4E00;&#x4E0B;</span></span><br><span class="line">		<span class="built_in">console</span>.log(state)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/08/vue3-API/5.jpg" alt></p>
+<p>&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x91CC;&#x5305;&#x542B;&#x4E86;&#x6BCF;&#x4E00;&#x4E2A;&#x5305;&#x88C5;&#x8FC7;&#x540E;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x5BF9;&#x8C61;</p>
+<h5 id="7-shallowReactive"><a href="#7-shallowReactive" class="headerlink" title="7.shallowReactive"></a>7.shallowReactive</h5><p>&#x542C;&#x8FD9;&#x4E2A;API&#x7684;&#x540D;&#x79F0;&#x5C31;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6E10;&#x5C42;&#x7684; <strong>reactive</strong>&#xFF0C;&#x96BE;&#x9053;&#x610F;&#x601D;&#x5C31;&#x662F;&#x539F;&#x672C;&#x7684; <strong>reactive</strong> &#x662F;&#x6DF1;&#x5C42;&#x7684;&#x5457;&#xFF0C;&#x6CA1;&#x9519;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x7684;API</p>
+<p>&#x5176;&#x5B9E;&#x5C06; obj &#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; reactive &#x751F;&#x6210;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x82E5; obj &#x7684;&#x5C42;&#x7EA7;&#x4E0D;&#x6B62;&#x4E00;&#x5C42;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x5C06;&#x6BCF;&#x4E00;&#x5C42;&#x90FD;&#x7528; Proxy &#x5305;&#x88C5;&#x4E00;&#x6B21;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> {reactive} <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    setup() {</span><br><span class="line">        <span class="keyword">const</span> obj = {</span><br><span class="line">			a: <span class="number">1</span>,</span><br><span class="line">			first: {</span><br><span class="line">				b: <span class="number">2</span>,</span><br><span class="line">				second: {</span><br><span class="line">					c: <span class="number">3</span></span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> state = reactive(obj)</span><br><span class="line"></span><br><span class="line">		<span class="built_in">console</span>.log(state)</span><br><span class="line">		<span class="built_in">console</span>.log(state.first)</span><br><span class="line">		<span class="built_in">console</span>.log(state.first.second)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/08/vue3-API/6.jpg" alt></p>
+<p>&#x8BBE;&#x60F3;&#x4E00;&#x4E0B;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5C42;&#x7EA7;&#x6BD4;&#x8F83;&#x6DF1;&#xFF0C;&#x90A3;&#x4E48;&#x6BCF;&#x4E00;&#x5C42;&#x90FD;&#x7528; Proxy &#x5305;&#x88C5;&#x540E;&#xFF0C;&#x5BF9;&#x4E8E;&#x6027;&#x80FD;&#x662F;&#x975E;&#x5E38;&#x4E0D;&#x53CB;&#x597D;&#x7684;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x770B; <strong>shallowReactive</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import {shallowReactive} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {</span><br><span class="line">			a: 1,</span><br><span class="line">			first: {</span><br><span class="line">				b: 2,</span><br><span class="line">				second: {</span><br><span class="line">					c: 3</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">        const state = shallowReactive(obj)</span><br><span class="line"></span><br><span class="line">		console.log(state)</span><br><span class="line">		console.log(state.first)</span><br><span class="line">		console.log(state.first.second)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/08/vue3-API/7.jpg" alt><br>&#x7ED3;&#x679C;&#x975E;&#x5E38;&#x7684;&#x660E;&#x4E86;&#x4E86;&#xFF0C;&#x53EA;&#x6709;&#x7B2C;&#x4E00;&#x5C42;&#x88AB; Proxy &#x5904;&#x7406;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EA;&#x6709;&#x4FEE;&#x6539;&#x7B2C;&#x4E00;&#x5C42;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x54CD;&#x5E94;&#x5F0F;&#x66F4;&#x65B0;&#xFF0C;<br><code>&#x603B;&#x7ED3;&#xFF1A;shallowReactive &#x76D1;&#x542C;&#x4E86;&#x7B2C;&#x4E00;&#x5C42;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;&#x4E00;&#x65E6;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x5219;&#x66F4;&#x65B0;&#x89C6;&#x56FE;</code></p>
+<h5 id="8-shallowRef"><a href="#8-shallowRef" class="headerlink" title="8.shallowRef"></a>8.shallowRef</h5><p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6D45;&#x5C42;&#x7684; ref&#xFF0C;&#x4E0E; shallowReactive &#x4E00;&#x6837;&#x662F;&#x62FF;&#x6765;&#x505A;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x7684;</p>
+<p><strong>shallowReactive</strong> &#x662F;&#x76D1;&#x542C;&#x5BF9;&#x8C61;&#x7B2C;&#x4E00;&#x5C42;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x7528;&#x4E8E;&#x9A71;&#x52A8;&#x89C6;&#x56FE;&#x66F4;&#x65B0;&#xFF0C;&#x90A3;&#x4E48; <strong>shallowRef</strong> &#x5219;&#x662F;&#x76D1;&#x542C; .value &#x7684;&#x503C;&#x7684;&#x53D8;&#x5316;&#x6765;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#x7684;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;{{ state.a }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.first.b }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.first.second.c }}&lt;/p&gt;</span><br><span class="line">	&lt;button @click=&quot;change1&quot;&gt;&#x6539;&#x53D8;1&lt;/button&gt;</span><br><span class="line">	&lt;button @click=&quot;change2&quot;&gt;&#x6539;&#x53D8;2&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {shallowRef} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {</span><br><span class="line">			a: 1,</span><br><span class="line">			first: {</span><br><span class="line">				b: 2,</span><br><span class="line">				second: {</span><br><span class="line">					c: 3</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">		const state = shallowRef(obj)</span><br><span class="line">		console.log(state);</span><br><span class="line">		</span><br><span class="line">		function change1() {</span><br><span class="line">			// &#x76F4;&#x63A5;&#x5C06;state.value&#x91CD;&#x65B0;&#x8D4B;&#x503C;</span><br><span class="line">			state.value = {</span><br><span class="line">				a: 7,</span><br><span class="line">				first: {</span><br><span class="line">					b: 8,</span><br><span class="line">					second: {</span><br><span class="line">						c: 9</span><br><span class="line">					}</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		function change2() {</span><br><span class="line">			state.value.first.b = 8</span><br><span class="line">            state.value.first.second.c = 9</span><br><span class="line">            console.log(state);</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		return {state, change1, change2}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x5148;&#x70B9;&#x51FB;&#x4E86;&#x7B2C;&#x4E8C;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x53D1;&#x73B0;&#x6570;&#x636E;&#x786E;&#x5B9E;&#x88AB;&#x6539;&#x53D8;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x89C6;&#x56FE;&#x5E76;&#x6CA1;&#x968F;&#x4E4B;&#x66F4;&#x65B0;&#xFF1B;</p>
+<p>&#x4E8E;&#x662F;&#x70B9;&#x51FB;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x5373;&#x5C06;&#x6574;&#x4E2A; .value &#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x4E86;&#xFF0C;&#x89C6;&#x56FE;&#x5C31;&#x7ACB;&#x9A6C;&#x66F4;&#x65B0;&#x4E86;</p>
+<p>&#x8FD9;&#x4E48;&#x4E00;&#x770B;&#xFF0C;&#x672A;&#x514D;&#x4E5F;&#x592A;&#x8FC7;&#x9EBB;&#x70E6;&#x4E86;&#xFF0C;&#x6539;&#x4E2A;&#x6570;&#x636E;&#x8FD8;&#x8981;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;&#x4E0D;&#x8981;&#x62C5;&#x5FC3;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5230;&#x53E6;&#x4E00;&#x4E2A;API&#xFF0C;&#x53EB;&#x505A; triggerRef &#xFF0C;&#x8C03;&#x7528;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x7ACB;&#x9A6C;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#xFF0C;&#x5176;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570; state &#xFF0C;&#x5373;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684; ref &#x5BF9;&#x8C61;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x4F7F;&#x7528;&#x4E00;&#x4E0B;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;{{ state.a }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.first.b }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.first.second.c }}&lt;/p&gt;</span><br><span class="line">	&lt;button @click=&quot;change&quot;&gt;&#x6539;&#x53D8;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {shallowRef, triggerRef} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {</span><br><span class="line">			a: 1,</span><br><span class="line">			first: {</span><br><span class="line">				b: 2,</span><br><span class="line">				second: {</span><br><span class="line">					c: 3</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">		const state = shallowRef(obj)</span><br><span class="line">		console.log(state);</span><br><span class="line"></span><br><span class="line">		function change() {</span><br><span class="line">			state.value.first.b = 8</span><br><span class="line">            state.value.first.second.c = 9</span><br><span class="line">            // &#x4FEE;&#x6539;&#x503C;&#x540E;&#x7ACB;&#x5373;&#x9A71;&#x52A8;&#x89C6;&#x56FE;&#x66F4;&#x65B0;</span><br><span class="line">            triggerRef(state)</span><br><span class="line">            console.log(state);</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		return {state, change}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x7ED9; .value &#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x4FEE;&#x6539;&#x503C;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x4E86; <strong>triggerRef</strong> &#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x89C6;&#x56FE;&#x7684;&#x66F4;&#x65B0;</p>
+<h5 id="9-toRaw"><a href="#9-toRaw" class="headerlink" title="9.toRaw"></a>9.toRaw</h5><p>toRaw &#x65B9;&#x6CD5;&#x662F;&#x7528;&#x4E8E;&#x83B7;&#x53D6; ref &#x6216; reactive &#x5BF9;&#x8C61;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7684;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;{{ state.name }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.age }}&lt;/p&gt;</span><br><span class="line">	&lt;button @click=&quot;change&quot;&gt;&#x6539;&#x53D8;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {reactive} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {</span><br><span class="line">			name: &apos;&#x81E7;&#x82CF;&#x4E91;&apos;,</span><br><span class="line">			age: 23</span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">		const state = reactive(obj)	</span><br><span class="line"></span><br><span class="line">		function change() {</span><br><span class="line">			state.age = 90</span><br><span class="line">			console.log(obj); // &#x6253;&#x5370;&#x539F;&#x59CB;&#x6570;&#x636E;obj</span><br><span class="line">			console.log(state);  // &#x6253;&#x5370; reactive&#x5BF9;&#x8C61;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		return {state, change}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x6211;&#x4EEC;&#x6539;&#x53D8;&#x4E86; reactive &#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x539F;&#x59CB;&#x6570;&#x636E; obj &#x548C;&#x88AB; reactive &#x5305;&#x88C5;&#x8FC7;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x90FD;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#xFF0C;&#x7531;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x4E24;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x5173;&#x7CFB;</p>
+<p>&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x5C31;&#x60F3;&#x4E86;&#xFF0C;&#x90A3;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x6539;&#x53D8;&#x539F;&#x59CB;&#x6570;&#x636E; obj &#x7684;&#x503C;&#xFF0C;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#xFF1A; reactive &#x7684;&#x503C;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x6539;&#x53D8;&#xFF0C;&#x4F46;&#x662F;&#x89C6;&#x56FE;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;</p>
+<p>&#x7531;&#x6B64;&#x53EF;&#x89C1;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x4FEE;&#x6539;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x4E0D;&#x60F3;&#x8BA9;&#x89C6;&#x56FE;&#x66F4;&#x65B0;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5148;&#x83B7;&#x53D6;&#x5230;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Vue3 &#x63D0;&#x4F9B;&#x7684; toRaw &#x65B9;&#x6CD5;</p>
+<p>toRaw &#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373; ref &#x5BF9;&#x8C61;&#x6216; reactive &#x5BF9;&#x8C61;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> {reactive, toRaw} <span class="keyword">from</span> <span class="string">&apos;vue&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    setup() {</span><br><span class="line">        <span class="keyword">const</span> obj = {</span><br><span class="line">			name: <span class="string">&apos;&#x81E7;&#x82CF;&#x4E91;&apos;</span>,</span><br><span class="line">			age: <span class="number">23</span></span><br><span class="line">		}</span><br><span class="line">        </span><br><span class="line">		<span class="keyword">const</span> state = reactive(obj)	</span><br><span class="line">		<span class="keyword">const</span> raw = toRaw(state)</span><br><span class="line"></span><br><span class="line">		<span class="built_in">console</span>.log(obj === raw)   <span class="comment">// true</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x5C31;&#x8BC1;&#x660E;&#x4E86; toRaw &#x65B9;&#x6CD5;&#x4ECE; reactive &#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x662F;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7684;&#x503C;&#x800C;&#x4E0D;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#x6765;&#x505A;&#x4E00;&#x4E9B;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x4E86;</p>
+<p><code>&#x6CE8;&#x610F;&#xFF1A; &#x8865;&#x5145;&#x4E00;&#x53E5;&#xFF0C;&#x5F53; toRaw &#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x7684;&#x53C2;&#x6570;&#x662F; ref &#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A; .value &#x624D;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#x539F;&#x59CB;&#x6570;&#x636E;&#x5BF9;&#x8C61;</code></p>
+<h5 id="5-markRaw"><a href="#5-markRaw" class="headerlink" title="5.markRaw"></a>5.markRaw</h5><p><strong>markRaw</strong> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5C06;&#x539F;&#x59CB;&#x6570;&#x636E;&#x6807;&#x8BB0;&#x4E3A;&#x975E;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#xFF0C;&#x5373;&#x4F7F;&#x7528; <strong>ref</strong> &#x6216; <strong>reactive</strong> &#x5C06;&#x5176;&#x5305;&#x88C5;&#xFF0C;&#x4ECD;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x54CD;&#x5E94;&#x5F0F;&#xFF0C;&#x5176;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x88AB;&#x6807;&#x8BB0;&#x540E;&#x7684;&#x6570;&#x636E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;{{ state.name }}&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;{{ state.age }}&lt;/p&gt;</span><br><span class="line">	&lt;button @click=&quot;change&quot;&gt;&#x6539;&#x53D8;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {reactive, markRaw} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj = {</span><br><span class="line">			name: &apos;&#x81E7;&#x82CF;&#x4E91;&apos;,</span><br><span class="line">			age: 23</span><br><span class="line">		}</span><br><span class="line">		// &#x901A;&#x8FC7;markRaw&#x6807;&#x8BB0;&#x539F;&#x59CB;&#x6570;&#x636E;obj, &#x4F7F;&#x5176;&#x6570;&#x636E;&#x66F4;&#x65B0;&#x4E0D;&#x518D;&#x88AB;&#x8FFD;&#x8E2A;</span><br><span class="line">		const raw = markRaw(obj)   </span><br><span class="line">		// &#x8BD5;&#x56FE;&#x7528;reactive&#x5305;&#x88C5;raw, &#x4F7F;&#x5176;&#x53D8;&#x6210;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;</span><br><span class="line">		const state = reactive(raw)	</span><br><span class="line"></span><br><span class="line">		function change() {</span><br><span class="line">			state.age = 90</span><br><span class="line">			console.log(state);</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		return {state, change}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x8FD9;&#x6837;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E86;&#x503C;&#x4E5F;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#x4E86;&#xFF0C;&#x5373;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x54CD;&#x5E94;&#x5F0F;</p>
+<h5 id="11-provide-amp-amp-inject"><a href="#11-provide-amp-amp-inject" class="headerlink" title="11.provide &amp;&amp; inject"></a>11.provide &amp;&amp; inject</h5><p>&#x4E0E; Vue2&#x4E2D;&#x7684; provide &#x548C; inject &#x4F5C;&#x7528;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5728;Vue3&#x4E2D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x4ECE; vue &#x4E2D;&#x5BFC;&#x5165;</p>
+<p>&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#xFF1A;</p>
+<ul>
+<li>provide &#xFF1A;&#x5411;&#x5B50;&#x7EC4;&#x4EF6;&#x4EE5;&#x53CA;&#x5B50;&#x5B59;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x6570;&#x636E;&#x3002;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F; key&#xFF0C;&#x5373;&#x6570;&#x636E;&#x7684;&#x540D;&#x79F0;&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; value&#xFF0C;&#x5373;&#x6570;&#x636E;&#x7684;&#x503C;</li>
+<li>inject &#xFF1A;&#x63A5;&#x6536;&#x7236;&#x7EC4;&#x4EF6;&#x6216;&#x7956;&#x5148;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#x3002;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570; key&#xFF0C;&#x5373;&#x7236;&#x7EC4;&#x4EF6;&#x6216;&#x7956;&#x5148;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;&#x540D;&#x79F0;</li>
+</ul>
+<p>&#x5047;&#x8BBE;&#x8FD9;&#x6709;&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5206;&#x522B;&#x662F; A.vue &#x3001;B.vue &#x3001;C.vue&#xFF0C;&#x5176;&#x4E2D; B.vue &#x662F; A.vue &#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;C.vue &#x662F; B.vue &#x7684;&#x5B50;&#x7EC4;&#x4EF6;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// A.vue</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {provide} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {</span><br><span class="line">        const obj= {</span><br><span class="line">			name: &apos;&#x81E7;&#x82CF;&#x4E91;&apos;,</span><br><span class="line">			age: 23</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">		// &#x5411;&#x5B50;&#x7EC4;&#x4EF6;&#x4EE5;&#x53CA;&#x5B50;&#x5B59;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x540D;&#x4E3A;info&#x7684;&#x6570;&#x636E;</span><br><span class="line">		provide(&apos;info&apos;, obj)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// B.vue</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {inject} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		// &#x63A5;&#x6536;A.vue&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;</span><br><span class="line">		inject(&apos;info&apos;)  // {name: &apos;&#x81E7;&#x82CF;&#x4E91;&apos;, age: 23}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// C.vue</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {inject} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		// &#x63A5;&#x6536;A.vue&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;</span><br><span class="line">		inject(&apos;info&apos;)  // {name: &apos;&#x81E7;&#x82CF;&#x4E91;&apos;, age: 23}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="12-watch-amp-amp-watchEffect"><a href="#12-watch-amp-amp-watchEffect" class="headerlink" title="12.watch &amp;&amp; watchEffect"></a>12.watch &amp;&amp; watchEffect</h5><p><strong>watch</strong> &#x548C; <strong>watchEffect</strong> &#x90FD;&#x662F;&#x7528;&#x6765;&#x76D1;&#x89C6;&#x67D0;&#x9879;&#x6570;&#x636E;&#x53D8;&#x5316;&#x4ECE;&#x800C;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x4F46;&#x7528;&#x6CD5;&#x4E0A;&#x8FD8;&#x662F;&#x6709;&#x6240;&#x533A;&#x522B;</p>
+<p>watch&#xFF1A;watch( source, cb, [options] )</p>
+<p>&#x53C2;&#x6570;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ul>
+<li>source&#xFF1A;&#x53EF;&#x4EE5;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x76D1;&#x542C;&#x7684;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;</li>
+<li>cb&#xFF1A;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#x53D8;&#x5316;&#x540E;&#x6267;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>options&#xFF1A;&#x53EF;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x7684;&#x5C5E;&#x6027;&#x6709; immediate&#xFF08;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF09;&#x3001;deep&#xFF08;&#x6DF1;&#x5EA6;&#x76D1;&#x542C;&#xFF09;</li>
+</ul>
+<h6 id="&#x5F53;&#x76D1;&#x542C;-ref-&#x7C7B;&#x578B;&#x65F6;&#xFF1A;"><a href="#&#x5F53;&#x76D1;&#x542C;-ref-&#x7C7B;&#x578B;&#x65F6;&#xFF1A;" class="headerlink" title="&#x5F53;&#x76D1;&#x542C; ref &#x7C7B;&#x578B;&#x65F6;&#xFF1A;"></a>&#x5F53;&#x76D1;&#x542C; ref &#x7C7B;&#x578B;&#x65F6;&#xFF1A;</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import {ref, watch} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		const state = ref(0)</span><br><span class="line"></span><br><span class="line">		watch(state, (newValue, oldValue) =&gt; {</span><br><span class="line">			console.log(`&#x539F;&#x503C;&#x4E3A;${oldValue}`)</span><br><span class="line">			console.log(`&#x65B0;&#x503C;&#x4E3A;${newValue}`)</span><br><span class="line">			/* 1&#x79D2;&#x540E;&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF1A;</span><br><span class="line">							&#x539F;&#x503C;&#x4E3A;0</span><br><span class="line">							&#x65B0;&#x503C;&#x4E3A;1</span><br><span class="line">			*/</span><br><span class="line">		})</span><br><span class="line">		</span><br><span class="line">		// 1&#x79D2;&#x540E;&#x5C06;state&#x503C;+1</span><br><span class="line">		setTimeout(() =&gt; {</span><br><span class="line">			state.value ++</span><br><span class="line">		}, 1000)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="&#x5F53;&#x76D1;&#x542C;-reactive-&#x7C7B;&#x578B;&#x65F6;&#xFF1A;"><a href="#&#x5F53;&#x76D1;&#x542C;-reactive-&#x7C7B;&#x578B;&#x65F6;&#xFF1A;" class="headerlink" title="&#x5F53;&#x76D1;&#x542C; reactive &#x7C7B;&#x578B;&#x65F6;&#xFF1A;"></a>&#x5F53;&#x76D1;&#x542C; reactive &#x7C7B;&#x578B;&#x65F6;&#xFF1A;</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import {reactive, watch} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		const state = reactive({count: 0})</span><br><span class="line"></span><br><span class="line">		watch(() =&gt; state.count, (newValue, oldValue) =&gt; {</span><br><span class="line">			console.log(`&#x539F;&#x503C;&#x4E3A;${oldValue}`)</span><br><span class="line">			console.log(`&#x65B0;&#x503C;&#x4E3A;${newValue}`)</span><br><span class="line">			/* 1&#x79D2;&#x540E;&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF1A;</span><br><span class="line">							&#x539F;&#x503C;&#x4E3A;0</span><br><span class="line">							&#x65B0;&#x503C;&#x4E3A;1</span><br><span class="line">			*/</span><br><span class="line">		})</span><br><span class="line">		</span><br><span class="line">		// 1&#x79D2;&#x540E;&#x5C06;state.count&#x7684;&#x503C;+1</span><br><span class="line">		setTimeout(() =&gt; {</span><br><span class="line">			state.count ++</span><br><span class="line">		}, 1000)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="&#x5F53;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x503C;&#x65F6;&#xFF1A;"><a href="#&#x5F53;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x503C;&#x65F6;&#xFF1A;" class="headerlink" title="&#x5F53;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x503C;&#x65F6;&#xFF1A;"></a>&#x5F53;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x503C;&#x65F6;&#xFF1A;</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import {reactive, watch} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		const state = reactive({ count: 0, name: &apos;sy&apos; })</span><br><span class="line"></span><br><span class="line">	   watch(</span><br><span class="line">	      [() =&gt; state.count, () =&gt; state.name], </span><br><span class="line">	      ([newCount, newName], [oldvCount, oldvName]) =&gt; {</span><br><span class="line">	        console.log(oldvCount) // &#x65E7;&#x7684; count &#x503C;</span><br><span class="line">	        console.log(newCount) // &#x65B0;&#x7684; count &#x503C;</span><br><span class="line">	        console.log(oldName) // &#x65E7;&#x7684; name &#x503C;</span><br><span class="line">	        console.log(newvName) // &#x65B0;&#x7684; name &#x503C;</span><br><span class="line">	      }</span><br><span class="line">	    )</span><br><span class="line">	</span><br><span class="line">	    setTimeout(() =&gt; {</span><br><span class="line">	      state.count ++</span><br><span class="line">	      state.name = &apos;zsy&apos;</span><br><span class="line">	    }, 1000)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x56E0;&#x4E3A; <strong>watch</strong> &#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6307;&#x5B9A;&#x4E86;&#x76D1;&#x542C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x82E5;&#x6211;&#x4EEC;&#x60F3;&#x8BA9;&#x5176;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5C31;&#x5148;&#x6267;&#x884C;&#x4E00;&#x904D;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&#x8BBE;&#x7F6E; <em>immediate: true</em></p>
+<p><strong>watch</strong> &#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x662F;&#x6E10;&#x5C42;&#x7684;&#x76D1;&#x542C;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#x5982;&#x679C;&#x76D1;&#x542C;&#x7684;&#x6570;&#x636E;&#x6709;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#xFF0C;&#x6DF1;&#x5C42;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x76D1;&#x542C;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x82E5;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5176;&#x5BF9;&#x6DF1;&#x5C42;&#x6570;&#x636E;&#x4E5F;&#x8FDB;&#x884C;&#x76D1;&#x542C;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&#x8BBE;&#x7F6E; <em>deep: true</em></p>
+<p><code>&#x8865;&#x5145;&#xFF1A; watch&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;stop&#x65B9;&#x6CD5;&#xFF0C;&#x82E5;&#x60F3;&#x8981;&#x505C;&#x6B62;&#x76D1;&#x542C;&#xFF0C;&#x4FBF;&#x53EF;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x8BE5;stop&#x51FD;&#x6570;</code></p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x518D;&#x6765;&#x804A;&#x804A; <strong>watchEffect</strong>&#xFF0C;&#x5B83;&#x4E0E; <strong>watch</strong> &#x7684;&#x533A;&#x522B;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<p>1.&#x4E0D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x4F20;&#x5165;&#x4F9D;&#x8D56;<br>2.&#x6BCF;&#x6B21;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x4F9D;&#x8D56;<br>3.&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x539F;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x5F97;&#x5230;&#x53D8;&#x5316;&#x540E;&#x7684;&#x503C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import {reactive, watchEffect} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">		const state = reactive({ count: 0, name: &apos;zsy&apos; })</span><br><span class="line"></span><br><span class="line">	   	watchEffect(() =&gt; {</span><br><span class="line">			console.log(state.count)</span><br><span class="line">			console.log(state.name)</span><br><span class="line">			/*  &#x521D;&#x59CB;&#x5316;&#x65F6;&#x6253;&#x5370;&#xFF1A;</span><br><span class="line">							0</span><br><span class="line">							zsy</span><br><span class="line">				</span><br><span class="line">				1&#x79D2;&#x540E;&#x6253;&#x5370;&#xFF1A;</span><br><span class="line">							1</span><br><span class="line">							sy</span><br><span class="line">			*/</span><br><span class="line">		})</span><br><span class="line">	</span><br><span class="line">	    setTimeout(() =&gt; {</span><br><span class="line">	      state.count ++</span><br><span class="line">	      state.name = &apos;sy&apos;</span><br><span class="line">	    }, 1000)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x4ECE;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x6CA1;&#x6709;&#x50CF; <strong>watch</strong> &#x65B9;&#x6CD5;&#x4E00;&#x6837;&#x5148;&#x7ED9;&#x5176;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;</p>
+<p>&#x5F53;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x5C06;&#x8BE5;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x5230;&#x9700;&#x8981;&#x68C0;&#x6D4B;&#x7684;&#x6570;&#x636E;&#x662F; state.count &#x548C; state.name</p>
+<h5 id="13-getCurrentInstance"><a href="#13-getCurrentInstance" class="headerlink" title="13.getCurrentInstance"></a>13.getCurrentInstance</h5><p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x5728;Vue2&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E2D;&#x60F3;&#x8981;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; this &#x6765;&#x5F97;&#x5230;&#xFF0C;&#x800C;&#x5728;Vue3&#x4E2D;&#x6211;&#x4EEC;&#x5927;&#x91CF;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x5728; setup &#x51FD;&#x6570;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x8BE5;&#x51FD;&#x6570;&#x4E2D; this &#x6307;&#x5411;&#x7684;&#x662F; undefined&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5230;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x5462;&#xFF1F;<br>&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x7528;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5373; <strong>getCurrentInstance</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;p&gt;{{ num }}&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import {ref, getCurrentInstance} from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">    setup() {	</span><br><span class="line">    	const num = ref(3)</span><br><span class="line">		const instance = getCurrentInstance()</span><br><span class="line">		console.log(instance)</span><br><span class="line"></span><br><span class="line">		return {num}</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCurrentInstance</strong> &#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; ctx &#x5C5E;&#x6027;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x4E0A;&#x4E0B;&#x6587;</p>
+<p><img src="/2021/01/08/vue3-API/vue3-API8.jpg" alt></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x548C;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E0B;&#x8FD8;&#x662F;&#x6709;&#x6240;&#x533A;&#x522B;&#x7684;&#xFF0C;&#x8FD9;&#x53EA;&#x6709;&#x5728; development&#xFF0C;&#x5373;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x624D;&#x80FD;&#x83B7;&#x53D6;&#x5230;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EA;&#x662F;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;&#x4F7F;&#x7528;&#x7684;&#xFF1B;<br>&#x5927;&#x5BB6;&#x4E0D;&#x8981;&#x4F9D;&#x8D56; getCurrentInstance &#x65B9;&#x6CD5;&#x53BB;&#x83B7;&#x53D6;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x6765;&#x5B8C;&#x6210;&#x4E00;&#x4E9B;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x5426;&#x5219;&#x5728;&#x9879;&#x76EE;&#x6253;&#x5305;&#x540E;&#xFF0C;&#x4E00;&#x5B9A;&#x4F1A;&#x62A5;&#x9519;&#x7684;&#x3002;</p>
+<h5 id="14-useStore"><a href="#14-useStore" class="headerlink" title="14.useStore"></a>14.useStore</h5><p>&#x5728;Vue2&#x4E2D;&#x4F7F;&#x7528; Vuex&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x901A;&#x8FC7; <strong>this.$store</strong> &#x6765;&#x4E0E;&#x83B7;&#x53D6;&#x5230;Vuex&#x5B9E;&#x4F8B;&#xFF0C;&#x4F46;&#x4E0A;&#x4E00;&#x90E8;&#x5206;&#x8BF4;&#x4E86;&#x539F;&#x672C;Vue2&#x4E2D;&#x7684; this &#x7684;&#x83B7;&#x53D6;&#x65B9;&#x5F0F;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x5728;Vue3&#x7684; <strong>getCurrentInstance().ctx</strong> &#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x53D1;&#x73B0; $store &#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5230;Vuex&#x5B9E;&#x4F8B;&#x5462;&#xFF1F;&#x8FD9;&#x5C31;&#x8981;&#x901A;&#x8FC7; vuex &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#x5373; <strong>useStore</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684; index.js</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&apos;vuex&apos;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = Vuex.createStore({</span><br><span class="line">	state: {</span><br><span class="line">		name: <span class="string">&apos;&#x81E7;&#x82CF;&#x4E91;&apos;</span>,</span><br><span class="line">		age: <span class="number">23</span></span><br><span class="line">	},</span><br><span class="line">	mutations: {</span><br><span class="line">		&#x2026;&#x2026;</span><br><span class="line">	},</span><br><span class="line">	&#x2026;&#x2026;</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// example.vue</span></span><br><span class="line"><span class="comment">// &#x4ECE; vuex &#x4E2D;&#x5BFC;&#x5165; useStore &#x65B9;&#x6CD5;</span></span><br><span class="line"><span class="keyword">import</span> {useStore} <span class="keyword">from</span> <span class="string">&apos;vuex&apos;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line">    setup() {	</span><br><span class="line">    	<span class="comment">// &#x83B7;&#x53D6; vuex &#x5B9E;&#x4F8B;</span></span><br><span class="line">    	<span class="keyword">const</span> store = useStore()</span><br><span class="line">      <span class="comment">//&#x7136;&#x540E;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x4E4B;&#x524D;&#x4E00;&#x6837;&#x6B63;&#x5E38;&#x4F7F;&#x7528; vuex &#x4E86;</span></span><br><span class="line">      <span class="comment">// doSomething  </span></span><br><span class="line">      </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="15-&#x83B7;&#x53D6;&#x6807;&#x7B7E;&#x5143;&#x7D20;"><a href="#15-&#x83B7;&#x53D6;&#x6807;&#x7B7E;&#x5143;&#x7D20;" class="headerlink" title="15.&#x83B7;&#x53D6;&#x6807;&#x7B7E;&#x5143;&#x7D20;"></a>15.&#x83B7;&#x53D6;&#x6807;&#x7B7E;&#x5143;&#x7D20;</h5><p>&#x6700;&#x540E;&#x518D;&#x8865;&#x5145;&#x4E00;&#x4E2A; ref &#x53E6;&#x5916;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x6807;&#x7B7E;&#x5143;&#x7D20;&#x6216;&#x7EC4;&#x4EF6;</p>
+<p>&#x5728;Vue2&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x7ED9;&#x5143;&#x7D20;&#x4E00;&#x4E2A; ref &#x5C5E;&#x6027;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; <strong>this.$refs.xx</strong> &#x6765;&#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x4F46;&#x8FD9;&#x5728;Vue3&#x4E2D;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x9002;&#x7528;&#x4E86;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x770B;&#x770B;Vue3&#x4E2D;&#x662F;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x5427;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div ref=&quot;el&quot;&gt;div&#x5143;&#x7D20;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import { ref, onMounted } from &apos;vue&apos;</span><br><span class="line">export default {</span><br><span class="line">  setup() {</span><br><span class="line">    // &#x521B;&#x5EFA;&#x4E00;&#x4E2A;DOM&#x5F15;&#x7528;&#xFF0C;&#x540D;&#x79F0;&#x5FC5;&#x987B;&#x4E0E;&#x5143;&#x7D20;&#x7684;ref&#x5C5E;&#x6027;&#x540D;&#x76F8;&#x540C;</span><br><span class="line">    const el = ref(null)</span><br><span class="line"></span><br><span class="line">    // &#x5728;&#x6302;&#x8F7D;&#x540E;&#x624D;&#x80FD;&#x901A;&#x8FC7; el &#x83B7;&#x53D6;&#x5230;&#x76EE;&#x6807;&#x5143;&#x7D20;</span><br><span class="line">    onMounted(() =&gt; {</span><br><span class="line">      el.value.innerHTML = &apos;&#x5185;&#x5BB9;&#x88AB;&#x4FEE;&#x6539;&apos;</span><br><span class="line">    })</span><br><span class="line"></span><br><span class="line">    // &#x628A;&#x521B;&#x5EFA;&#x7684;&#x5F15;&#x7528; return &#x51FA;&#x53BB;</span><br><span class="line">    return {el}</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x64CD;&#x4F5C;&#x4E00;&#x5171;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1.&#x5148;&#x7ED9;&#x76EE;&#x6807;&#x5143;&#x7D20;&#x7684; ref &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5047;&#x8BBE;&#x4E3A; el<br>2.&#x7136;&#x540E;&#x5728; setup &#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528; ref &#x51FD;&#x6570;&#xFF0C;&#x503C;&#x4E3A; null&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF; el&#xFF0C;&#x8FD9;&#x91CC;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x540D;&#x5FC5;&#x987B;&#x4E0E;&#x6211;&#x4EEC;&#x7ED9;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x7684; ref &#x5C5E;&#x6027;&#x540D;&#x76F8;&#x540C;<br>3.&#x628A;&#x5BF9;&#x5143;&#x7D20;&#x7684;&#x5F15;&#x7528;&#x53D8;&#x91CF; el &#x8FD4;&#x56DE;&#xFF08;return&#xFF09;&#x51FA;&#x53BB;</p>
+<p><code>&#x8865;&#x5145;&#xFF1A;&#x8BBE;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#x5F15;&#x7528;&#x53D8;&#x91CF;&#x53EA;&#x6709;&#x5728;&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x540E;&#x624D;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6302;&#x8F7D;&#x524D;&#x5BF9;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x65E0;&#x6548;&#x7684;</code></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Vue3/" rel="tag"> <i class="fa fa-tag"></i> Vue3</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2021/01/07/vue3的patchFlags/" rel="next" title="vue3的patchFlags">
+                  <i class="fa fa-chevron-left"></i> vue3的patchFlags
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目搭建"><span class="nav-number">1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-setup"><span class="nav-number">2.1.</span> <span class="nav-text">1.setup</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-生命周期"><span class="nav-number">2.2.</span> <span class="nav-text">2.生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-reactive"><span class="nav-number">2.3.</span> <span class="nav-text">3.reactive</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-ref"><span class="nav-number">2.4.</span> <span class="nav-text">4.ref</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-toRef"><span class="nav-number">2.5.</span> <span class="nav-text">5.toRef</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-toRefs"><span class="nav-number">2.6.</span> <span class="nav-text">6. toRefs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-shallowReactive"><span class="nav-number">2.7.</span> <span class="nav-text">7.shallowReactive</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-shallowRef"><span class="nav-number">2.8.</span> <span class="nav-text">8.shallowRef</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-toRaw"><span class="nav-number">2.9.</span> <span class="nav-text">9.toRaw</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-markRaw"><span class="nav-number">2.10.</span> <span class="nav-text">5.markRaw</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-provide-amp-amp-inject"><span class="nav-number">2.11.</span> <span class="nav-text">11.provide &amp;&amp; inject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-watch-amp-amp-watchEffect"><span class="nav-number">2.12.</span> <span class="nav-text">12.watch &amp;&amp; watchEffect</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#当监听-ref-类型时："><span class="nav-number">2.12.1.</span> <span class="nav-text">当监听 ref 类型时：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#当监听-reactive-类型时："><span class="nav-number">2.12.2.</span> <span class="nav-text">当监听 reactive 类型时：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#当同时监听多个值时："><span class="nav-number">2.12.3.</span> <span class="nav-text">当同时监听多个值时：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-getCurrentInstance"><span class="nav-number">2.13.</span> <span class="nav-text">13.getCurrentInstance</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-useStore"><span class="nav-number">2.14.</span> <span class="nav-text">14.useStore</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-获取标签元素"><span class="nav-number">2.15.</span> <span class="nav-text">15.获取标签元素</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>
