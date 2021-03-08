@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-zsy.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32云.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16云.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+  <link rel="alternate" href="/atom.xml" title="臧苏云の博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&amp;#x5982;&amp;#x679C;&amp;#x7ED9;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x8D4B;&amp;#x503C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4E24;&amp;#x8005;&amp;#x7684;&amp;#x503C;">
+<meta name="keywords" content="JavaScript,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高频手写代码">
+<meta property="og:url" content="http://yoursite.com/2021/02/23/高频手写代码/index.html">
+<meta property="og:site_name" content="臧苏云の博客">
+<meta property="og:description" content="&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&amp;#x5982;&amp;#x679C;&amp;#x7ED9;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x8D4B;&amp;#x503C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4E24;&amp;#x8005;&amp;#x7684;&amp;#x503C;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-02-25T10:30:57.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高频手写代码">
+<meta name="twitter:description" content="&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&amp;#x5982;&amp;#x679C;&amp;#x7ED9;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x8D4B;&amp;#x503C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4E24;&amp;#x8005;&amp;#x7684;&amp;#x503C;">
+  <link rel="canonical" href="http://yoursite.com/2021/02/23/高频手写代码/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>高频手写代码 | 臧苏云の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+<a href="https://github.com/zangsuyun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">臧苏云の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">艰难爬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/23/高频手写代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zangsuyun">
+      <meta itemprop="description" content="你若盛开，清风自来">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="臧苏云の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">高频手写代码
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2021-02-23 09:49:58" itemprop="dateCreated datePublished" datetime="2021-02-23T09:49:58+08:00">2021-02-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-25 18:30:57" itemprop="dateModified" datetime="2021-02-25T18:30:57+08:00">2021-02-25</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/02/23/高频手写代码/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2021/02/23/高频手写代码/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="&#x5B9E;&#x73B0;&#x6D45;&#x62F7;&#x8D1D;"><a href="#&#x5B9E;&#x73B0;&#x6D45;&#x62F7;&#x8D1D;" class="headerlink" title="&#x5B9E;&#x73B0;&#x6D45;&#x62F7;&#x8D1D;"></a>&#x5B9E;&#x73B0;&#x6D45;&#x62F7;&#x8D1D;</h4><p>&#x5982;&#x679C;&#x7ED9;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x4E24;&#x8005;&#x7684;&#x503C;&#x4F1A;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x65B9;&#x6539;&#x53D8;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x4E5F;&#x4F1A;&#x76F8;&#x5E94;&#x6539;&#x53D8;&#x3002;&#x9488;&#x5BF9;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x7684;&#x62F7;&#x8D1D;&#x3002;</p><a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x7528; ... &#x5B9E;&#x73B0;</span></span><br><span class="line"><span class="keyword">const</span> copy = {...{<span class="attr">x</span>:<span class="number">1</span>} }</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x7528; Object.assign &#x5B9E;&#x73B0;</span></span><br><span class="line"><span class="keyword">const</span> copy = <span class="built_in">Object</span>.assign({}, {<span class="attr">x</span>:<span class="number">1</span>})</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x7528; slice &#x5B9E;&#x73B0;</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">3</span>, {</span><br><span class="line">  x: <span class="number">1</span></span><br><span class="line">}];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> copy = arr.slice();</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x6DF1;&#x62F7;&#x8D1D;"><a href="#&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6DF1;&#x62F7;&#x8D1D;"></a>&#x6DF1;&#x62F7;&#x8D1D;</h4><p>&#x901A;&#x5E38;&#x6D45;&#x62F7;&#x8D1D;&#x5C31;&#x80FD;&#x89E3;&#x51B3;&#x5927;&#x90E8;&#x5206;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x89E3;&#x51B3;&#x4E86;&#x7B2C;&#x4E00;&#x5C42;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x63A5;&#x4E0B;&#x53BB;&#x7684;&#x503C;&#x4E2D;&#x8FD8;&#x6709;&#x5BF9;&#x8C61;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x6DF1;&#x62F7;&#x8D1D;&#x3002;</p>
+<h5 id="1-&#x901A;&#x8FC7;-JSON-&#x8F6C;&#x6362;&#x5B9E;&#x73B0;"><a href="#1-&#x901A;&#x8FC7;-JSON-&#x8F6C;&#x6362;&#x5B9E;&#x73B0;" class="headerlink" title="1.&#x901A;&#x8FC7; JSON &#x8F6C;&#x6362;&#x5B9E;&#x73B0;"></a>1.&#x901A;&#x8FC7; JSON &#x8F6C;&#x6362;&#x5B9E;&#x73B0;</h5><p>&#x7F3A;&#x70B9;&#xFF1A;</p>
+<p>&#x5BF9;&#x4E8E; function&#x3001;undefined&#xFF0C;&#x4F1A;&#x4E22;&#x5931;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x3002;<br>&#x5BF9;&#x4E8E; RegExp&#x3001;Error &#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x4F1A;&#x5F97;&#x5230;&#x7A7A;&#x5BF9;&#x8C61;<br>&#x5BF9;&#x4E8E; date &#x5BF9;&#x8C61;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x662F; string&#xFF0C;&#x800C;&#x4E0D;&#x662F; date &#x5BF9;&#x8C61;<br>&#x5BF9;&#x4E8E; NaN&#x3001;Infinity&#x3001;-Infinity&#xFF0C;&#x4F1A;&#x53D8;&#x6210; null<br>&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = {<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: {<span class="attr">x</span>: <span class="number">3</span>}}</span><br><span class="line"><span class="keyword">const</span> copy = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-&#x4E5E;&#x4E10;&#x5F0F;&#x9012;&#x5F52;"><a href="#2-&#x4E5E;&#x4E10;&#x5F0F;&#x9012;&#x5F52;" class="headerlink" title="2.&#x4E5E;&#x4E10;&#x5F0F;&#x9012;&#x5F52;"></a>2.&#x4E5E;&#x4E10;&#x5F0F;&#x9012;&#x5F52;</h5><p>&#x4E5E;&#x4E10;&#x7248;&#x7684;&#x9012;&#x5F52;&#xFF0C;&#x9488;&#x5BF9;&#x5E38;&#x7528;&#x7684;JS&#x7C7B;&#x578B;&#xFF08;&#x57FA;&#x7840;&#x7C7B;&#x578B;&#x3001;&#x6570;&#x7EC4;&#x3001;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x867D;&#x7136;&#x89E3;&#x51B3;&#x4E86;&#x5927;&#x90E8;&#x5206;<strong>JSON.parse(JSON.stringify(oldObj))</strong>&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj</span>)</span>{</span><br><span class="line">  <span class="keyword">let</span> copy = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : {}</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj){</span><br><span class="line">    <span class="keyword">if</span>(obj.hasOwnProperty(i)) {</span><br><span class="line">      copy[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">&apos;object&apos;</span> ? deepClone(obj[i]) : obj[i]</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> copy</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-&#x6539;&#x826F;&#x7248;&#x6DF1;&#x62F7;&#x8D1D;"><a href="#3-&#x6539;&#x826F;&#x7248;&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="3.&#x6539;&#x826F;&#x7248;&#x6DF1;&#x62F7;&#x8D1D;"></a>3.&#x6539;&#x826F;&#x7248;&#x6DF1;&#x62F7;&#x8D1D;</h5><p>&#x53C2;&#x8003;vuex&#x7684;deepCopy&#x6E90;&#x7801;&#xFF0C;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span> (<span class="params">obj, cache = []</span>) </span>{</span><br><span class="line">  <span class="comment">// typeof [] =&gt; &apos;object&apos;</span></span><br><span class="line">  <span class="comment">// typeof {} =&gt; &apos;object&apos;</span></span><br><span class="line">  <span class="keyword">if</span> (obj === <span class="literal">null</span> || <span class="keyword">typeof</span> obj !== <span class="string">&apos;object&apos;</span>) {</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x5982;&#x679C;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x7F13;&#x5B58;&#x7684;&#x76F8;&#x7B49;, &#x5219;&#x9012;&#x5F52;&#x7ED3;&#x675F;, &#x8FD9;&#x6837;&#x9632;&#x6B62;&#x5FAA;&#x73AF;</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * &#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;</span></span><br><span class="line"><span class="comment">   * var a = {b:1}</span></span><br><span class="line"><span class="comment">   * a.c = a</span></span><br><span class="line"><span class="comment">   * &#x8D44;&#x6599;: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cyclic_object_value</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> hit = cache.filter(<span class="function"><span class="params">c</span> =&gt;</span> c.original === obj)[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">if</span> (hit) {</span><br><span class="line">    <span class="keyword">return</span> hit.copy</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> copy = <span class="built_in">Array</span>.isArray(obj) ?  [] :   {}</span><br><span class="line">  <span class="comment">// &#x5C06;copy&#x9996;&#x5148;&#x653E;&#x5165;cache, &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;&#x9012;&#x5F52;deepCopy&#x7684;&#x65F6;&#x5019;&#x5F15;&#x7528;&#x5B83;</span></span><br><span class="line">  cache.push({</span><br><span class="line">    original: obj,</span><br><span class="line">    copy</span><br><span class="line">  })</span><br><span class="line">  <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span> {</span><br><span class="line">    copy[key] = deepCopy(obj[key], cache)</span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> copy</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>&#x5F53;&#x7136;&#xFF1A; cache &#x53EF;&#x4EE5;&#x4F7F;&#x7528; new WeakMap() &#x4EE3;&#x66FF;</p>
+<h4 id="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-bind-&#x51FD;&#x6570;"><a href="#&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-bind-&#x51FD;&#x6570;" class="headerlink" title="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; bind &#x51FD;&#x6570;"></a>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; bind &#x51FD;&#x6570;</h4><p>&#x901A;&#x8FC7;&#x95ED;&#x5305;&#x8C03;&#x7528; call || apply &#x53EF;&#x4EE5;&#x5B9E;&#x73B0; bind &#x51FD;&#x6570;&#x3002;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E5E;&#x4E10;&#x7248;</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.mybind = <span class="function"><span class="keyword">function</span> (<span class="params">context, ...preArgs</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> <span class="keyword">this</span>.call(context, ...preArgs, ...args)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x8FDB;&#x9636;&#x7248;&#xFF0C;&#x505A;&#x4E00;&#x4E9B;&#x5F02;&#x5E38;&#x5904;&#x7406;</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.mybind = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">&apos;function&apos;</span>) {</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&apos;Error&apos;</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">let</span> _this = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> arg = [...arguments].slice(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// &#x5904;&#x7406;&#x51FD;&#x6570;&#x4F7F;&#x7528;new&#x7684;&#x60C5;&#x51B5;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> F) {</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> _this(...arg, ...arguments)</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      <span class="keyword">return</span> _this.apply(context, arg.concat(...arguments))</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-apply-&#x51FD;&#x6570;"><a href="#&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-apply-&#x51FD;&#x6570;" class="headerlink" title="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; apply &#x51FD;&#x6570;"></a>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; apply &#x51FD;&#x6570;</h4><p>&#x5B9E;&#x73B0; bind &#x9700;&#x8981;&#x8C03;&#x7528; apply || call&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#xFF1F;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;&#x5C06;&#x8981;&#x6539;&#x53D8;this&#x6307;&#x5411;&#x7684;&#x65B9;&#x6CD5;&#x6302;&#x5230;&#x76EE;&#x6807;this&#x4E0A;&#x6267;&#x884C;&#x5E76;&#x8FD4;&#x56DE;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myapply = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">&apos;function&apos;</span>) {</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&apos;not funciton&apos;</span>)</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  context = context || <span class="built_in">window</span></span><br><span class="line">  context.fn = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> result</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>[<span class="number">1</span>]) {</span><br><span class="line">    result = context.fn(...arguments[<span class="number">1</span>])</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    result = context.fn()</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span> context.fn</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;"><a href="#&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;"></a>&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;</h4><p>&#x67EF;&#x91CC;&#x5316;&#xFF1A;</p>
+<ul>
+<li>&#x628A;&#x63A5;&#x53D7;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x53D8;&#x6362;&#x6210;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x53C2;&#x6570;(&#x6700;&#x521D;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;)&#x7684;&#x51FD;&#x6570;</li>
+<li>&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x63A5;&#x53D7;&#x4F59;&#x4E0B;&#x7684;&#x53C2;&#x6570;&#x4E14;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x65B0;&#x51FD;&#x6570;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#x67EF;&#x91CC;&#x5316;</p>
+<h5 id="1-&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x591F;&#x4E86;&#x624D;&#x6267;&#x884C;"><a href="#1-&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x591F;&#x4E86;&#x624D;&#x6267;&#x884C;" class="headerlink" title="1.&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x591F;&#x4E86;&#x624D;&#x6267;&#x884C;"></a>1.&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x591F;&#x4E86;&#x624D;&#x6267;&#x884C;</h5><p>&#x5177;&#x4F53;&#x770B;&#x6211;&#x4EE5;&#x524D;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x6211;&#x7684;&#x51FD;&#x6570;&#x5E93;&#x7528;&#x7684;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;<br><a href="https://zangsuyun.github.io/2020/11/19/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8Bcurry/" target="_blank" rel="noopener">&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x4E4B;curry</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x5B9E;&#x73B0;&#x8981;&#x70B9;&#xFF1A;&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x5230;&#x8DB3;&#x591F;&#x53C2;&#x6570;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x539F;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x53BB;&#x786E;&#x5B9A;&#x4F55;&#x65F6;&#x8FBE;&#x5230;&#x8DB3;&#x591F;&#x7684;&#x53C2;&#x6570;&#x5462;&#xFF1F;</span></span><br><span class="line"><span class="comment"> * &#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x4F60;&#x5DF2;&#x7ECF;&#x7ED9;&#x8FC7;&#x4ED6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x7ED9;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;&#x3002;</span></span><br><span class="line"><span class="comment"> * &#x63A5;&#x4E0B;&#x6765;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x53C2;&#x6570;&#x662F;&#x5426;&#x7ED9;&#x591F;&#xFF0C;&#x5982;&#x679C;&#x591F;&#x4E86;&#xFF0C;&#x5219;&#x6267;&#x884C;fn&#xFF0C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; curry &#x51FD;&#x6570;&#xFF0C;&#x5C06;&#x73B0;&#x6709;&#x7684;&#x53C2;&#x6570;&#x585E;&#x7ED9;&#x4ED6;&#x3002;</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// &#x5F85;&#x67EF;&#x91CC;&#x5316;&#x5904;&#x7406;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">a, b, c, d</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> a + b + c + d</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x5904;&#x7406;&#x8FC7;&#x7684;&#x51FD;&#x6570; </span></span><br><span class="line"><span class="keyword">let</span> curry = <span class="function">(<span class="params">fn, ...arr</span>) =&gt;</span> {  <span class="comment">// arr &#x8BB0;&#x5F55;&#x5DF2;&#x6709;&#x53C2;&#x6570;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> {   <span class="comment">// args &#x63A5;&#x6536;&#x65B0;&#x53C2;&#x6570;</span></span><br><span class="line">    <span class="keyword">if</span> (fn.length &lt;= (...arr,...args)) {  <span class="comment">// &#x53C2;&#x6570;&#x591F;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="keyword">return</span> fn(...arr, ...args)</span><br><span class="line">    } <span class="keyword">else</span> {  <span class="comment">// &#x7EE7;&#x7EED;&#x6DFB;&#x52A0;&#x53C2;&#x6570;</span></span><br><span class="line">      <span class="keyword">return</span> curry(fn, [...arr, ...args])</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sumPlus = curry(sum)</span><br><span class="line">sumPlus(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)</span><br><span class="line">sumPlus(<span class="number">1</span>, <span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)</span><br><span class="line">sumPlus(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-&#x4E0D;&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x968F;&#x65F6;&#x6267;&#x884C;"><a href="#2-&#x4E0D;&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x968F;&#x65F6;&#x6267;&#x884C;" class="headerlink" title="2.&#x4E0D;&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x968F;&#x65F6;&#x6267;&#x884C;"></a>2.&#x4E0D;&#x56FA;&#x5B9A;&#x4F20;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x968F;&#x65F6;&#x6267;&#x884C;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x5F53;&#x7136;&#x4E86;&#xFF0C;&#x67EF;&#x91CC;&#x5316;&#x51FD;&#x6570;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x8FD8;&#x662F;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x89E6;&#x53D1;&#x6761;&#x4EF6;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#x76F8;&#x7B49;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x6761;&#x4EF6;&#x3002;</span></span><br><span class="line"><span class="comment"> * &#x4F8B;&#x5982;&#x53C2;&#x6570;&#x4E2A;&#x4E3A;0&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x4E0A;&#x9762;curry&#x51FD;&#x6570;&#x7A0D;&#x5FAE;&#x505A;&#x4FEE;&#x6539;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// &#x5F85;&#x67EF;&#x91CC;&#x5316;&#x5904;&#x7406;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="params">arr</span> =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">  })</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curry = <span class="function">(<span class="params">fn, ...arr</span>) =&gt;</span> {  <span class="comment">// arr &#x8BB0;&#x5F55;&#x5DF2;&#x6709;&#x53C2;&#x6570;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> {  <span class="comment">// args &#x63A5;&#x6536;&#x65B0;&#x53C2;&#x6570;</span></span><br><span class="line">    <span class="keyword">if</span> (args.length === <span class="number">0</span>) {  <span class="comment">// &#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="keyword">return</span> fn(...arr, ...args)</span><br><span class="line">    } <span class="keyword">else</span> {  <span class="comment">// &#x7EE7;&#x7EED;&#x6DFB;&#x52A0;&#x53C2;&#x6570;</span></span><br><span class="line">      <span class="keyword">return</span> curry(fn, ...arr, ...args)</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sumPlus = curry(sum)</span><br><span class="line">sumPlus(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)()</span><br><span class="line">sumPlus(<span class="number">1</span>, <span class="number">2</span>)(<span class="number">3</span>)(<span class="number">4</span>)()</span><br><span class="line">sumPlus(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)(<span class="number">4</span>)()</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;"><a href="#&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;" class="headerlink" title="&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;"></a>&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> flattenDeep = <span class="function">(<span class="params">arr</span>) =&gt;</span> <span class="built_in">Array</span>.isArray(arr)</span><br><span class="line">  ? arr.reduce( <span class="function">(<span class="params">a, b</span>) =&gt;</span> [...a, ...flattenDeep(b)] , [])</span><br><span class="line">  : [arr]</span><br><span class="line"></span><br><span class="line">flattenDeep([<span class="number">1</span>, [[<span class="number">2</span>], [<span class="number">3</span>, [<span class="number">4</span>]], <span class="number">5</span>]])</span><br><span class="line"><span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-instanceOf"><a href="#&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-instanceOf" class="headerlink" title="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; instanceOf"></a>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; instanceOf</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span>(<span class="params">a, b</span>)</span>{ <span class="comment">// &#x5224;&#x65AD;a&#x662F;&#x5426;&#x5728;b&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E0A;</span></span><br><span class="line">   </span><br><span class="line">  <span class="keyword">if</span> (a.__proto__ === b.prototype) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">// &#x627E;&#x5230;Object.prototype&#x505C;&#x6B62;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (a.__proto__ === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line"></span><br><span class="line">  <span class="comment">// if (a === null) return false; // &#x5E94;&#x8BE5;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x7684;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> _instanceof(a.__proto__, b);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">instanceOf</span>(<span class="params">left,right</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> proto = left.__proto__;</span><br><span class="line">  <span class="keyword">let</span> prototype = right.prototype</span><br><span class="line">  <span class="keyword">while</span>(<span class="literal">true</span>) {</span><br><span class="line">    <span class="keyword">if</span>(proto === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span> <span class="comment">// &#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x4E86;&#x539F;&#x578B;&#x94FE;&#x7684;&#x6700;&#x9876;&#x7AEF;</span></span><br><span class="line">    <span class="keyword">if</span>(proto === prototype) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    proto = proto.__proto__;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-&#x5B9E;&#x73B0;"><a href="#Promise-&#x5B9E;&#x73B0;" class="headerlink" title="Promise &#x5B9E;&#x73B0;"></a>Promise &#x5B9E;&#x73B0;</h4><p>Promise &#x6709;3&#x4E2A;&#x72B6;&#x6001; pending&#x3001; resolve &#x548C; reject&#x3002;&#x56E0;&#x4E3A;&#x72B6;&#x6001;&#x7684;&#x7684;&#x786E;&#x5B9A;&#xFF0C;&#x6240;&#x4EE5;Promise&#x7684;&#x7ED3;&#x679C;&#x662F;&#x53EF;&#x9760;&#x7684;&#x3002;</p>
+<p>Promise &#x8FD8;&#x80FD;&#x89E3;&#x51B3;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h5 id="&#x4E5E;&#x4E10;&#x7248;-&#x5B9E;&#x73B0;&#x4E86;-Promise-&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x7F3A;&#x5C11;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7B49;&#x5176;&#x4ED6;&#x60C5;&#x51B5;"><a href="#&#x4E5E;&#x4E10;&#x7248;-&#x5B9E;&#x73B0;&#x4E86;-Promise-&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x7F3A;&#x5C11;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7B49;&#x5176;&#x4ED6;&#x60C5;&#x51B5;" class="headerlink" title="&#x4E5E;&#x4E10;&#x7248;,&#x5B9E;&#x73B0;&#x4E86; Promise &#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x7F3A;&#x5C11;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7B49;&#x5176;&#x4ED6;&#x60C5;&#x51B5;"></a>&#x4E5E;&#x4E10;&#x7248;,&#x5B9E;&#x73B0;&#x4E86; Promise &#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x7F3A;&#x5C11;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7B49;&#x5176;&#x4ED6;&#x60C5;&#x51B5;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Promise</span> </span>{</span><br><span class="line">  <span class="keyword">constructor</span> (fn) {</span><br><span class="line">    <span class="comment">// &#x4E09;&#x4E2A;&#x72B6;&#x6001;</span></span><br><span class="line">    <span class="keyword">this</span>.state = <span class="string">&apos;pending&apos;</span></span><br><span class="line">    <span class="keyword">this</span>.value = <span class="literal">undefined</span></span><br><span class="line">    <span class="keyword">this</span>.reason = <span class="literal">undefined</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> resolve = <span class="function"><span class="params">value</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.state === <span class="string">&apos;pending&apos;</span>) {</span><br><span class="line">        <span class="keyword">this</span>.state = <span class="string">&apos;fulfilled&apos;</span></span><br><span class="line">        <span class="keyword">this</span>.value = value</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> reject = <span class="function"><span class="params">value</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.state === <span class="string">&apos;pending&apos;</span>) {</span><br><span class="line">        <span class="keyword">this</span>.state = <span class="string">&apos;rejected&apos;</span></span><br><span class="line">        <span class="keyword">this</span>.reason = value</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// &#x81EA;&#x52A8;&#x6267;&#x884C;&#x51FD;&#x6570;</span></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      fn(resolve, reject)</span><br><span class="line">    } <span class="keyword">catch</span> (e) {</span><br><span class="line">      reject(e)</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// then</span></span><br><span class="line">  then(onFulfilled, onRejected) {</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">this</span>.state) {</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&apos;fulfilled&apos;</span>:</span><br><span class="line">        onFulfilled(<span class="keyword">this</span>.value)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&apos;rejected&apos;</span>:</span><br><span class="line">        onRejected(<span class="keyword">this</span>.value)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="&#x6539;&#x826F;&#x7248;&#xFF1A;&#x5B9E;&#x73B0;&#x4E86;Promise&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF08;&#x6CA1;&#x6709;catch&#x3001;finally&#x3001;&#x9759;&#x6001;&#x8C03;&#x7528;&#x7B49;&#xFF09;"><a href="#&#x6539;&#x826F;&#x7248;&#xFF1A;&#x5B9E;&#x73B0;&#x4E86;Promise&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF08;&#x6CA1;&#x6709;catch&#x3001;finally&#x3001;&#x9759;&#x6001;&#x8C03;&#x7528;&#x7B49;&#xFF09;" class="headerlink" title="&#x6539;&#x826F;&#x7248;&#xFF1A;&#x5B9E;&#x73B0;&#x4E86;Promise&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF08;&#x6CA1;&#x6709;catch&#x3001;finally&#x3001;&#x9759;&#x6001;&#x8C03;&#x7528;&#x7B49;&#xFF09;"></a>&#x6539;&#x826F;&#x7248;&#xFF1A;&#x5B9E;&#x73B0;&#x4E86;Promise&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF08;&#x6CA1;&#x6709;catch&#x3001;finally&#x3001;&#x9759;&#x6001;&#x8C03;&#x7528;&#x7B49;&#xFF09;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E09;&#x79CD;&#x72B6;&#x6001;</span></span><br><span class="line"><span class="keyword">const</span> PENDING = <span class="string">&quot;pending&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> RESOLVED = <span class="string">&quot;resolved&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> REJECTED = <span class="string">&quot;rejected&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// promise &#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyPromise</span>(<span class="params">fn</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">  _this.currentState = PENDING;</span><br><span class="line">  _this.value = <span class="literal">undefined</span>;</span><br><span class="line">  <span class="comment">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58; then &#x4E2D;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x53EA;&#x6709;&#x5F53; promise</span></span><br><span class="line">  <span class="comment">// &#x72B6;&#x6001;&#x4E3A; pending &#x65F6;&#x624D;&#x4F1A;&#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x81F3;&#x591A;&#x7F13;&#x5B58;&#x4E00;&#x4E2A;</span></span><br><span class="line">  _this.resolvedCallbacks = [];</span><br><span class="line">  _this.rejectedCallbacks = [];</span><br><span class="line"></span><br><span class="line">  _this.resolve = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">      <span class="comment">// &#x5982;&#x679C; value &#x662F;&#x4E2A; Promise&#xFF0C;&#x9012;&#x5F52;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="keyword">return</span> value.then(_this.resolve, _this.reject)</span><br><span class="line">    }</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;</span></span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = RESOLVED;</span><br><span class="line">        _this.value = value;</span><br><span class="line">        _this.resolvedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  _this.reject = <span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>{</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;</span></span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = REJECTED;</span><br><span class="line">        _this.value = reason;</span><br><span class="line">        _this.rejectedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;</span></span><br><span class="line">  <span class="comment">// new Promise(() =&gt; throw Error(&apos;error))</span></span><br><span class="line">  <span class="keyword">try</span> {</span><br><span class="line">    fn(_this.resolve, _this.reject);</span><br><span class="line">  } <span class="keyword">catch</span> (e) {</span><br><span class="line">    _this.reject(e);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MyPromise.prototype.then = <span class="function"><span class="keyword">function</span> (<span class="params">onResolved, onRejected</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.2.7&#xFF0C;then &#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; promise</span></span><br><span class="line">  <span class="keyword">var</span> promise2;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.2.onResolved &#x548C; onRejected &#x90FD;&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;</span></span><br><span class="line">  <span class="comment">// &#x5982;&#x679C;&#x7C7B;&#x578B;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x9700;&#x8981;&#x5FFD;&#x7565;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86;&#x900F;&#x4F20;</span></span><br><span class="line">  <span class="comment">// Promise.resolve(4).then().then((value) =&gt; console.log(value))</span></span><br><span class="line">  onResolved = <span class="keyword">typeof</span> onResolved === <span class="string">&apos;function&apos;</span> ? onResolved : <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line">  onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">&apos;function&apos;</span> ? onRejected : <span class="function"><span class="params">r</span> =&gt;</span> {<span class="keyword">throw</span> r};</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === RESOLVED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      <span class="comment">// &#x89C4;&#x8303; 2.2.4&#xFF0C;&#x4FDD;&#x8BC1; onFulfilled&#xFF0C;onRjected &#x5F02;&#x6B65;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="comment">// &#x6240;&#x4EE5;&#x7528;&#x4E86; setTimeout &#x5305;&#x88F9;&#x4E0B;</span></span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === REJECTED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;onRejected</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === PENDING) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      self.resolvedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="comment">// &#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528; try/catch &#x5305;&#x88F9;</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line"></span><br><span class="line">      self.rejectedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x89C4;&#x8303; 2.3</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolutionProcedure</span>(<span class="params">promise2, x, resolve, reject</span>) </span>{</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.1&#xFF0C;x &#x4E0D;&#x80FD;&#x548C; promise2 &#x76F8;&#x540C;&#xFF0C;&#x907F;&#x514D;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</span></span><br><span class="line">  <span class="keyword">if</span> (promise2 === x) {</span><br><span class="line">    <span class="keyword">return</span> reject(<span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.2</span></span><br><span class="line">  <span class="comment">// &#x5982;&#x679C; x &#x4E3A; Promise&#xFF0C;&#x72B6;&#x6001;&#x4E3A; pending &#x9700;&#x8981;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x5426;&#x5219;&#x6267;&#x884C;</span></span><br><span class="line">  <span class="keyword">if</span> (x <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">    <span class="keyword">if</span> (x.currentState === PENDING) {</span><br><span class="line">      x.then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">        <span class="comment">// &#x518D;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x4E3A;&#x4E86;&#x786E;&#x8BA4; x resolve &#x7684;</span></span><br><span class="line">        <span class="comment">// &#x53C2;&#x6570;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5C31;&#x518D;&#x6B21; resolve</span></span><br><span class="line">        <span class="comment">// &#x628A;&#x503C;&#x4F20;&#x7ED9;&#x4E0B;&#x4E2A; then</span></span><br><span class="line">        resolutionProcedure(promise2, value, resolve, reject);</span><br><span class="line">      }, reject);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      x.then(resolve, reject);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.3.3.3</span></span><br><span class="line">  <span class="comment">// reject &#x6216;&#x8005; resolve &#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x8FC7;&#x5F97;&#x8BDD;&#xFF0C;&#x5FFD;&#x7565;&#x5176;&#x4ED6;&#x7684;</span></span><br><span class="line">  <span class="keyword">let</span> called = <span class="literal">false</span>;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.3&#xFF0C;&#x5224;&#x65AD; x &#x662F;&#x5426;&#x4E3A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x51FD;&#x6570;</span></span><br><span class="line">  <span class="keyword">if</span> (x !== <span class="literal">null</span> &amp;&amp; (<span class="keyword">typeof</span> x === <span class="string">&quot;object&quot;</span> || <span class="keyword">typeof</span> x === <span class="string">&quot;function&quot;</span>)) {</span><br><span class="line">    <span class="comment">// &#x89C4;&#x8303; 2.3.3.2&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x53D6;&#x51FA; then&#xFF0C;&#x5C31; reject</span></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      <span class="comment">// &#x89C4;&#x8303; 2.3.3.1</span></span><br><span class="line">      <span class="keyword">let</span> then = x.then;</span><br><span class="line">      <span class="comment">// &#x5982;&#x679C; then &#x662F;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528; x.then</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> then === <span class="string">&quot;function&quot;</span>) {</span><br><span class="line">        <span class="comment">// &#x89C4;&#x8303; 2.3.3.3</span></span><br><span class="line">        then.call(</span><br><span class="line">          x,</span><br><span class="line">          y =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">// &#x89C4;&#x8303; 2.3.3.3.1</span></span><br><span class="line">            resolutionProcedure(promise2, y, resolve, reject);</span><br><span class="line">          },</span><br><span class="line">          e =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            reject(e);</span><br><span class="line">          }</span><br><span class="line">        );</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// &#x89C4;&#x8303; 2.3.3.4</span></span><br><span class="line">        resolve(x);</span><br><span class="line">      }</span><br><span class="line">    } <span class="keyword">catch</span> (e) {</span><br><span class="line">      <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">      called = <span class="literal">true</span>;</span><br><span class="line">      reject(e);</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    <span class="comment">// &#x89C4;&#x8303; 2.3.4&#xFF0C;x &#x4E3A;&#x57FA;&#x672C;&#x7C7B;&#x578B;</span></span><br><span class="line">    resolve(x);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-&#x8865;&#x5145;&#x7248;"><a href="#3-&#x8865;&#x5145;&#x7248;" class="headerlink" title="3.&#x8865;&#x5145;&#x7248;"></a>3.&#x8865;&#x5145;&#x7248;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E09;&#x79CD;&#x72B6;&#x6001;</span></span><br><span class="line"><span class="keyword">const</span> PENDING = <span class="string">&quot;pending&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> RESOLVED = <span class="string">&quot;resolved&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> REJECTED = <span class="string">&quot;rejected&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyPromise</span>(<span class="params">fn</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">  _this.currentState = PENDING;</span><br><span class="line">  _this.value = <span class="literal">undefined</span>;</span><br><span class="line">  _this.resolvedCallbacks = [];</span><br><span class="line">  _this.rejectedCallbacks = [];</span><br><span class="line"></span><br><span class="line">  _this.resolve = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">      <span class="keyword">return</span> value.then(_this.resolve, _this.reject)</span><br><span class="line">    }</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = RESOLVED;</span><br><span class="line">        _this.value = value;</span><br><span class="line">        _this.resolvedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  _this.reject = <span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>{</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = REJECTED;</span><br><span class="line">        _this.value = reason;</span><br><span class="line">        _this.rejectedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">try</span> {</span><br><span class="line">    fn(_this.resolve, _this.reject);</span><br><span class="line">  } <span class="keyword">catch</span> (e) {</span><br><span class="line">    _this.reject(e);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MyPromise.prototype.then = <span class="function"><span class="keyword">function</span> (<span class="params">onResolved, onRejected</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">var</span> promise2;</span><br><span class="line">  onResolved = <span class="keyword">typeof</span> onResolved === <span class="string">&apos;function&apos;</span> ? onResolved : <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line">  onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">&apos;function&apos;</span> ? onRejected : <span class="function"><span class="params">r</span> =&gt;</span> {<span class="keyword">throw</span> r};</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === RESOLVED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === REJECTED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === PENDING) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      self.resolvedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line"></span><br><span class="line">      self.rejectedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x89C4;&#x8303; 2.3</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolutionProcedure</span>(<span class="params">promise2, x, resolve, reject</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (promise2 === x) {</span><br><span class="line">    <span class="keyword">return</span> reject(<span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span> (x <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">    <span class="keyword">if</span> (x.currentState === PENDING) {</span><br><span class="line">      x.then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">        resolutionProcedure(promise2, value, resolve, reject);</span><br><span class="line">      }, reject);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      x.then(resolve, reject);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">let</span> called = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (x !== <span class="literal">null</span> &amp;&amp; (<span class="keyword">typeof</span> x === <span class="string">&quot;object&quot;</span> || <span class="keyword">typeof</span> x === <span class="string">&quot;function&quot;</span>)) {</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      <span class="keyword">let</span> then = x.then;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> then === <span class="string">&quot;function&quot;</span>) {</span><br><span class="line">        then.call(</span><br><span class="line">          x,</span><br><span class="line">          y =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            resolutionProcedure(promise2, y, resolve, reject);</span><br><span class="line">          },</span><br><span class="line">          e =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            reject(e);</span><br><span class="line">          }</span><br><span class="line">        );</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        resolve(x);</span><br><span class="line">      }</span><br><span class="line">    } <span class="keyword">catch</span> (e) {</span><br><span class="line">      <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">      called = <span class="literal">true</span>;</span><br><span class="line">      reject(e);</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    resolve(x);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// catch&#x65B9;&#x6CD5;</span></span><br><span class="line">MyPromise.prototype.catch = <span class="function"><span class="keyword">function</span> (<span class="params">rejectFn</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="literal">undefined</span>, rejectFn)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//finally&#x65B9;&#x6CD5;</span></span><br><span class="line">MyPromise.prototype.finally = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.then(</span><br><span class="line">    value =&gt; MyPromise.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> value),</span><br><span class="line">    reason =&gt; MyPromise.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="keyword">throw</span> reason })</span><br><span class="line">  )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">  &#x9759;&#x6001;&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// resolve&#x65B9;&#x6CD5;</span></span><br><span class="line">MyPromise.resolve = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>{</span><br><span class="line">    resolve(val)</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//reject&#x65B9;&#x6CD5;</span></span><br><span class="line">MyPromise.reject = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>{</span><br><span class="line">    reject(val)</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//race&#x65B9;&#x6CD5; </span></span><br><span class="line">MyPromise.race = <span class="function"><span class="keyword">function</span>(<span class="params">promises</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;promises.length;i++){</span><br><span class="line">      promises[i].then(resolve, reject)</span><br><span class="line">    };</span><br><span class="line">  })</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//all&#x65B9;&#x6CD5;(&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;promise&#xFF0C;&#x90FD;&#x6267;&#x884C;then&#xFF0C;&#x628A;&#x7ED3;&#x679C;&#x653E;&#x5230;&#x6570;&#x7EC4;&#xFF0C;&#x4E00;&#x8D77;&#x8FD4;&#x56DE;)</span></span><br><span class="line">MyPromise.all = <span class="function"><span class="keyword">function</span>(<span class="params">promises</span>)</span>{</span><br><span class="line">  <span class="keyword">let</span> arr = [];</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">processData</span>(<span class="params">index,data</span>)</span>{</span><br><span class="line">    arr[index] = data;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">if</span>(i == promises.length){</span><br><span class="line">      resolve(arr);</span><br><span class="line">    };</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;promises.length;i++){</span><br><span class="line">      promises[i].then(<span class="function"><span class="params">data</span>=&gt;</span>{</span><br><span class="line">        processData(i,data);</span><br><span class="line">      },reject);</span><br><span class="line">    };</span><br><span class="line">  });</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x5B9E;&#x73B0;EventBus"><a href="#&#x5B9E;&#x73B0;EventBus" class="headerlink" title="&#x5B9E;&#x73B0;EventBus"></a>&#x5B9E;&#x73B0;EventBus</h4><h5 id="&#x4E5E;&#x4E10;&#x7248;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x4E0D;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x4E0D;&#x5B9E;&#x73B0;-remove"><a href="#&#x4E5E;&#x4E10;&#x7248;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x4E0D;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x4E0D;&#x5B9E;&#x73B0;-remove" class="headerlink" title="&#x4E5E;&#x4E10;&#x7248;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x4E0D;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x4E0D;&#x5B9E;&#x73B0; remove"></a>&#x4E5E;&#x4E10;&#x7248;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x4E0D;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x4E0D;&#x5B9E;&#x73B0; remove</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span></span>{</span><br><span class="line">  <span class="keyword">constructor</span>(){</span><br><span class="line">    <span class="comment">// &#x5B58;&#x50A8;&#x4E8B;&#x4EF6;</span></span><br><span class="line">    <span class="keyword">this</span>.events = <span class="keyword">this</span>.events || <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x76D1;&#x542C;&#x4E8B;&#x4EF6;</span></span><br><span class="line">  addListener (type, fn) {</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.events.get(type)) {</span><br><span class="line">      <span class="keyword">this</span>.events.set(type, fn)</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</span></span><br><span class="line">  emit (type) {</span><br><span class="line">    <span class="keyword">let</span> handle = <span class="keyword">this</span>.events.get(type)</span><br><span class="line">    handle.apply(<span class="keyword">this</span>, [...arguments].slice(<span class="number">1</span>))</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-&#x8FDB;&#x9636;&#x7248;"><a href="#2-&#x8FDB;&#x9636;&#x7248;" class="headerlink" title="2.&#x8FDB;&#x9636;&#x7248;"></a>2.&#x8FDB;&#x9636;&#x7248;</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span></span>{</span><br><span class="line">  <span class="keyword">constructor</span>(){</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>._events === <span class="literal">undefined</span>){</span><br><span class="line">      <span class="keyword">this</span>._events = <span class="built_in">Object</span>.create(<span class="literal">null</span>);<span class="comment">//&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;</span></span><br><span class="line">      <span class="keyword">this</span>._eventsCount = <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  emit(type,...args){</span><br><span class="line">    <span class="keyword">const</span> events=<span class="keyword">this</span>._events;</span><br><span class="line">    <span class="keyword">const</span> handler=events[type];</span><br><span class="line">    <span class="comment">//&#x5224;&#x65AD;&#x76F8;&#x5E94;type&#x7684;&#x6267;&#x884C;&#x51FD;&#x6570;&#x662F;&#x5426;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> handler===<span class="string">&apos;function&apos;</span>){</span><br><span class="line">      <span class="built_in">Reflect</span>.apply(handler,<span class="keyword">this</span>,args);</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">      <span class="keyword">const</span> len=handler.length;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;li&lt;len;i++){</span><br><span class="line">        <span class="built_in">Reflect</span>.apply(handler[i],<span class="keyword">this</span>,args);</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  on(type,listener,prepend){</span><br><span class="line">    <span class="keyword">var</span> m;</span><br><span class="line">    <span class="keyword">var</span> events;</span><br><span class="line">    <span class="keyword">var</span> existing;</span><br><span class="line">    events=<span class="keyword">this</span>._events;</span><br><span class="line">    <span class="comment">//&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#x7684;</span></span><br><span class="line">    <span class="keyword">if</span>(events.newListener!==<span class="literal">undefined</span>){</span><br><span class="line">       <span class="keyword">this</span>.emit(<span class="string">&apos;namelessListener&apos;</span>,type,listener);</span><br><span class="line">       events=target._events;</span><br><span class="line">    }</span><br><span class="line">    existing=events[type];</span><br><span class="line">    <span class="comment">//&#x5224;&#x65AD;&#x76F8;&#x5E94;&#x7684;type&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5B58;&#x5728;</span></span><br><span class="line">    <span class="keyword">if</span>(existing===<span class="literal">undefined</span>){</span><br><span class="line">      <span class="comment">//&#x5982;&#x679C;&#x76F8;&#x5E94;&#x7684;type&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD9;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x76F8;&#x5E94;type&#x7684;&#x4E8B;&#x4EF6;</span></span><br><span class="line">      existing=events[type]=listener;</span><br><span class="line">      ++<span class="keyword">this</span>._eventsCount;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">      <span class="comment">//&#x5982;&#x679C;&#x5B58;&#x5728;&#x76F8;&#x5E94;&#x7684;type&#x7684;&#x65B9;&#x6CD5;,&#x5224;&#x65AD;&#x76F8;&#x5E94;&#x7684;type&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x8FD8;&#x662F;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;</span></span><br><span class="line">      <span class="comment">//&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x662F;</span></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">typeof</span> existing===<span class="string">&apos;function&apos;</span>){</span><br><span class="line">        <span class="comment">//&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x6DFB;&#x52A0;</span></span><br><span class="line">        existing=events[type]=prepend?[listener,existing]:[existing,listener];</span><br><span class="line">      }<span class="keyword">else</span> <span class="keyword">if</span>(prepend){</span><br><span class="line">        existing.unshift(listener);</span><br><span class="line">      }<span class="keyword">else</span>{</span><br><span class="line">        existing.push(listener);</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x94FE;&#x5F0F;&#x8C03;&#x7528;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  removeListener(type,listener){</span><br><span class="line">    <span class="keyword">var</span> list,events,position,i,originalListener;</span><br><span class="line">    events=<span class="keyword">this</span>._events;</span><br><span class="line">    list=events[type];</span><br><span class="line">    <span class="comment">//&#x5982;&#x679C;&#x76F8;&#x5E94;&#x7684;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E8B;&#x4EF6;&#x53EA;&#x88AB;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x76D1;&#x542C;</span></span><br><span class="line">    <span class="keyword">if</span>(list===listener){</span><br><span class="line">      <span class="keyword">if</span>(--<span class="keyword">this</span>._eventsCount===<span class="number">0</span>){</span><br><span class="line">        <span class="keyword">this</span>._events=<span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">      }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">delete</span> events[type];</span><br><span class="line">        <span class="comment">//&#x5982;&#x679C;&#x5B58;&#x5728;&#x5BF9;&#x79FB;&#x9664;&#x4E8B;&#x4EF6;removeListener&#x7684;&#x76D1;&#x542C;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x89E6;&#x53D1;removeListener</span></span><br><span class="line">        <span class="keyword">if</span>(events.removeListener)</span><br><span class="line">          <span class="keyword">this</span>.emit(<span class="string">&apos;removeListener&apos;</span>,type,listener);</span><br><span class="line">      }</span><br><span class="line">    }<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> list!==<span class="string">&apos;function&apos;</span>){</span><br><span class="line">      <span class="comment">//&#x5982;&#x679C;&#x76F8;&#x5E94;&#x7684;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6570;&#x7EC4;</span></span><br><span class="line">      <span class="comment">//&#x904D;&#x5386;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x627E;&#x51FA;listener&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;</span></span><br><span class="line">      <span class="keyword">for</span>(i=list.length<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--){</span><br><span class="line">        <span class="keyword">if</span>(list[i]===listener){</span><br><span class="line">          position=i;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">      <span class="comment">//&#x6CA1;&#x6709;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x6539;&#x52A8;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">      <span class="keyword">if</span>(position){</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      }</span><br><span class="line">      <span class="comment">//&#x5982;&#x679C;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x624D;&#x662F;&#x6240;&#x9700;&#x8981;&#x5220;&#x9664;&#x7684;&#x5BF9;&#x5E94;listener&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x79FB;&#x9664;</span></span><br><span class="line">      <span class="keyword">if</span>(position===<span class="number">0</span>){</span><br><span class="line">        list.shift();</span><br><span class="line">      }<span class="keyword">else</span>{</span><br><span class="line">        list.splice(position,<span class="number">1</span>);</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">if</span>(list.length===<span class="number">1</span>)</span><br><span class="line">        events[type]=list[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">if</span>(events.removeListener!==<span class="literal">undefined</span>)</span><br><span class="line">        <span class="keyword">this</span>.emit(<span class="string">&apos;removeListener&apos;</span>,type,listener);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-Promise-finally"><a href="#&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;-Promise-finally" class="headerlink" title="&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; Promise.finally"></a>&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; Promise.finally</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.prototype.finally = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>{ </span><br><span class="line">  <span class="keyword">let</span> P = <span class="keyword">this</span>.constructor; </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.then( <span class="function"><span class="params">value</span> =&gt;</span> P.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> value), reason =&gt; P.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="keyword">throw</span> reason }) ); };</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"> <i class="fa fa-tag"></i> JavaScript</a>
+            
+              <a href="/tags/面试/" rel="tag"> <i class="fa fa-tag"></i> 面试</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2021/02/20/5年以上的前端可能也答不对这5道题/" rel="next" title="5年以上的前端可能也答不对这5道题!">
+                  <i class="fa fa-chevron-left"></i> 5年以上的前端可能也答不对这5道题!
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">实现浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-通过-JSON-转换实现"><span class="nav-number">2.1.</span> <span class="nav-text">1.通过 JSON 转换实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-乞丐式递归"><span class="nav-number">2.2.</span> <span class="nav-text">2.乞丐式递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-改良版深拷贝"><span class="nav-number">2.3.</span> <span class="nav-text">3.改良版深拷贝</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现一个-bind-函数"><span class="nav-number">3.</span> <span class="nav-text">实现一个 bind 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现一个-apply-函数"><span class="nav-number">4.</span> <span class="nav-text">实现一个 apply 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柯里化函数的实现"><span class="nav-number">5.</span> <span class="nav-text">柯里化函数的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-固定传入参数，参数够了才执行"><span class="nav-number">5.1.</span> <span class="nav-text">1.固定传入参数，参数够了才执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-不固定传入参数，随时执行"><span class="nav-number">5.2.</span> <span class="nav-text">2.不固定传入参数，随时执行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组扁平化"><span class="nav-number">6.</span> <span class="nav-text">数组扁平化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现一个-instanceOf"><span class="nav-number">7.</span> <span class="nav-text">实现一个 instanceOf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-实现"><span class="nav-number">8.</span> <span class="nav-text">Promise 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#乞丐版-实现了-Promise-的主要功能，缺少异步处理等其他情况"><span class="nav-number">8.1.</span> <span class="nav-text">乞丐版,实现了 Promise 的主要功能，缺少异步处理等其他情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#改良版：实现了Promise的主要功能（没有catch、finally、静态调用等）"><span class="nav-number">8.2.</span> <span class="nav-text">改良版：实现了Promise的主要功能（没有catch、finally、静态调用等）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-补充版"><span class="nav-number">8.3.</span> <span class="nav-text">3.补充版</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现EventBus"><span class="nav-number">9.</span> <span class="nav-text">实现EventBus</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#乞丐版，实现了主要功能，但不处理异常场景，也不实现-remove"><span class="nav-number">9.1.</span> <span class="nav-text">乞丐版，实现了主要功能，但不处理异常场景，也不实现 remove</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-进阶版"><span class="nav-number">9.2.</span> <span class="nav-text">2.进阶版</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟实现一个-Promise-finally"><span class="nav-number">10.</span> <span class="nav-text">模拟实现一个 Promise.finally</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="zangsuyun">
+  <p class="site-author-name" itemprop="name">zangsuyun</p>
+  <div class="site-description" itemprop="description">你若盛开，清风自来</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zangsuyun" title="GitHub &rarr; https://github.com/zangsuyun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:869290983@qq.com" title="E-Mail &rarr; mailto:869290983@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gitee.com/zangsuyun" title="https://gitee.com/zangsuyun" rel="noopener" target="_blank">码云地址</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://ouuan.github.io/hexo博客搭建指北/" title="https://ouuan.github.io/hexo博客搭建指北/" rel="noopener" target="_blank">hexo-博客参考</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zangsuyun</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'jmzfrAkk9gqIsEAxNBnQKKPA-gzGzoHsz',
+    appKey: 'hM1foKLGhqW3cN4Jk5GwoiRU',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
+<script type="text/javascript" src="/js/love.js"></script>
+</html>

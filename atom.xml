@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-09T05:55:35.717Z</updated>
+  <updated>2021-02-25T10:30:57.372Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高频手写代码</title>
+    <link href="http://yoursite.com/2021/02/23/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/"/>
+    <id>http://yoursite.com/2021/02/23/高频手写代码/</id>
+    <published>2021-02-23T01:49:58.000Z</published>
+    <updated>2021-02-25T10:30:57.372Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&quot;&gt;&lt;a href=&quot;#&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&quot;&gt;&lt;/a&gt;&amp;#x5B9E;&amp;#x73B0;&amp;#x6D45;&amp;#x62F7;&amp;#x8D1D;&lt;/h4&gt;&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x7ED9;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x8D4B;&amp;#x503C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4E24;&amp;#x8005;&amp;#x7684;&amp;#x503C;&amp;#x4F1A;&amp;#x662F;&amp;#x540C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F15;&amp;#x7528;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x4E00;&amp;#x65B9;&amp;#x6539;&amp;#x53D8;&amp;#xFF0C;&amp;#x53E6;&amp;#x4E00;&amp;#x65B9;&amp;#x4E5F;&amp;#x4F1A;&amp;#x76F8;&amp;#x5E94;&amp;#x6539;&amp;#x53D8;&amp;#x3002;&amp;#x9488;&amp;#x5BF9;&amp;#x5F15;&amp;#x7528;&amp;#x7C7B;&amp;#x578B;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x5B9E;&amp;#x73B0;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x62F7;&amp;#x8D1D;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5年以上的前端可能也答不对这5道题!</title>
+    <link href="http://yoursite.com/2021/02/20/5%E5%B9%B4%E4%BB%A5%E4%B8%8A%E7%9A%84%E5%89%8D%E7%AB%AF%E5%8F%AF%E8%83%BD%E4%B9%9F%E7%AD%94%E4%B8%8D%E5%AF%B9%E8%BF%995%E9%81%93%E9%A2%98/"/>
+    <id>http://yoursite.com/2021/02/20/5年以上的前端可能也答不对这5道题/</id>
+    <published>2021-02-20T06:59:38.000Z</published>
+    <updated>2021-02-20T07:15:00.031Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1-console-log&quot;&gt;&lt;a href=&quot;#1-console-log&quot; class=&quot;headerlink&quot; title=&quot;1.console.log([]==![]);&quot;&gt;&lt;/a&gt;1.console.log([]==![]);&lt;/h4&gt;&lt;h4 id=&quot;2-console-log-&amp;#x201C;b&amp;#x201D;-&amp;#x201C;a&amp;#x201D;-&amp;#x201D;a&amp;#x201D;-&amp;#x201C;a&amp;#x201D;&quot;&gt;&lt;a href=&quot;#2-console-log-&amp;#x201C;b&amp;#x201D;-&amp;#x201C;a&amp;#x201D;-&amp;#x201D;a&amp;#x201D;-&amp;#x201C;a&amp;#x201D;&quot; class=&quot;headerlink&quot; title=&quot;2.console.log(&amp;#x201C;b&amp;#x201D; + &amp;#x201C;a&amp;#x201D; + +&amp;#x201D;a&amp;#x201D; + &amp;#x201C;a&amp;#x201D;);&quot;&gt;&lt;/a&gt;2.console.log(&amp;#x201C;b&amp;#x201D; + &amp;#x201C;a&amp;#x201D; + +&amp;#x201D;a&amp;#x201D; + &amp;#x201C;a&amp;#x201D;);&lt;/h4&gt;&lt;h4 id=&quot;3-console-log-NaN-NaN&quot;&gt;&lt;a href=&quot;#3-console-log-NaN-NaN&quot; class=&quot;headerlink&quot; title=&quot;3.console.log(NaN === NaN);&quot;&gt;&lt;/a&gt;3.console.log(NaN === NaN);&lt;/h4&gt;&lt;h4 id=&quot;4-console-log-1-2-3-4-5-6&quot;&gt;&lt;a href=&quot;#4-console-log-1-2-3-4-5-6&quot; class=&quot;headerlink&quot; title=&quot;4.console.log([1, 2, 3] + [4, 5, 6]);&quot;&gt;&lt;/a&gt;4.console.log([1, 2, 3] + [4, 5, 6]);&lt;/h4&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>new一个function</title>
+    <link href="http://yoursite.com/2021/01/20/new%E4%B8%80%E4%B8%AAfunction/"/>
+    <id>http://yoursite.com/2021/01/20/new一个function/</id>
+    <published>2021-01-20T03:34:25.000Z</published>
+    <updated>2021-01-20T07:01:23.841Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E2A;&amp;#x9898;&quot;&gt;&lt;a href=&quot;#&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E2A;&amp;#x9898;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E2A;&amp;#x9898;&quot;&gt;&lt;/a&gt;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E2A;&amp;#x9898;&lt;/h4&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;apos;foo&amp;apos;&lt;/span&gt; == &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;{ &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;apos;foo&amp;apos;&lt;/span&gt;); };&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;apos;foo&amp;apos;&lt;/span&gt; == &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;{ &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;apos;foo&amp;apos;&lt;/span&gt;); };&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js操作符</title>
+    <link href="http://yoursite.com/2021/01/19/js%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2021/01/19/js操作符/</id>
+    <published>2021-01-19T03:00:41.000Z</published>
+    <updated>2021-01-19T08:15:32.774Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS &amp;#x91CC;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x5927;&amp;#x5BB6;&amp;#x6BCF;&amp;#x5929;&amp;#x90FD;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x8FD8;&amp;#x6709;&amp;#x4E00;&amp;#x4E9B; ES2020&amp;#x3001;ES2021 &amp;#x65B0;&amp;#x52A0;&amp;#x7684;&amp;#x5B9E;&amp;#x7528;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E9B;&amp;#x5171;&amp;#x540C;&amp;#x6784;&amp;#x6210;&amp;#x4E86; JS &amp;#x7075;&amp;#x6D3B;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;&amp;#x751F;&amp;#x6001;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>vue3常用API</title>
@@ -44,9 +122,11 @@
     <link href="http://yoursite.com/2021/01/07/vue3%E7%9A%84patchFlags/"/>
     <id>http://yoursite.com/2021/01/07/vue3的patchFlags/</id>
     <published>2021-01-07T08:42:24.000Z</published>
-    <updated>2021-01-07T10:17:28.741Z</updated>
+    <updated>2021-01-19T09:17:43.176Z</updated>
     
     <summary type="html">
+    
+      &lt;p&gt;&amp;#x5C24;&amp;#x8001;&amp;#x5E08;&amp;#x5728;&amp;#x53BB;&amp;#x5E74;&amp;#x505A;vue3&amp;#x7684;&amp;#x5206;&amp;#x4EAB;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x5C31;&amp;#x63D0;&amp;#x5230;&amp;#x8FC7;vue&amp;#x7684;&lt;code&gt;patchFlags&lt;/code&gt;&amp;#xFF0C;&amp;#x4ED6;&amp;#x5728;vue3&amp;#x4E2D;&amp;#x626E;&amp;#x6F14;&amp;#x4E86;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x4F18;&amp;#x5316;&amp;#x7684;&amp;#x89D2;&amp;#x8272;&amp;#xFF0C;&amp;#x5BF9;&amp;#x4E8E;&amp;#x60F3;&amp;#x8981;&amp;#x5B66;&amp;#x4E60;vue3&amp;#x7684;&amp;#x540C;&amp;#x5B66;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;vue3&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x5F88;&amp;#x68D2;&amp;#x68D2;&amp;#x80AF;&amp;#x5B9A;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x8BFE;&amp;#x9898;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4E86;&amp;#x89E3;&lt;code&gt;patchFlags&lt;/code&gt;&amp;#x5C31;&amp;#x52BF;&amp;#x5728;&amp;#x5FC5;&amp;#x884C;&amp;#x4E86;&amp;#x3002;&lt;br&gt;&amp;#x9996;&amp;#x5148;&amp;#x6211;&amp;#x4EEC;&amp;#x8981;&amp;#x6E05;&amp;#x695A;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&lt;code&gt;patchFlags&lt;/code&gt;&amp;#xFF0C;&amp;#x8FD9;&amp;#x5E76;&amp;#x4E0D;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5411;&amp;#x5916;&amp;#x5F00;&amp;#x653E;&amp;#x7684; API&amp;#xFF0C;&amp;#x5927;&amp;#x90E8;&amp;#x5206;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x666E;&amp;#x901A;&amp;#x5F00;&amp;#x53D1;&amp;#x8005;&amp;#x4E5F;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x5173;&amp;#x5FC3;&amp;#x4ED6;&amp;#xFF0C;&amp;#x751A;&amp;#x81F3;&amp;#x53EF;&amp;#x4EE5;&amp;#x6839;&amp;#x672C;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x4ED6;&amp;#x7684;&amp;#x5B58;&amp;#x5728;&amp;#x3002;&amp;#x56E0;&amp;#x4E3A;&amp;#x4E00;&amp;#x822C;&amp;#x6765;&amp;#x8BF4;&amp;#x5728;&amp;#x4F60;&amp;#x7684;&amp;#x6784;&amp;#x5EFA;&amp;#x6D41;&amp;#x7A0B;&amp;#x91CC;&amp;#x9762;&amp;#x90FD;&amp;#x5DF2;&amp;#x7ECF;&amp;#x7ED9;&amp;#x4F60;&amp;#x505A;&amp;#x597D;&amp;#x4E86;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F88;&amp;#x591A;&amp;#x540C;&amp;#x5B66;&amp;#x53EF;&amp;#x80FD;&amp;#x538B;&amp;#x6839;&amp;#x5C31;&amp;#x6CA1;&amp;#x542C;&amp;#x8BF4;&amp;#x8FC7;&amp;#x8FD9;&amp;#x4E2A;&amp;#x4E1C;&amp;#x897F;&amp;#x3002;&lt;/p&gt;
     
     </summary>
     
@@ -328,84 +408,6 @@
     
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>函数式编程之curry</title>
-    <link href="http://yoursite.com/2020/11/19/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8Bcurry/"/>
-    <id>http://yoursite.com/2020/11/19/函数式编程之curry/</id>
-    <published>2020-11-19T03:56:53.000Z</published>
-    <updated>2020-11-20T07:41:42.344Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x770B;&amp;#x51FD;&amp;#x6570;&amp;#x5F0F;&amp;#x7F16;&amp;#x7A0B;&amp;#xFF0C;&amp;#x8BB0;&amp;#x5FC6;&amp;#x4E2D;&amp;#x81EA;&amp;#x5DF1;&amp;#x4EE5;&amp;#x524D;&amp;#x4F3C;&amp;#x4E4E;&amp;#x66FE;&amp;#x770B;&amp;#x8FC7;&amp;#xFF0C;&amp;#x7279;&amp;#x6B64;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E0D;&amp;#x53EF;&amp;#x6216;&amp;#x7F3A;&amp;#x7684; &lt;em&gt;curry&lt;/em&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="函数式编程" scheme="http://yoursite.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微前端实践</title>
-    <link href="http://yoursite.com/2020/10/27/%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%AE%9E%E8%B7%B5/"/>
-    <id>http://yoursite.com/2020/10/27/微前端实践/</id>
-    <published>2020-10-27T09:12:27.000Z</published>
-    <updated>2020-10-29T09:44:48.881Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x5C06;&amp;#x666E;&amp;#x901A;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6539;&amp;#x9020;&amp;#x6210; qiankun &amp;#x4E3B;&amp;#x5E94;&amp;#x7528;&amp;#x57FA;&amp;#x5EA7;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;&amp;#x884C;&amp;#x4E09;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF1A;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微前端通信</title>
-    <link href="http://yoursite.com/2020/10/23/%E5%BE%AE%E5%89%8D%E7%AB%AF%E9%80%9A%E4%BF%A1/"/>
-    <id>http://yoursite.com/2020/10/23/微前端通信/</id>
-    <published>2020-10-23T09:39:45.000Z</published>
-    <updated>2020-10-23T10:07:57.712Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x91C7;&amp;#x7528;qiankun&amp;#x5FAE;&amp;#x524D;&amp;#x7AEF;&amp;#x6846;&amp;#x67B6;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://qiankun.umijs.org/zh/api#initglobalstatestate&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;qiankun API&lt;/a&gt;&lt;/p&gt;&lt;p&gt;qiankun&amp;#x5185;&amp;#x90E8;&amp;#x4F7F;&amp;#x7528;initGlobalState(state)&amp;#x5B9A;&amp;#x4E49;&amp;#x5168;&amp;#x5C40;&amp;#x72B6;&amp;#x6001;&amp;#xFF0C;&amp;#x8BE5;&amp;#x65B9;&amp;#x6CD5;&amp;#x6267;&amp;#x884C;&amp;#x540E;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;MicroAppStateActions&amp;#x5B9E;&amp;#x4F8B;&amp;#xFF0C;&amp;#x5B9E;&amp;#x4F8B;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;&amp;#x4E09;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5206;&amp;#x522B;&amp;#x662F;&lt;em&gt;onGlobalStateChange&lt;em&gt;&amp;#x3001;&lt;/em&gt;setGlobalState&lt;em&gt;&amp;#x3001;&lt;/em&gt;offGlobalStateChange&lt;/em&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="微前端" scheme="http://yoursite.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零开始发布npm函数库</title>
-    <link href="http://yoursite.com/2020/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%8F%91%E5%B8%83npm%E5%87%BD%E6%95%B0%E5%BA%93/"/>
-    <id>http://yoursite.com/2020/10/15/从零开始发布npm函数库/</id>
-    <published>2020-10-15T09:34:05.000Z</published>
-    <updated>2020-12-18T05:44:17.525Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x6982;&amp;#x8981;&amp;#xFF1A;&lt;/p&gt;&lt;p&gt;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EB;zsy-methods&amp;#x7684;javascript&amp;#x51FD;&amp;#x6570;&amp;#x5E93;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;wepback&amp;#x6784;&amp;#x5EFA;umd&amp;#x5F62;&amp;#x5F0F;&amp;#x7684;&amp;#x5305;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;npm&amp;#x53D1;&amp;#x5E03;&amp;#x4E0A;&amp;#x7EBF;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
   </entry>
   
